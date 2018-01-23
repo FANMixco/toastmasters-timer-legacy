@@ -68,6 +68,7 @@ function btnStopClick(isAdded){
 	counter = 1;
 	isPaused = true;
 	isStarted = false;
+	isCustom = false
 	minimum = 0;
 	average = 0;
 	maximum = 0;
@@ -151,6 +152,8 @@ $(function(){
 			$.colorbox({href:"#divCustomTime", inline:true, width:"70%", height:"80%", onComplete: function(){
 				$('#cboxContent').css('background-color', "white");
 			}});
+		} else{
+			isCustom = false
 		}
 	});
 	$('.selectHours').select2({
