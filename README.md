@@ -18,4 +18,4 @@ This app provides you with different options such as:
 
 Also, it records all the speeches
 
-This web app is opensource and can be implemented or improved feel free to share your ideas.
+This web app is opensource and can be implemented or improved. Feel free to share your ideas and thoughts about it.
