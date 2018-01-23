@@ -48,14 +48,14 @@
 				<div style="margin: auto; text-align: center;">
 					<div id="customMin"  style="background: green; color: white; padding-bottom: 10px;">
 						<h1>Minimum time</h1>
-						<select class="selectHours" class="js-example-basic-single">
+						<select id="minH" class="selectHours" class="js-example-basic-single">
 							<option></option>
 							<option>0</option>
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
 						</select>
-						<select class="selectMin" class="js-example-basic-single">
+						<select id="minM" class="selectMin" class="js-example-basic-single">
 							<option></option>
 							<option>0</option>
 							<option>1</option>
@@ -118,7 +118,7 @@
 							<option>58</option>
 							<option>59</option>
 						</select>
-						<select class="selectSec" class="js-example-basic-single">
+						<select id="minS" class="selectSec" class="js-example-basic-single">
 							<option></option>
 							<option>0</option>
 							<option>1</option>
@@ -184,14 +184,14 @@
 					</div>
 					<div id="customAvg" style="background: yellow; padding-bottom: 10px;">
 						<h1>Average time</h1>
-						<select class="selectHours" class="js-example-basic-single">
+						<select id="avgH" class="selectHours" class="js-example-basic-single">
 							<option></option>
 							<option>0</option>
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
 						</select>
-						<select class="selectMin" class="js-example-basic-single">
+						<select id="avgM" class="selectMin" class="js-example-basic-single">
 							<option></option>
 							<option>0</option>
 							<option>1</option>
@@ -254,7 +254,7 @@
 							<option>58</option>
 							<option>59</option>
 						</select>
-						<select class="selectSec" class="js-example-basic-single">
+						<select id="avgS" class="selectSec" class="js-example-basic-single">
 							<option></option>
 							<option>0</option>
 							<option>1</option>
@@ -320,14 +320,14 @@
 					</div>
 					<div id="customMax" style="background: red; color: white; padding-bottom: 10px;">
 						<h1>Maximum time</h1>
-						<select class="selectHours" class="js-example-basic-single">
+						<select id="maxH" class="selectHours" class="js-example-basic-single">
 							<option></option>
 							<option>0</option>
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
 						</select>
-						<select class="selectMin" class="js-example-basic-single">
+						<select id="maxM" class="selectMin" class="js-example-basic-single">
 							<option></option>
 							<option>0</option>
 							<option>1</option>
@@ -390,7 +390,7 @@
 							<option>58</option>
 							<option>59</option>
 						</select>
-						<select class="selectSec" class="js-example-basic-single">
+						<select id="maxS" class="selectSec" class="js-example-basic-single">
 							<option></option>
 							<option>0</option>
 							<option>1</option>
@@ -454,6 +454,7 @@
 							<option>59</option>
 						</select>
 					</div>
+					<label id="pError" style="font-weight: bolder; color: red; text-align:center; margin-top: 1px"></label>
 					<image id="btnSave" src="images/content-save.png" alt="save" title="Save" />
 				</div>
 			</div>
