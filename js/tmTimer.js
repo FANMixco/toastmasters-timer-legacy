@@ -1,12 +1,13 @@
-var isPaused = false;
-var isStarted = false;
-var i = 1;
+var counter = 1;
 var selected = -1;
-var finalTimes = [];
 var minimum = 0;
 var average = 0;
 var maximum = 0;
 var lastColor = "white";
+var isPaused = false;
+var isStarted = false;
+var isCustom = false;
+var finalTimes = [];
 
 var times = [
 				//QA (30s)
@@ -35,7 +36,7 @@ var times = [
 
 function getTime(){
 	return (new Date).clearTime()
-		  .addSeconds(i)
+		  .addSeconds(counter)
 		  .toString('H:mm:ss');
 }
 
@@ -61,9 +62,10 @@ function btnStopClick(isAdded){
 	$('#divCurrentTime').css('background-color', lastColor);
 	changeImages("-gray");
 	$("#pTime").text("0:00:00");
+	$("#pTime").css('color', "black");
 	$("#txtMember").val("");
 	selected = -1;
-	i = 1;
+	counter = 1;
 	isPaused = true;
 	isStarted = false;
 	minimum = 0;
@@ -85,9 +87,11 @@ function btnStartClick(){
 		return;
 	}
 	
-	minimum = times[selected][0];
-	average = times[selected][1];
-	maximum = times[selected][2];
+	if (!isCustom){
+		minimum = times[selected][0];
+		average = times[selected][1];
+		maximum = times[selected][2];
+	}
 	startTimer();
 	$('#selectTimes').prop('disabled', 'disabled');
 	$('#btnRestart').prop('disabled', 'disabled');
@@ -104,25 +108,28 @@ function startTimer(){
 		}
 		else {
 			$("#pTime").text(getTime());
-			if (i == minimum) {
+			if (counter == minimum) {
 				changeImages("");
 				lastColor = "green";
 				document.body.style.backgroundColor = lastColor;
 				$('#cboxContent').css('background-color', lastColor);
+				$("#pTime").css('color', "white");
 			}
-			else if (i == average) {
+			else if (counter == average) {
 				changeImages("-gray");
 				lastColor = "yellow";
 				document.body.style.backgroundColor = lastColor;
 				$('#cboxContent').css('background-color', lastColor);
+				$("#pTime").css('color', "black");
 			}
-			else if (i >= maximum){
+			else if (counter >= maximum){
 				changeImages("");
 				lastColor = "red";
 				document.body.style.backgroundColor = lastColor;
 				$('#cboxContent').css('background-color', lastColor);
+				$("#pTime").css('color', "white");
 			}
-			i++;
+			counter++;
 		}
 	}, 1000 );
 }
@@ -188,6 +195,25 @@ $(function(){
     }});
 	
 	$("#btnSave").click(function(){
-		$('#cboxClose').click();
+		var minTime = parseInt($("#minH").val() * 360 + $("#minM").val() * 60 + $("#minS").val());
+		var avgTime = parseInt($("#avgH").val() * 360 + $("#avgM").val() * 60 + $("#avgS").val());
+		var maxTime = parseInt($("#maxH").val() * 360 + $("#maxM").val() * 60 + $("#maxS").val());
+
+		if (minTime >= avgTime){
+			$("#pError").html("The minimum time cannot be greater or equal than the average time.<br/>");
+		}
+		else if (minTime >= maxTime){
+			$("#pError").html("The minimum time cannot be greater or equal than the maximum time.<br/>");
+		}
+		else if (avgTime >= maxTime){
+			$("#pError").html("The average time cannot be greater or equal than the maximum time.<br/>");
+		}
+		else {
+			isCustom = true;
+			minimum = minTime;
+			average = avgTime;
+			maximum = maxTime;
+			$('#cboxClose').click();
+		}
 	});
 });
