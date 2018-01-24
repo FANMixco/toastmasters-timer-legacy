@@ -1,3 +1,7 @@
+@font-face {
+	font-family: Digital7;
+	src: url(fonts/Digital-7.ttf);
+}
 .divOptions {
 	padding: 0;
 	margin: 0;
@@ -54,7 +58,8 @@
 }
 #pTime{
 	font-weight: bolder;
-	font-size: 60px;
+	font-size: 100px;
+	font-family: 'Digital7';
 }
 #pError{
 	font-weight: bolder;
