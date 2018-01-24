@@ -138,6 +138,7 @@ function changeImages(extra){
 }
 
 $(function(){
+	$("#cTopic").html("<b>Meeting at " + (new Date).toString('dd/MM/yyyy') + "</b>")
 	$('#selectTimes').select2({
 		placeholder: "Choose a time (minutes)"
 	}).on('change', function() {
