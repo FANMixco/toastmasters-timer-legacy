@@ -123,7 +123,7 @@ function startTimer(){
             document.body.style.backgroundColor = lastColor;
             $('#cboxContent').css('background-color', lastColor);
             $('#divCurrentTime').css('background-color', lastColor);
-        counter++;
+            counter++;
 		}
 	}, 1000 );
 }
