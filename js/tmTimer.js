@@ -68,10 +68,6 @@ function btnStopClick(isAdded){
 	counter = 1;
 	isPaused = true;
 	isStarted = false;
-	isCustom = false
-	minimum = 0;
-	average = 0;
-	maximum = 0;
 	$('#selectTimes').prop('disabled', false);
 	$('#btnRestart').prop('disabled', false);
 }
@@ -184,9 +180,25 @@ $(function(){
 	});
 	$("#btnRestart").click(function(){
 		btnStopClick(false);
-		$("#selectTimes").select2({
+        isCustom = false
+        minimum = 0;
+        average = 0;
+        maximum = 0;
+        $("#selectTimes").select2({
 			placeholder: "Choose a time (minutes)"
-		}).val("").trigger("change");
+        }).val("").trigger("change");
+        
+        $(".selectHours").select2({
+			placeholder: "H"
+        }).val("").trigger("change");
+        
+        $(".selectMin").select2({
+			placeholder: "M"
+        }).val("").trigger("change");
+        
+        $(".selectSec").select2({
+			placeholder: "S"
+        }).val("").trigger("change");
 	});
 	
 	$("#inlineTimer").colorbox({inline:true, width:"50%", onComplete: function(){
