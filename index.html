@@ -8,18 +8,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<title>Toastmasters Timer</title>
 	<link href="css/select2.min.css" rel="stylesheet" />
-	<link href="css/tmTimer.css" rel="stylesheet" />
-	<link href="css/colorbox.css" rel="stylesheet" />
+	<link href="css/tmTimer.min.css" rel="stylesheet" />
+	<link href="css/colorbox.min.css" rel="stylesheet" />
 
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/select2.min.js"></script>
 	<script src="js/date.js"></script>
-	<script src="js/tmTimer.js"></script>
+	<script src="js/tmTimer.min.js"></script>
 	<script src="js/jquery.colorbox-min.js"></script>
 </head>
 <body>
 	<div>
-		<div style="text-align: center;">
+		<div class="centeredElements">
 			<div class="divOptions">
 				<select id="selectTimes" class="js-example-basic-single">
 					<option></option>
@@ -36,22 +36,23 @@
 					<option value="10">18 to 20</option>
 					<option value="11">Custom</option>
 				</select>
-				<image id="btnStop" src="images/stop-gray.png" alt="stop" title="Stop to record the speaker" />
-				<image id="btnRestart" src="images/restart-gray.png" alt="restart" title="Restart to start from scratch, it doesn't store the speaker time" />
+				<image id="btnStop" src="images/stop-gray.png" alt="stop" title="To stop to record the speaker" />
+				<image id="btnRestart" src="images/restart-gray.png" alt="restart" title="To restart and start from scratch (it doesn't store the speaker's time)" />
 				<a href="#divCurrentTime" id="inlineTimer">
-				<image style="height: 45px; margin-right: 8px" id="btnTimer" src="images/timer-gray.png" alt="timer" title="Timer" /></a>
+				<image id="btnTimer" src="images/timer-gray.png" alt="timer" title="Timer" /></a>
 				<a href="#divResults" id="inlineTimetable"><image id="btnTable" src="images/table-gray.png" alt="timetable" title="Timetable" /></a>
+				<image id="btnInvert" src="images/invert-colors-gray.png" alt="invert" title="To change background color from white to black or vice versa" />
 			</div>
 			<input id="txtMember" type="text" placeholder="Member" />
 		</div>
 		<div class="divImage">
 			<image id="btnPlay" src="images/play-gray.png" alt="play" title="Press play to start" />
-			<image id="btnPause" src="images/pause-gray.png" style="display: none" alt="pause" title="Pause" />
+			<image id="btnPause" class="hiddenElements" src="images/pause-gray.png" alt="pause" title="Pause" />
 		</div>
-		<div style='display:none'>
+		<div class="hiddenElements">
 			<div id="divCustomTime">
-				<div style="margin: auto; text-align: center;">
-					<div id="customMin"  style="background: green; color: white; padding-bottom: 10px;">
+				<div class="centeredElements centeredDivs">
+					<div id="customMin">
 						<h1>Minimum time</h1>
 						<select id="minH" class="selectHours" class="js-example-basic-single">
 							<option></option>
@@ -187,7 +188,7 @@
 							<option>59</option>
 						</select>
 					</div>
-					<div id="customAvg" style="background: yellow; padding-bottom: 10px;">
+					<div id="customAvg">
 						<h1>Average time</h1>
 						<select id="avgH" class="selectHours" class="js-example-basic-single">
 							<option></option>
@@ -323,7 +324,7 @@
 							<option>59</option>
 						</select>
 					</div>
-					<div id="customMax" style="background: red; color: white; padding-bottom: 10px;">
+					<div id="customMax">
 						<h1>Maximum time</h1>
 						<select id="maxH" class="selectHours" class="js-example-basic-single">
 							<option></option>
@@ -459,17 +460,17 @@
 							<option>59</option>
 						</select>
 					</div>
-					<label id="pError" style="font-weight: bolder; color: red; text-align:center; margin-top: 1px"></label>
+					<label id="pError"></label>
 					<image id="btnSave" src="images/content-save.png" alt="save" title="Save" />
 				</div>
 			</div>
-			<div id="divCurrentTime" style="text-align: center;">
-				<p id="pTime" style="font-weight: bolder; font-size: 60px">0:00:00</p>
+			<div id="divCurrentTime" class="centeredElements">
+				<p id="pTime">0:00:00</p>
 			</div>
 			<div id="divResults">
-				<div style="margin: auto; text-align: center;">
+				<div class="centeredElements centeredDivs">
 					<h1 id="hNoResults">No results to display</h1>
-					<table id="tblResults" style="width:95%; margin: auto; display: none">
+					<table id="tblResults">
 						<caption id="cTopic"></caption>
 						<thead>
 							<tr>

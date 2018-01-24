@@ -22,7 +22,22 @@
 	align-items: center;
 	justify-content: center;
 }
-input {
+.select2-close-mask {
+	z-index: 10000;
+}
+.select2-dropdown {
+	z-index: 10001;
+}
+.hiddenElements{
+	display: none;
+}
+.centeredElements{
+	text-align: center;
+}
+.centeredDivs{
+	margin: auto; 
+}
+#txtMember {
 	margin-bottom:5px;
 	line-height:18px;
 	padding:2px 5px;
@@ -32,13 +47,43 @@ input {
 	border:1px solid #CCC;
 	width: 70%;
 }
-.select2-close-mask {
-	z-index: 10000;
+#tblResults{
+	width:95%;
+	margin: auto;
+	display: none
 }
-.select2-dropdown {
-	z-index: 10001;
+#pTime{
+	font-weight: bolder;
+	font-size: 60px;
 }
-
+#pError{
+	font-weight: bolder;
+	color: red;
+	text-align:center;
+	margin-top: 1px;	
+}
+#customMin{
+	background: green;
+	color: white;
+	padding-bottom: 10px;
+}
+#customAvg{
+	background: yellow;
+	padding-bottom: 10px;
+}
+#customMax{
+	background: red;
+	color: white;
+	padding-bottom: 10px;
+}
+#btnInvert{
+	height: 45px;
+	margin-top: -1px;
+}
+#btnTimer{
+	height: 45px;
+	margin-right: 8px;
+}
 @media screen and (max-width: 520px) {
     #btnPlay, #btnPause {
 		width: 90%;

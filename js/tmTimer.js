@@ -8,6 +8,8 @@ var isPaused = false;
 var isStarted = false;
 var isCustom = false;
 var finalTimes = [];
+var bColors = ["white", "black"];
+var selectedColor = 0;
 
 var times = [
 				//QA (30s)
@@ -44,7 +46,8 @@ function btnStopClick(isAdded){
 	var defaultColor = "white";
 	var member = $("#txtMember").val();
 	var currentTime = getTime();
-	if (lastColor == "yellow"){
+	
+	if (lastColor == "yellow" || lastColor == "black"){
 		defaultColor = "black";
 	}
 
@@ -52,22 +55,32 @@ function btnStopClick(isAdded){
 		$("#hNoResults").hide();
 		$("#tblResults").show();
 		finalTimes.push([member, currentTime, lastColor]);
-		$('#tBodyResults').append('<tr style="background:'+lastColor+';color:'+defaultColor+'"><td>'+member+'</td><td>'+$("#selectTimes").find(":selected").text()+'</td><td style="text-align:center">'+currentTime+'</td></tr>');
+		var tempColor = lastColor;
+		if (tempColor == "black"){
+			tempColor = "white";
+		}
+		$('#tBodyResults').append('<tr style="background:'+tempColor+';color:'+defaultColor+'"><td>'+member+'</td><td>'+$("#selectTimes").find(":selected").text()+'</td><td style="text-align:center">'+currentTime+'</td></tr>');
 	}
+	
 	$("#btnPause").hide();
 	$("#btnPlay").show();
 
-	lastColor = "white";
+	lastColor = bColors[selectedColor];
 	document.body.style.backgroundColor = lastColor;
 	$('#divCurrentTime').css('background-color', lastColor);
-	changeImages("-gray");
 	$("#pTime").text("0:00:00");
-	$("#pTime").css('color', "black");
 	$("#txtMember").val("");
 	selected = -1;
 	counter = 1;
 	isPaused = true;
 	isStarted = false;
+	if (selectedColor == 0){
+		$("#pTime").css('color', "black");
+		changeImages("-gray");
+	}else{
+		$("#pTime").css('color', "white");
+		changeImages("");		
+	}
 	$('#selectTimes').prop('disabled', false);
 	$('#btnRestart').prop('disabled', false);
 }
@@ -92,6 +105,12 @@ function btnStartClick(){
 	startTimer();
 	$('#selectTimes').prop('disabled', 'disabled');
 	$('#btnRestart').prop('disabled', 'disabled');
+	if (selectedColor == 0){
+		changeImages("-gray");
+	}
+	else{
+		changeImages("");
+	}
 }
 
 function btnPauseClick(){
@@ -105,12 +124,12 @@ function startTimer(){
 		}
 		else {
 			$("#pTime").text(getTime());
-			if (counter == minimum) {
+			if (counter >= minimum && counter < average) {
 				changeImages("");
 				lastColor = "green";
 				$("#pTime").css('color', "white");
 			}
-			else if (counter == average) {
+			else if (counter >= average && counter < maximum) {
 				changeImages("-gray");
 				lastColor = "yellow";
 				$("#pTime").css('color', "black");
@@ -119,6 +138,9 @@ function startTimer(){
 				changeImages("");
 				lastColor = "red";
 				$("#pTime").css('color', "white");
+			}
+			else{
+				lastColor = bColors[selectedColor];
 			}
             document.body.style.backgroundColor = lastColor;
             $('#cboxContent').css('background-color', lastColor);
@@ -132,9 +154,24 @@ function changeImages(extra){
 	$("#btnPlay").attr('src', "images/play" + extra + ".png");
 	$("#btnPause").attr('src', "images/pause" + extra + ".png");
 	$("#btnStop").attr('src', "images/stop" + extra + ".png");
-	$("#btnRestart").attr('src', "images/restart" + extra + ".png");
+	if (!isPaused){
+		$("#btnRestart").attr('src', "images/restart" + extra + "-dis.png");
+	}
+	else{
+		$("#btnRestart").attr('src', "images/restart" + extra + ".png");	
+	}
 	$("#btnTable").attr('src', "images/table" + extra + ".png");
 	$("#btnTimer").attr('src', "images/timer" + extra + ".png");
+	$("#btnInvert").attr('src', "images/invert-colors" + extra + ".png");
+}
+
+function changeImagesByColor(){
+	if (selectedColor == 0 && lastColor == "white"){
+		changeImages("-gray");			
+	}
+	else{
+		changeImages("");
+	}
 }
 
 $(function(){
@@ -164,14 +201,17 @@ $(function(){
 		if (state == "" || state == null){
 			return;
 		}
+		isStarted = false;
 		btnStartClick();
 		$(this).hide();
 		$("#btnPause").show();
+		changeImagesByColor();
 	});
 	$("#btnPause").click(function(){
 		btnPauseClick();
 		$(this).hide();
 		$("#btnPlay").show();
+		changeImagesByColor();
 	});
 	$("#btnStop").click(function(){
 		btnStopClick(true);
@@ -228,5 +268,21 @@ $(function(){
 			maximum = maxTime;
 			$('#cboxClose').click();
 		}
+	});
+	
+	$("#btnInvert").click(function(){
+		if (selectedColor == 0){
+			selectedColor = 1;
+			changeImages("");
+			$("#pTime").css('color', "white");
+		}
+		else{
+			selectedColor = 0;
+			changeImages("-gray");
+			$("#pTime").css('color', "black");
+		}
+		lastColor = bColors[selectedColor];
+		document.body.style.backgroundColor = lastColor;
+		$('#divCurrentTime').css('background-color', lastColor);
 	});
 });
