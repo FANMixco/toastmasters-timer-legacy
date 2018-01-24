@@ -154,7 +154,7 @@ function changeImages(extra){
 	$("#btnPlay").attr('src', "images/play" + extra + ".png");
 	$("#btnPause").attr('src', "images/pause" + extra + ".png");
 	$("#btnStop").attr('src', "images/stop" + extra + ".png");
-	if (!isPaused){
+	if (!isPaused && isStarted){
 		$("#btnRestart").attr('src', "images/restart" + extra + "-dis.png");
 	}
 	else{
