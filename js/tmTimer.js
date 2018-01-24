@@ -242,11 +242,11 @@ $(function(){
         }).val("").trigger("change");
 	});
 	
-	$("#inlineTimer").colorbox({inline:true, width:"50%", onComplete: function(){
+	$("#inlineTimer").colorbox({inline:true, width:"80%", onComplete: function(){
         $('#cboxContent').css('background-color', lastColor);
     }});
 	
-	$("#inlineTimetable").colorbox({inline:true, width:"70%", onComplete: function(){
+	$("#inlineTimetable").colorbox({inline:true, width:"80%", onComplete: function(){
         $('#cboxContent').css('background', "white");
     }});
 	
