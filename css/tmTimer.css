@@ -1,6 +1,6 @@
 @font-face {
 	font-family: Digital7;
-	src: url(fonts/digital-7.ttf);
+	src: url("fonts/digital-7.ttf");
 }
 .divOptions {
 	padding: 0;
