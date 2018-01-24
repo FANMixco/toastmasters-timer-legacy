@@ -108,25 +108,22 @@ function startTimer(){
 			if (counter == minimum) {
 				changeImages("");
 				lastColor = "green";
-				document.body.style.backgroundColor = lastColor;
-				$('#cboxContent').css('background-color', lastColor);
 				$("#pTime").css('color', "white");
 			}
 			else if (counter == average) {
 				changeImages("-gray");
 				lastColor = "yellow";
-				document.body.style.backgroundColor = lastColor;
-				$('#cboxContent').css('background-color', lastColor);
 				$("#pTime").css('color', "black");
 			}
 			else if (counter >= maximum){
 				changeImages("");
 				lastColor = "red";
-				document.body.style.backgroundColor = lastColor;
-				$('#cboxContent').css('background-color', lastColor);
 				$("#pTime").css('color', "white");
 			}
-			counter++;
+            document.body.style.backgroundColor = lastColor;
+            $('#cboxContent').css('background-color', lastColor);
+            $('#divCurrentTime').css('background-color', lastColor);
+        counter++;
 		}
 	}, 1000 );
 }
