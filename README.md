@@ -15,7 +15,7 @@ This app provides you with different options such as:
 - 12 minutes speech.
 - 15 minutes speech.
 - 20 minutes speech.
-- Custom speeches up to 6 hours.
+- Custom speeches up to 24 hours.
 
 Also, it records all the speeches
 
