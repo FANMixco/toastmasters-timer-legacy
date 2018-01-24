@@ -188,15 +188,6 @@ $(function(){
 			isCustom = false
 		}
 	});
-	$('.selectHours').select2({
-		placeholder: "H"
-	});
-	$('.selectMin').select2({
-		placeholder: "M"
-	});
-	$('.selectSec').select2({
-		placeholder: "S"
-	});
 	$("#btnPlay").click(function(){
 		var state = $("#selectTimes").val();
 		if (state == "" || state == null){
@@ -228,18 +219,6 @@ $(function(){
         maximum = 0;
         $("#selectTimes").select2({
 			placeholder: "Choose a time (minutes)"
-        }).val("").trigger("change");
-        
-        $(".selectHours").select2({
-			placeholder: "H"
-        }).val("").trigger("change");
-        
-        $(".selectMin").select2({
-			placeholder: "M"
-        }).val("").trigger("change");
-        
-        $(".selectSec").select2({
-			placeholder: "S"
         }).val("").trigger("change");
 	});
 	
