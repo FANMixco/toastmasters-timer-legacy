@@ -41,6 +41,16 @@
 .centeredDivs{
 	margin: auto; 
 }
+.timingfield{
+	margin: auto;
+}
+.centeredTimeOptions{
+    margin: auto;
+    width: min-content;
+    padding-right: 7px;
+    padding-left: 7px;
+    border-radius: 5px;
+}
 #txtMember {
 	margin-bottom:5px;
 	line-height:18px;

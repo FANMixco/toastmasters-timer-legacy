@@ -175,12 +175,13 @@ function changeImagesByColor(){
 }
 
 $(function(){
+	$(".timing").timingfield();
 	$("#cTopic").html("<b>Meeting at " + (new Date).toString('dd/MM/yyyy') + "</b>")
 	$('#selectTimes').select2({
 		placeholder: "Choose a time (minutes)"
 	}).on('change', function() {
 		if ($(this).val() == "11"){
-			$.colorbox({href:"#divCustomTime", inline:true, width:"70%", height:"80%", onComplete: function(){
+			$.colorbox({href:"#divCustomTime", inline:true, width:"90%", height:"90%", onComplete: function(){
 				$('#cboxContent').css('background-color', "white");
 			}});
 		} else{
@@ -251,9 +252,9 @@ $(function(){
     }});
 	
 	$("#btnSave").click(function(){
-		var minTime = parseInt($("#minH").val() * 360 + $("#minM").val() * 60 + $("#minS").val());
-		var avgTime = parseInt($("#avgH").val() * 360 + $("#avgM").val() * 60 + $("#avgS").val());
-		var maxTime = parseInt($("#maxH").val() * 360 + $("#maxM").val() * 60 + $("#maxS").val());
+		var minTime = parseInt($("input[type=text]")[2].value * 360 + $("input[type=text]")[3].value * 60 + $("input[type=text]")[4].value);
+		var avgTime = parseInt($("input[type=text]")[6].value * 360 + $("input[type=text]")[7].value * 60 + $("input[type=text]")[8].value);
+		var maxTime = parseInt($("input[type=text]")[10].value * 360 + $("input[type=text]")[11].value * 60 + $("input[type=text]")[12].value);
 
 		if (minTime >= avgTime){
 			$("#pError").html("The minimum time cannot be greater or equal than the average time.<br/>");
