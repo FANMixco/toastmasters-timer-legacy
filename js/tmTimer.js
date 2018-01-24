@@ -47,7 +47,7 @@ function btnStopClick(isAdded){
 	var member = $("#txtMember").val();
 	var currentTime = getTime();
 	
-	if (lastColor == "yellow" || lastColor == "black"){
+	if (lastColor == "yellow" || lastColor == "black" || lastColor == "white"){
 		defaultColor = "black";
 	}
 
