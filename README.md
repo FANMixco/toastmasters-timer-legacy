@@ -1,11 +1,11 @@
 # toastmasters-timer
-A simple web app for helping Toastmasters all over the world to have an effective Timer for any meetings developed with JavaScript by The Leader Ship Toastmasters in Lodz, Poland.
+A simple WebApp for helping Toastmasters all over the world to have an effective Timer for their meetings. It was developed with JavaScript by The Leader Ship Toastmasters in Lodz, Poland.
+
+http://theleadership.pl
 
 ![toastmasters](http://dominicanewsonline.com/news/wp-content/uploads/2014/10/ToastmastersLogoColor-300x262.jpg)
 
-http://theleadership.pl/
-
-This app provides you with different options such as:
+This App provides you with different options, for example:
 - Question of the Day.
 - Ice-Breaker.
 - Project 2-9.
@@ -21,4 +21,4 @@ This app provides you with different options such as:
 
 Also, it records all the speeches
 
-This web app is open-source and can be implemented or improved freely without any constrain. Feel free to hack it, share your ideas and thoughts about it.
+The project is open-source and can be implemented, modified or improved freely without any constrain. Feel free to hack it, share new your ideas and thoughts about it.
