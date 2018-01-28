@@ -99,6 +99,16 @@
 	height: 45px;
 	margin-right: 8px;
 }
+.thRoles{
+	text-align:center;
+}
+#bottom-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+	width: 100%;
+	text-align: center;
+}
 @media screen and (max-width: 520px) {
     #btnPlay, #btnPause {
 		width: 90%;

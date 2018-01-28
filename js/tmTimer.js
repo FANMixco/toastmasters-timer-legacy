@@ -156,9 +156,11 @@ function changeImages(extra){
 	$("#btnStop").attr('src', "images/stop" + extra + ".png");
 	if (!isPaused && isStarted){
 		$("#btnRestart").attr('src', "images/restart" + extra + "-dis.png");
+		$("#btnRestart").attr('title', "You must stop the timer in order to restart.");
 	}
 	else{
 		$("#btnRestart").attr('src', "images/restart" + extra + ".png");	
+		$("#btnRestart").attr('title', "To restart and start from scratch (it doesn't store the speaker's time)");
 	}
 	$("#btnTable").attr('src', "images/table" + extra + ".png");
 	$("#btnTimer").attr('src', "images/timer" + extra + ".png");
@@ -181,7 +183,7 @@ $(function(){
 		placeholder: "Choose a time (minutes)"
 	}).on('change', function() {
 		if ($(this).val() == "11"){
-			$.colorbox({href:"#divCustomTime", inline:true, width:"90%", height:"90%", onComplete: function(){
+			$.colorbox({href:"#divCustomTime", inline:true, onComplete: function(){
 				$('#cboxContent').css('background-color', "white");
 			}});
 		} else{
@@ -222,11 +224,11 @@ $(function(){
         }).val("").trigger("change");
 	});
 	
-	$("#inlineTimer").colorbox({inline:true, width:"90%", onComplete: function(){
+	$("#inlineTimer").colorbox({inline:true, onComplete: function(){
         $('#cboxContent').css('background-color', lastColor);
     }});
 	
-	$("#inlineTimetable").colorbox({inline:true, width:"90%", onComplete: function(){
+	$("#inlineTimetable").colorbox({inline:true, onComplete: function(){
         $('#cboxContent').css('background', "white");
     }});
 	
