@@ -1,6 +1,8 @@
 # toastmasters-timer
 A simple web app for helping Toastmasters all over the world to have an effective Timer for any meetings developed with JavaScript by The Leader Ship Toastmasters in Lodz, Poland.
 
+![toastmasters](http://dominicanewsonline.com/news/wp-content/uploads/2014/10/ToastmastersLogoColor-300x262.jpg)
+
 http://theleadership.pl/
 
 This app provides you with different options such as:
