@@ -100,6 +100,12 @@ function btnStartClick(){
 
 function btnPauseClick(){
 	isPaused = true;
+    if (lastColor == "yellow" || lastColor == "white") {
+        changeImages("-gray");
+    }
+    else {
+        changeImages("");
+    }
 }
 
 function startTimer(){
