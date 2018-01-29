@@ -7,7 +7,6 @@ var lastColor = "white";
 var isPaused = false;
 var isStarted = false;
 var isCustom = false;
-var finalTimes = [];
 var bColors = ["white", "black"];
 var selectedColor = 0;
 
@@ -37,29 +36,15 @@ var times = [
 			];
 
 function getTime(){
-	return (new Date).clearTime()
-		  .addSeconds(counter)
-		  .toString('H:mm:ss');
+	return (new Date).clearTime().addSeconds(counter).toString('H:mm:ss');
 }
 
 function btnStopClick(isAdded){
-	var defaultColor = "white";
 	var member = $("#txtMember").val();
 	var currentTime = getTime();
-	
-	if (lastColor == "yellow" || lastColor == "black" || lastColor == "white"){
-		defaultColor = "black";
-	}
 
 	if (isStarted && isAdded){
-		$("#hNoResults").hide();
-		$("#tblResults").show();
-		finalTimes.push([member, currentTime, lastColor]);
-		var tempColor = lastColor;
-		if (tempColor == "black"){
-			tempColor = "white";
-		}
-		$('#tBodyResults').append('<tr style="background:'+tempColor+';color:'+defaultColor+'"><td>'+member+'</td><td>'+$("#selectTimes").find(":selected").text()+'</td><td style="text-align:center">'+currentTime+'</td></tr>');
+		addNewTime(member, $("#selectTimes").find(":selected").text(), currentTime, lastColor);
 	}
 	
 	$("#btnPause").hide();
@@ -127,17 +112,17 @@ function startTimer(){
 			if (counter >= minimum && counter < average) {
 				changeImages("");
 				lastColor = "green";
-				$("#pTime").css('color', "white");
+				$("#pTime,.lblFooter").css('color', "white");
 			}
 			else if (counter >= average && counter < maximum) {
 				changeImages("-gray");
 				lastColor = "yellow";
-				$("#pTime").css('color', "black");
+				$("#pTime,.lblFooter").css('color', "black");
 			}
 			else if (counter >= maximum){
 				changeImages("");
 				lastColor = "red";
-				$("#pTime").css('color', "white");
+				$("#pTime,.lblFooter").css('color', "white");
 			}
 			else{
 				lastColor = bColors[selectedColor];
@@ -177,10 +162,12 @@ function changeImagesByColor(){
 }
 
 $(function(){
+	initializeDB();
+	$('[data-toggle="tooltip"]').tooltip();
 	$(".timing").timingfield();
 	$("#cTopic").html("<b>Meeting at " + (new Date).toString('dd/MM/yyyy') + "</b>")
 	$('#selectTimes').select2({
-		placeholder: "Choose a time (minutes)"
+		placeholder: "Choose a time"
 	}).on('change', function() {
 		if ($(this).val() == "11"){
 			$.colorbox({href:"#divCustomTime", inline:true, onComplete: function(){
@@ -228,7 +215,9 @@ $(function(){
         $('#cboxContent').css('background-color', lastColor);
     }});
 	
-	$("#inlineTimetable").colorbox({inline:true, onComplete: function(){
+	$("#inlineTimetable").colorbox({inline:true, width: '90%', height: '90%', onComplete: function(){
+		countTimetable();
+		printTable();
         $('#cboxContent').css('background', "white");
     }});
 	

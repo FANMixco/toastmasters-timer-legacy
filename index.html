@@ -7,18 +7,21 @@
 	<meta name="author" content="Federico Navarrete">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<title>Toastmasters Timer</title>
+	<link rel="icon" type="image/png" href="images/favicon.png" />
 	<link href="css/select2.min.css" rel="stylesheet" />
-	<link href="css/tmTimer.min.css" rel="stylesheet" />
+	<link href="css/tmTimer.css" rel="stylesheet" />
 	<link href="css/colorbox.min.css" rel="stylesheet" />
 	<link href="css/snackbar.min.css" rel="stylesheet" />
-	<link rel="icon" type="image/png" href="images/favicon.png" />
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen" />
-	<link href="css/timingfield.min.css" type="text/css" rel="stylesheet" media="screen" />
+	<link href="css/timingfield.min.css" type="text/css" rel="stylesheet" />
+	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen" />
 
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/timingfield.min.js"></script>
 	<script src="js/select2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/popper.min.js"></script>
 	<script src="js/date.js"></script>
+	<script src="js/dbHandler.min.js"></script>
 	<script src="js/tmTimer.min.js"></script>
 	<script src="js/jquery.colorbox-min.js"></script>
 </head>
@@ -29,30 +32,30 @@
 				<select id="selectTimes" class="js-example-basic-single">
 					<option></option>
 					<option value="0">Question of the Day (30s)</option>
-					<option value="1">4 to 6 (Ice-breaker)</option>
-					<option value="2">5 to 7 (Project 2-9)</option>
-					<option value="3">8 to 10 (Project 10)</option>
-					<option value="4">1 to 1:30 (Evaluator's intro)</option>
-					<option value="5">2 to 3 (Evaluation)</option>
-					<option value="6">5 to 6 (General Evaluator)</option>
-					<option value="7">1 to 2 (Table Topics)</option>
-					<option value="8">10 to 12</option>
-					<option value="9">13 to 15</option>
-					<option value="10">18 to 20</option>
+					<option value="1">4 to 6 min (Ice-breaker)</option>
+					<option value="2">5 to 7 min (Project 2-9)</option>
+					<option value="3">8 to 10 min (Project 10)</option>
+					<option value="4">1 to 1:30 min (Evaluator's intro)</option>
+					<option value="5">2 to 3 min (Evaluation)</option>
+					<option value="6">5 to 6 min (General Evaluator)</option>
+					<option value="7">1 to 2 min (Table Topics)</option>
+					<option value="8">10 to 12 min</option>
+					<option value="9">13 to 15 min</option>
+					<option value="10">18 to 20 min</option>
 					<option value="11">Custom</option>
 				</select>
-				<image id="btnStop" src="images/stop-gray.png" alt="stop" title="To stop to record the speaker" />
-				<image id="btnRestart" src="images/restart-gray.png" alt="restart" title="To restart and start from scratch (it doesn't store the speaker's time)" />
+				<image id="btnStop" data-toggle="tooltip" data-placement="bottom" src="images/stop-gray.png" alt="stop" title="To stop to record the speaker" />
+				<image id="btnRestart" data-toggle="tooltip" data-placement="bottom" src="images/restart-gray.png" alt="restart" title="To restart and start from scratch (it doesn't store the speaker's time)" />
 				<a href="#divCurrentTime" id="inlineTimer">
-				<image id="btnTimer" src="images/timer-gray.png" alt="timer" title="Timer" /></a>
-				<a href="#divResults" id="inlineTimetable"><image id="btnTable" src="images/table-gray.png" alt="timetable" title="Timetable" /></a>
-				<image id="btnInvert" src="images/invert-colors-gray.png" alt="invert" title="To change background color from white to black or vice versa" />
+				<image id="btnTimer" data-toggle="tooltip" data-placement="bottom" src="images/timer-gray.png" alt="timer" title="Timer" /></a>
+				<a href="#divResults" id="inlineTimetable"><image id="btnTable" data-toggle="tooltip" data-placement="bottom" src="images/table-gray.png" alt="timetable" title="Timetable" /></a>
+				<image id="btnInvert" data-toggle="tooltip" data-placement="bottom" src="images/invert-colors-gray.png" alt="invert" title="To change background color from white to black or vice versa" />
 			</div>
-			<input id="txtMember" type="text" placeholder="Member" />
+			<input id="txtMember" type="text" class="form-control" placeholder="Member" />
 		</div>
 		<div class="divImage">
-			<image id="btnPlay" src="images/play-gray.png" alt="play" title="Press play to start" />
-			<image id="btnPause" class="hiddenElements" src="images/pause-gray.png" alt="pause" title="Pause" />
+			<image id="btnPlay" data-toggle="tooltip" src="images/play-gray.png" alt="play" title="Press play to start" />
+			<image id="btnPause" data-toggle="tooltip" class="hiddenElements" src="images/pause-gray.png" alt="pause" title="Pause" />
 		</div>
 		<div class="hiddenElements">
 			<div id="divCustomTime">
@@ -70,7 +73,7 @@
 						<input type="text" class="timing" />
 					</div>
 					<label id="pError"></label>
-					<image id="btnSave" src="images/content-save.png" alt="save" title="Save" />
+					<image id="btnSave" data-toggle="tooltip" src="images/content-save.png" alt="save" title="Save custom time frame" />
 				</div>
 			</div>
 			<div id="divCurrentTime" class="centeredElements">
@@ -95,7 +98,7 @@
 		</div>
 	</div>
 	<div id="bottom-footer">
-		Created with ♥ by <a target="blank" href="https://www.behance.net/fanmixco">Federico Navarrete</a> from <a target="blank" href="http://theleadership.pl">The Leader Ship Toastmasters</a>.
+		<span class='lblFooter'>Created with ♥ by </span><a target="blank" href="https://www.behance.net/fanmixco">Federico Navarrete</a><span class='lblFooter'> from </a><a target="blank" href="http://theleadership.pl">The Leader Ship Toastmasters</a>.
 	</div>
 	<div id="snackbar">Please select a speech</div>
 </body>
