@@ -248,15 +248,15 @@ $(function(){
 		if (selectedColor == 0){
 			selectedColor = 1;
 			changeImages("");
-			$("#pTime").css('color', "white");
+			$("#pTime,.lblFooter").css('color', "white");
 		}
 		else{
 			selectedColor = 0;
 			changeImages("-gray");
-			$("#pTime").css('color', "black");
+            $("#pTime,.lblFooter").css('color', "black");
 		}
 		lastColor = bColors[selectedColor];
 		document.body.style.backgroundColor = lastColor;
 		$('#divCurrentTime').css('background-color', lastColor);
-	});
+    });
 });
