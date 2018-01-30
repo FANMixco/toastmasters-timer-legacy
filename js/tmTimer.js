@@ -99,13 +99,7 @@ function btnStartClick(){
 }
 
 function btnPauseClick(){
-	isPaused = true;
-    if (lastColor == "yellow" || lastColor == "white") {
-        changeImages("-gray");
-    }
-    else {
-        changeImages("");
-    }
+        isPaused = true;
 }
 
 function startTimer(){
@@ -274,9 +268,5 @@ $(function(){
 		$("#hNoResults").show();
 		$("#tblResults").hide();
 		$("#tblActions").hide();
-	});
-	
-	$("#linkDownload").click(function(e){
-		e.preventDefault();
 	});
 });

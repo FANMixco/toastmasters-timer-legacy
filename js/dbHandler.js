@@ -39,15 +39,20 @@ function clearTimetable(){
 //This function is for verifying if it's the current meeting or a new one
 function isNewMeeting(){
 	var currentDate = (new Date).toString('yyyy/MM/dd');
-	if (localStorage.getItem("meetingDate") === null){
-		localStorage.setItem("meetingDate", currentDate);
-		return true;
-	}
-	else if (localStorage.getItem("meetingDate") !== currentDate){
-		localStorage.removeItem("meetingDate");
-		localStorage.setItem("meetingDate", currentDate);
-		return true;
-	}
+    try {
+        if (localStorage.getItem("meetingDate") === null) {
+            localStorage.setItem("meetingDate", currentDate);
+            return true;
+        }
+        else if (localStorage.getItem("meetingDate") !== currentDate) {
+            localStorage.removeItem("meetingDate");
+            localStorage.setItem("meetingDate", currentDate);
+            return true;
+        }
+    } catch (e) {
+        localStorage.setItem("meetingDate", currentDate);
+        return true;
+    }
 	return false;
 }
 
