@@ -1,4 +1,5 @@
 var db;
+var results = [];
 window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || 	window.msIndexedDB;
 
 function dbConn(){		
@@ -76,6 +77,7 @@ function countTimetable(){
 
 function printTable(){
 	$('#tBodyResults').empty();
+	results = [];
 	
 	var transaction = db.transaction(["timeTable"], "readwrite");
 	var objectStore = transaction.objectStore("timeTable");
@@ -93,6 +95,8 @@ function printTable(){
 			if (tempColor == "black"){
 				tempColor = "white";
 			}
+			
+			results.push({ member: cursor.value.member, role: cursor.value.role, time: cursor.value.time, lastColor: cursor.value.lastColor });
 			
 			$('#tBodyResults').append('<tr style="background:'+tempColor+';color:'+defaultColor+'"><td>'+cursor.value.member+'</td><td>'+cursor.value.role+'</td><td style="text-align:center">'+cursor.value.time+'</td></tr>');
 			cursor.continue();  
