@@ -159,7 +159,7 @@ function changeImages(extra){
 }
 
 function changeImagesByColor(){
-	if (selectedColor == 0 && lastColor == "white"){
+	if (selectedColor == 0 && (lastColor == "white" || lastColor == "yellow")){
 		changeImages("-gray");			
 	}
 	else{
@@ -213,7 +213,7 @@ $(function(){
         average = 0;
         maximum = 0;
         $("#selectTimes").select2({
-			placeholder: "Choose a time (minutes)"
+			placeholder: "Choose a time"
         }).val("").trigger("change");
 	});
 	
@@ -265,4 +265,18 @@ $(function(){
 		document.body.style.backgroundColor = lastColor;
 		$('#divCurrentTime').css('background-color', lastColor);
     });
+	
+	$("#linkClean").click(function(e){
+		e.preventDefault();
+		isStarted = false;
+		btnStopClick(false);
+		clearTimetable();
+		$("#hNoResults").show();
+		$("#tblResults").hide();
+		$("#tblActions").hide();
+	});
+	
+	$("#linkDownload").click(function(e){
+		e.preventDefault();
+	});
 });

@@ -64,10 +64,12 @@ function countTimetable(){
 		if (countRequest.result > 0){
 			$("#hNoResults").hide();
 			$("#tblResults").show();
+			$("#tblActions").show();
 		}
 		else{
 			$("#hNoResults").show();
 			$("#tblResults").hide();
+			$("#tblActions").hide();
 		}
 	}
 }
