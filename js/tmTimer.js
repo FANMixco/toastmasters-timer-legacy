@@ -59,13 +59,13 @@ function btnStopClick(isAdded){
 	counter = 1;
 	isPaused = true;
 	isStarted = false;
-	if (selectedColor == 0){
-		$("#pTime").css('color', "black");
-		changeImages("-gray");
-	}else{
-		$("#pTime").css('color', "white");
-		changeImages("");		
-	}
+    if (selectedColor == 0) {
+        $("#pTime,.lblFooter").css('color', "black");
+        changeImages("-gray");
+    } else {
+        $("#pTime,.lblFooter").css('color', "white");
+        changeImages("");
+    }
 	$('#selectTimes').prop('disabled', false);
 	$('#btnRestart').prop('disabled', false);
 }
