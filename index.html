@@ -9,8 +9,7 @@
 	<title>Toastmasters Timer</title>
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 	<link href="css/select2.min.css" rel="stylesheet" />
-	<link href="css/tmTimer.min.css?id=1.3" rel="stylesheet" />
-	<link href="css/colorbox.min.css" rel="stylesheet" />
+	<link href="css/tmTimer.min.css?id=1.5" rel="stylesheet" />
 	<link href="css/snackbar.min.css" rel="stylesheet" />
 	<link href="css/timingfield.min.css" type="text/css" rel="stylesheet" />
 	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen" />
@@ -22,8 +21,7 @@
 	<script src="js/popper.min.js"></script>
 	<script src="js/date.js"></script>
 	<script src="js/dbHandler.min.js?id=1.4"></script>
-	<script src="js/tmTimer.min.js?id=1.6"></script>
-	<script src="js/jquery.colorbox-min.js"></script>
+	<script src="js/tmTimer.min.js?id=1.7"></script>
 </head>
 <body>
 	<div>
@@ -46,9 +44,9 @@
 				</select>
 				<image id="btnStop" data-toggle="tooltip" data-placement="bottom" src="images/stop-gray.png" alt="stop" title="To stop to record the speaker" />
 				<image id="btnRestart" data-toggle="tooltip" data-placement="bottom" src="images/restart-gray.png" alt="restart" title="To restart and start from scratch (it doesn't store the speaker's time)" />
-				<a href="#divCurrentTime" id="inlineTimer">
+				<a href="#divCurrentTime" data-toggle="modal" data-target="#divCurrentTime">
 				<image id="btnTimer" data-toggle="tooltip" data-placement="bottom" src="images/timer-gray.png" alt="timer" title="Timer" /></a>
-				<a href="#divResults" id="inlineTimetable"><image id="btnTable" data-toggle="tooltip" data-placement="bottom" src="images/table-gray.png" alt="timetable" title="Timetable" /></a>
+				<a id="linkResults" href="#"><image id="btnTable" data-toggle="tooltip" data-placement="bottom" src="images/table-gray.png" alt="timetable" title="Timetable" /></a>
 				<image id="btnInvert" data-toggle="tooltip" data-placement="bottom" src="images/invert-colors-gray.png" alt="invert" title="To change background color from white to black or vice versa" />
 			</div>
 			<input id="txtMember" type="text" class="form-control" placeholder="Member" />
@@ -57,50 +55,71 @@
 			<image id="btnPlay" data-toggle="tooltip" src="images/play-gray.png" alt="play" title="Press play to start" />
 			<image id="btnPause" data-toggle="tooltip" class="hiddenElements" src="images/pause-gray.png" alt="pause" title="Pause" />
 		</div>
-		<div class="hiddenElements">
-			<div id="divCustomTime">
-				<div class="centeredElements centeredDivs">
-					<div id="customMin" class="centeredTimeOptions">
-						<h3>Minimum time</h3>
-						<input type="text" class="timing" />
+		
+		<div class="modal fade" id="divCustomTime" role="dialog">
+			<div class="vertical-alignment-helper">
+				<div class="modal-dialog vertical-align-center">
+					<div class="modal-content">
+						<div class="modal-body centeredElements centeredDivs" style="background: white">
+							<div id="customMin" class="centeredTimeOptions">
+								<h3>Minimum time</h3>
+								<input type="text" class="timing" />
+							</div>
+							<div id="customAvg" class="centeredTimeOptions">
+								<h3>Average time</h3>
+								<input type="text" class="timing" />
+							</div>
+							<div id="customMax" class="centeredTimeOptions">
+								<h3>Maximum time</h3>
+								<input type="text" class="timing" />
+							</div>
+							<label id="pError"></label>
+							<image id="btnSave" data-toggle="tooltip" src="images/content-save.png" alt="save" title="Save custom time frame" />
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
 					</div>
-					<div id="customAvg" class="centeredTimeOptions">
-						<h3>Average time</h3>
-						<input type="text" class="timing" />
-					</div>
-					<div id="customMax" class="centeredTimeOptions">
-						<h3>Maximum time</h3>
-						<input type="text" class="timing" />
-					</div>
-					<label id="pError"></label>
-					<image id="btnSave" data-toggle="tooltip" src="images/content-save.png" alt="save" title="Save custom time frame" />
 				</div>
 			</div>
-			<div id="divCurrentTime" class="centeredElements">
-				<p id="pTime">0:00:00</p>
+		</div>
+		
+		<div class="modal fade" id="divCurrentTime" role="dialog">
+			<div class="vertical-alignment-helper">
+				<div class="modal-dialog vertical-align-center">
+					<div class="modal-content">
+						<div class="modal-body centeredElements" id="timeContent">
+							<p id="pTime">0:00:00</p> 
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div id="divResults">
-				<div class="centeredElements centeredDivs">
-					<h1 id="hNoResults">No results to display</h1>
-					<table id="tblResults" class="table">
-						<caption id="cTopic"></caption>
-						<thead>
-							<tr>
-								<th>Member</th>
-								<th class="thRoles">Role</th>
-								<th class="thRoles">Time</th>
-							<tr>
-						</thead>
-						<tbody id="tBodyResults"></tbody>
-					</table>
-					<div id="tblActions" class="bottom-footer thRoles">
-						<!--<a href="#" id="linkDownload">
-						  <span class="glyphicon glyphicon-download-alt"></span>
-						</a>
-						<span>&emsp;</span>-->
-                        <a href="#" id="linkClean" data-toggle="tooltip" title="Delete the meeting">
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </a>
+		</div>
+
+		<div class="modal fade" id="divResults" role="dialog">
+			<div class="vertical-alignment-helper">
+				<div class="modal-dialog vertical-align-center">
+					<div class="modal-content">
+						<div class="modal-body centeredElements centeredDivs">
+							<h1 id="hNoResults">No results to display</h1>
+							<table id="tblResults" class="table">
+								<caption id="cTopic"></caption>
+								<thead>
+									<tr>
+										<th>Member</th>
+										<th class="thRoles">Role</th>
+										<th class="thRoles">Time</th>
+									<tr>
+								</thead>
+								<tbody id="tBodyResults"></tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
 					</div>
 				</div>
 			</div>

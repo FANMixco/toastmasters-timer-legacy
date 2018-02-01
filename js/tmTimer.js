@@ -99,7 +99,7 @@ function btnStartClick(){
 }
 
 function btnPauseClick(){
-        isPaused = true;
+	isPaused = true;
 }
 
 function startTimer(){
@@ -128,7 +128,7 @@ function startTimer(){
 				lastColor = bColors[selectedColor];
 			}
             document.body.style.backgroundColor = lastColor;
-            $('#cboxContent').css('background-color', lastColor);
+            $('#timeContent').css('background-color', lastColor);
             $('#divCurrentTime').css('background-color', lastColor);
             counter++;
 		}
@@ -165,18 +165,22 @@ $(function(){
 	initializeDB();
 	$('[data-toggle="tooltip"]').tooltip();
 	$(".timing").timingfield();
-	$("#cTopic").html("<b>Meeting at " + (new Date).toString('dd/MM/yyyy') + "</b>")
+	$("#cTopic").html("<div><div style='float:left'><b>Meeting at " + (new Date).toString('dd/MM/yyyy') + "</b></div>" + '<div id="tblActions" style="float:right"><a href="#" id="linkClean" data-toggle="tooltip" title="Delete the meeting"><span class="glyphicon glyphicon-trash"></span></a></div></div>');
 	$('#selectTimes').select2({
 		placeholder: "Choose a time"
 	}).on('change', function() {
 		if ($(this).val() == "11"){
-			$.colorbox({href:"#divCustomTime", inline:true, onComplete: function(){
-				$('#cboxContent').css('background-color', "white");
-			}});
+			$("#divCustomTime").modal();
 		} else{
 			isCustom = false
 		}
 	});
+	$("#linkResults").click(function(){
+		countTimetable();
+		printTable();
+		$("#divResults").modal();
+	});
+	
 	$("#btnPlay").click(function(){
 		var state = $("#selectTimes").val();
 		if (state == "" || state == null){
@@ -211,16 +215,6 @@ $(function(){
         }).val("").trigger("change");
 	});
 	
-	$("#inlineTimer").colorbox({inline:true, onComplete: function(){
-        $('#cboxContent').css('background-color', lastColor);
-    }});
-	
-	$("#inlineTimetable").colorbox({inline:true, width: '90%', height: '90%', onComplete: function(){
-		countTimetable();
-		printTable();
-        $('#cboxContent').css('background', "white");
-    }});
-	
 	$("#btnSave").click(function(){
 		var minTime = parseInt($("input[type=text]")[2].value * 360 + $("input[type=text]")[3].value * 60 + $("input[type=text]")[4].value);
 		var avgTime = parseInt($("input[type=text]")[6].value * 360 + $("input[type=text]")[7].value * 60 + $("input[type=text]")[8].value);
@@ -240,7 +234,7 @@ $(function(){
 			minimum = minTime;
 			average = avgTime;
 			maximum = maxTime;
-			$('#cboxClose').click();
+			$('#divCustomTime').modal('toggle');
 		}
 	});
 	
@@ -257,6 +251,7 @@ $(function(){
 		}
 		lastColor = bColors[selectedColor];
 		document.body.style.backgroundColor = lastColor;
+		$('#timeContent').css('background-color', lastColor);
 		$('#divCurrentTime').css('background-color', lastColor);
     });
 	
@@ -267,6 +262,5 @@ $(function(){
 		clearTimetable();
 		$("#hNoResults").show();
 		$("#tblResults").hide();
-		$("#tblActions").hide();
 	});
 });
