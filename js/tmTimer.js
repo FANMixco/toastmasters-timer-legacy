@@ -53,6 +53,7 @@ function btnStopClick(isAdded){
 	lastColor = bColors[selectedColor];
 	document.body.style.backgroundColor = lastColor;
 	$('#divCurrentTime').css('background-color', lastColor);
+    $('#timeContent').css('background-color', lastColor);
 	$("#pTime").text("0:00:00");
 	$("#txtMember").val("");
 	selected = -1;
