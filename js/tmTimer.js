@@ -165,7 +165,7 @@ $(function(){
 	initializeDB();
 	$('[data-toggle="tooltip"]').tooltip();
 	$(".timing").timingfield();
-	$("#cTopic").html("<div><div style='float:left'><b>Meeting at " + (new Date).toString('dd/MM/yyyy') + "</b></div>" + '<div id="tblActions" style="float:right"><a href="#" id="linkClean" data-toggle="tooltip" title="Delete the meeting"><span class="glyphicon glyphicon-trash"></span></a></div></div>');
+	$("#cTopic").html("<div><div style='float:left'><b>Meeting at " + (new Date).toString('dd/MM/yyyy') + "</b></div>" + '<div style="float:right"><a href="#divConfirm" data-toggle="modal" data-target="#divConfirm"><span class="glyphicon glyphicon-trash"></span></a></div></div>');
 	$('#selectTimes').select2({
 		placeholder: "Choose a time"
 	}).on('change', function() {
@@ -255,12 +255,19 @@ $(function(){
 		$('#divCurrentTime').css('background-color', lastColor);
     });
 	
-	$("#linkClean").click(function(e){
+	$("#btnConfirm").click(function(e){
 		e.preventDefault();
 		isStarted = false;
 		btnStopClick(false);
 		clearTimetable();
 		$("#hNoResults").show();
 		$("#tblResults").hide();
+	});
+	
+	$("[data-toggle]").click(function () {
+		var _this = this;
+		setTimeout(function () {
+			$(_this).tooltip('hide');
+		}, 3000);
 	});
 });
