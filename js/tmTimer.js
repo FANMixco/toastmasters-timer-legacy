@@ -168,7 +168,7 @@ window.addEventListener(orientationEvent, function () {
 }, false);
 
 function resizeDivImage() {
-    $(".divImage").height($(".divImage").height() - $(".bottom-footer").height());
+    $(".divImage").height($(".divImage").height() - $(".bottom-footer").height() - $("#options").height());
 }
 
 $(function(){

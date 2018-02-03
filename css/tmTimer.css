@@ -18,7 +18,7 @@ html, body, #wrapper {
 	flex-flow: row wrap;
 }
 .divImage {
-	height: 80%;
+	height: 100%;
 	padding: 0;
 	margin: 0;
 	display: -webkit-box;
@@ -28,12 +28,6 @@ html, body, #wrapper {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-.select2-close-mask {
-	z-index: 10000;
-}
-.select2-dropdown {
-	z-index: 10001;
 }
 .hiddenElements{
 	display: none;
@@ -98,9 +92,6 @@ html, body, #wrapper {
 }
 #tblActions{
 	font-size: larger;
-}
-.thRoles{
-	text-align:center;
 }
 .bottom-footer {
     position: absolute;
