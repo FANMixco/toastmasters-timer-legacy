@@ -9,6 +9,7 @@ var isStarted = false;
 var isCustom = false;
 var bColors = ["white", "black"];
 var selectedColor = 0;
+var supportsOrientationChange = "onorientationchange" in window, orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
 
 var times = [
 				//QA (30s)
@@ -162,8 +163,17 @@ function changeImagesByColor(){
 	}
 }
 
+window.addEventListener(orientationEvent, function () {
+    resizeDivImage();
+}, false);
+
+function resizeDivImage() {
+    $(".divImage").height($(".divImage").height() - $(".bottom-footer").height());
+}
+
 $(function(){
 	initializeDB();
+    resizeDivImage();
 	$('[data-toggle="tooltip"]').tooltip();
 	$(".timing").timingfield();
 	$("#cTopic").html("<div><div style='float:left'><b>Meeting at " + (new Date).toString('dd/MM/yyyy') + "</b></div>" + '<div style="float:right"><a href="#divConfirm" data-toggle="modal" data-target="#divConfirm"><span class="glyphicon glyphicon-trash"></span></a></div></div>');
@@ -181,7 +191,6 @@ $(function(){
 		printTable();
 		$("#divResults").modal();
 	});
-	
 	$("#btnPlay").click(function(){
 		var state = $("#selectTimes").val();
 		if (state == "" || state == null){

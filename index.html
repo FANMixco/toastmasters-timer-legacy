@@ -9,10 +9,10 @@
 	<title>Toastmasters Timer</title>
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 	<link href="css/select2.min.css" rel="stylesheet" />
-	<link href="css/tmTimer.min.css?id=1.5" rel="stylesheet" />
+	<link href="css/tmTimer.min.css?id=1.6" rel="stylesheet" />
 	<link href="css/snackbar.min.css" rel="stylesheet" />
-	<link href="css/timingfield.min.css" type="text/css" rel="stylesheet" />
-	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen" />
+	<link href="css/timingfield.min.css" rel="stylesheet" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
 
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/timingfield.min.js"></script>
@@ -20,11 +20,11 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/date.js"></script>
-	<script src="js/dbHandler.min.js?id=1.4"></script>
-	<script src="js/tmTimer.js?id=1.8"></script>
+	<script src="js/dbHandler.min.js?id=1.5"></script>
+	<script src="js/tmTimer.min.js?id=1.9"></script>
 </head>
 <body>
-	<div>
+    <div id="wrapper">
 		<div class="centeredElements">
 			<div class="divOptions">
 				<select id="selectTimes" class="js-example-basic-single">
@@ -55,95 +55,95 @@
 			<image id="btnPlay" data-toggle="tooltip" src="images/play-gray.png" alt="play" title="Press play to start" />
 			<image id="btnPause" data-toggle="tooltip" class="hiddenElements" src="images/pause-gray.png" alt="pause" title="Pause" />
 		</div>
-		
-		<div class="modal fade" id="divCustomTime" role="dialog">
-			<div class="vertical-alignment-helper">
-				<div class="modal-dialog vertical-align-center">
-					<div class="modal-content">
-						<div class="modal-body centeredElements centeredDivs" style="background: white">
-							<div id="customMin" class="centeredTimeOptions">
-								<h3>Minimum time</h3>
-								<input type="text" class="timing" />
-							</div>
-							<div id="customAvg" class="centeredTimeOptions">
-								<h3>Average time</h3>
-								<input type="text" class="timing" />
-							</div>
-							<div id="customMax" class="centeredTimeOptions">
-								<h3>Maximum time</h3>
-								<input type="text" class="timing" />
-							</div>
-							<label id="pError"></label>
-                        </div>
-                        <div class="modal-footer">
-                            <button id="btnSave" type="button" class="btn btn-primary">Save</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="modal fade" id="divCurrentTime" role="dialog">
-			<div class="vertical-alignment-helper">
-				<div class="modal-dialog vertical-align-center">
-					<div class="modal-content">
-						<div class="modal-body centeredElements" id="timeContent">
-							<p id="pTime">0:00:00</p> 
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+    </div>
+    <div class="bottom-footer thRoles">
+        <span class='lblFooter'>Created with ♥ by </span><a class="externalLinks" href="https://www.behance.net/fanmixco">Federico Navarrete</a><span class='lblFooter'> from </span><a class="externalLinks" href="http://theleadership.pl">The Leader Ship Toastmasters</a>.
+    </div>
+    <div id="snackbar">Please select a speech</div>
 
-		<div class="modal fade" id="divResults" role="dialog">
-			<div class="vertical-alignment-helper">
-				<div class="modal-dialog vertical-align-center">
-					<div class="modal-content">
-						<div class="modal-body centeredElements centeredDivs">
-							<h1 id="hNoResults">No results to display</h1>
-							<table id="tblResults" class="table">
-								<caption id="cTopic"></caption>
-								<thead>
-									<tr>
-										<th>Member</th>
-										<th class="thRoles">Role</th>
-										<th class="thRoles">Time</th>
-									<tr>
-								</thead>
-								<tbody id="tBodyResults"></tbody>
-							</table>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="modal fade" id="divConfirm" role="dialog">
-			<div class="vertical-alignment-helper">
-				<div class="modal-dialog vertical-align-center">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title">Are you sure you want to delete this agenda?</h4>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-danger" id="btnConfirm" data-dismiss="modal">Confirm</button>
-							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="bottom-footer thRoles">
-		<span class='lblFooter'>Created with ♥ by </span><a target="blank" href="https://www.behance.net/fanmixco">Federico Navarrete</a><span class='lblFooter'> from </span><a target="blank" href="http://theleadership.pl">The Leader Ship Toastmasters</a>.
-	</div>
-	<div id="snackbar">Please select a speech</div>
+    <div class="modal fade" id="divCustomTime" role="dialog">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <div class="modal-content">
+                    <div class="modal-body centeredElements centeredDivs" style="background: white">
+                        <div id="customMin" class="centeredTimeOptions">
+                            <h3>Minimum time</h3>
+                            <input type="text" class="timing" />
+                        </div>
+                        <div id="customAvg" class="centeredTimeOptions">
+                            <h3>Average time</h3>
+                            <input type="text" class="timing" />
+                        </div>
+                        <div id="customMax" class="centeredTimeOptions">
+                            <h3>Maximum time</h3>
+                            <input type="text" class="timing" />
+                        </div>
+                        <label id="pError"></label>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnSave" type="button" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="divCurrentTime" role="dialog">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <div class="modal-content">
+                    <div class="modal-body centeredElements" id="timeContent">
+                        <p id="pTime">0:00:00</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="divResults" role="dialog">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <div class="modal-content">
+                    <div class="modal-body centeredElements centeredDivs">
+                        <h1 id="hNoResults">No results to display</h1>
+                        <table id="tblResults" class="table">
+                            <caption id="cTopic"></caption>
+                            <thead>
+                                <tr>
+                                    <th>Member</th>
+                                    <th class="thRoles">Role</th>
+                                    <th class="thRoles">Time</th>
+                                <tr>
+                            </thead>
+                            <tbody id="tBodyResults"></tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="divConfirm" role="dialog">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Are you sure you want to delete this agenda?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnConfirm" type="button" class="btn btn-danger" data-dismiss="modal">Confirm</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

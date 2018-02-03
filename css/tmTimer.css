@@ -1,3 +1,6 @@
+html, body, #wrapper {
+    height:100%;
+}
 @font-face {
 	font-family: Digital7;
 	src: url("fonts/digital-7.ttf");
@@ -134,4 +137,9 @@
 		margin: auto;
 		width: 90%;
 	}
+}
+@media screen and (max-height: 520px) {
+    #btnPlay, #btnPause {
+        height: 95%;
+    }
 }
