@@ -226,9 +226,9 @@ $(function(){
 	});
 	
 	$("#btnSave").click(function(){
-		var minTime = parseInt($("input[type=text]")[2].value * 360 + $("input[type=text]")[3].value * 60 + $("input[type=text]")[4].value);
-		var avgTime = parseInt($("input[type=text]")[6].value * 360 + $("input[type=text]")[7].value * 60 + $("input[type=text]")[8].value);
-		var maxTime = parseInt($("input[type=text]")[10].value * 360 + $("input[type=text]")[11].value * 60 + $("input[type=text]")[12].value);
+		var minTime = parseInt($("input[type=text]")[2].value * 360) + parseInt($("input[type=text]")[3].value * 60) + parseInt($("input[type=text]")[4].value);
+		var avgTime = parseInt($("input[type=text]")[6].value * 360) + parseInt($("input[type=text]")[7].value * 60) + parseInt($("input[type=text]")[8].value);
+		var maxTime = parseInt($("input[type=text]")[10].value * 360) + parseInt($("input[type=text]")[11].value * 60) + parseInt($("input[type=text]")[12].value);
 
 		if (minTime >= avgTime){
 			$("#pError").html("The minimum time cannot be greater or equal than the average time.<br/>");
