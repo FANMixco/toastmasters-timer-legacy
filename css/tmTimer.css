@@ -1,6 +1,9 @@
 html, body, #wrapper {
     height:100%;
 }
+body {
+    padding-top: 5px;
+}
 @font-face {
 	font-family: Digital7;
 	src: url("fonts/digital-7.ttf");
@@ -124,10 +127,16 @@ html, body, #wrapper {
     #btnPlay, #btnPause {
 		width: 90%;
 	}
-	#txtMember {
-		margin: auto;
-		width: 90%;
-	}
+}
+@media screen and (max-width: 600px) {
+    .select2 {
+        width: 90% !important;
+        padding-bottom: 5px;
+    }
+    #txtMember {
+        margin: auto;
+        width: 90%;
+    }
 }
 @media screen and (max-height: 520px) {
     #btnPlay, #btnPause {
