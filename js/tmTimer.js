@@ -1,14 +1,19 @@
+var audioElement;
 var counter = 1;
 var selected = -1;
 var minimum = 0;
 var average = 0;
 var maximum = 0;
+var selectedColor = 0;
+var green = 0;
+var yellow = 0;
+var red = 0;
+var isBeepEnabled = "false";
 var lastColor = "white";
 var isPaused = false;
 var isStarted = false;
 var isCustom = false;
 var bColors = ["white", "black"];
-var selectedColor = 0;
 var supportsOrientationChange = "onorientationchange" in window, orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
 
 var times = [
@@ -40,11 +45,11 @@ function getTime(){
 	return (new Date).clearTime().addSeconds(counter).toString('H:mm:ss');
 }
 
-function btnStopClick(isAdded){
+function btnStopClick(isAdded) {
 	var member = $("#txtMember").val();
 	var currentTime = getTime();
 
-	if (isStarted && isAdded){
+	if (isStarted && isAdded) {
 		addNewTime(member, $("#selectTimes").find(":selected").text(), currentTime, lastColor);
 	}
 	
@@ -70,21 +75,24 @@ function btnStopClick(isAdded){
     }
 	$('#selectTimes').prop('disabled', false);
 	$('#btnRestart').prop('disabled', false);
+	green = 0;
+	red = 0;
+	yellow = 0;
 }
 
 function btnStartClick(){
-	if (isStarted){
+	if (isStarted) {
 		return;
 	}
 	isStarted = true;
 	isPaused = false;
 	selected = $("#selectTimes").val();
 	
-	if (selected == "" || selected == null){
+	if (selected == "" || selected == null) {
 		return;
 	}
 	
-	if (!isCustom){
+	if (!isCustom) {
 		minimum = times[selected][0];
 		average = times[selected][1];
 		maximum = times[selected][2];
@@ -92,10 +100,9 @@ function btnStartClick(){
 	startTimer();
 	$('#selectTimes').prop('disabled', 'disabled');
 	$('#btnRestart').prop('disabled', 'disabled');
-	if (selectedColor == 0){
+	if (selectedColor == 0) {
 		changeImages("-gray");
-	}
-	else{
+	} else{
 		changeImages("");
 	}
 }
@@ -104,29 +111,42 @@ function btnPauseClick(){
 	isPaused = true;
 }
 
+function startBeep(){
+	if (isBeepEnabled == "true") {
+		if (green == 1 || yellow == 1 || red == 1) {
+			audioElement.play();
+			setTimeout(function(){ audioElement.pause(); }, 500);
+		} else {
+			audioElement.pause();
+		}
+	}
+}
+
 function startTimer(){
-	var setTime = setInterval( function ( ) { 
+	var setTime = setInterval(function() { 
 		if (isPaused) {
 			clearInterval(setTime);
-		}
-		else {
+		} else {
 			$("#pTime").text(getTime());
 			if (counter >= minimum && counter < average) {
 				changeImages("");
 				lastColor = "green";
 				$("#pTime,.lblFooter").css('color', "white");
-			}
-			else if (counter >= average && counter < maximum) {
+				green++;
+				startBeep();
+			} else if (counter >= average && counter < maximum) {
 				changeImages("-gray");
 				lastColor = "yellow";
 				$("#pTime,.lblFooter").css('color', "black");
-			}
-			else if (counter >= maximum){
+				yellow++;
+				startBeep();
+			} else if (counter >= maximum){
 				changeImages("");
 				lastColor = "red";
 				$("#pTime,.lblFooter").css('color', "white");
-			}
-			else{
+				red++;
+				startBeep();
+			} else{
 				lastColor = bColors[selectedColor];
 			}
             document.body.style.backgroundColor = lastColor;
@@ -137,7 +157,7 @@ function startTimer(){
 	}, 1000 );
 }
 
-function changeImages(extra){
+function changeImages(extra) {
 	$("#btnPlay").attr('src', "images/play" + extra + ".png");
 	$("#btnPause").attr('src', "images/pause" + extra + ".png");
 	$("#btnStop").attr('src', "images/stop" + extra + ".png");
@@ -152,18 +172,22 @@ function changeImages(extra){
 	$("#btnTable").attr('src', "images/table" + extra + ".png");
 	$("#btnTimer").attr('src', "images/timer" + extra + ".png");
 	$("#btnInvert").attr('src', "images/invert-colors" + extra + ".png");
+	if (isBeepEnabled == "true"){
+		$("#btnBeep").attr('src', "images/volume" + extra + ".png");	
+	} else {
+		$("#btnBeep").attr('src', "images/volume-off" + extra + ".png");	
+	}
 }
 
 function changeImagesByColor(){
 	if (selectedColor == 0 && (lastColor == "white" || lastColor == "yellow")){
 		changeImages("-gray");			
-	}
-	else{
+	} else{
 		changeImages("");
 	}
 }
 
-window.addEventListener(orientationEvent, function () {
+window.addEventListener(orientationEvent, function() {
     resizeDivImage();
 }, false);
 
@@ -171,7 +195,81 @@ function resizeDivImage() {
     $(".divImage").height($(".divImage").height() - $(".bottom-footer").height() - $("#options").height());
 }
 
+function setBeep(beep) {
+    if (localStorage.getItem("myBeep") !== null) {
+        localStorage.removeItem("myBeep");
+    }
+	localStorage.setItem("myBeep", beep);
+}
+
+function setColor(color) {
+    if (localStorage.getItem("myPreferedColor") !== null) {
+        localStorage.removeItem("myPreferedColor");
+    }
+	localStorage.setItem("myPreferedColor", color);
+}
+
+function getBeep() {
+    if (localStorage.getItem("myBeep") !== null) {
+		isBeepEnabled = localStorage.getItem("myBeep");
+    } else {
+		setBeep(isBeepEnabled);
+	}
+}
+
+function getCurrentColor() {
+    if (localStorage.getItem("myPreferedColor") !== null) {
+		selectedColor = parseInt(localStorage.getItem("myPreferedColor"));
+    } else {
+		setColor(selectedColor);
+	}
+}
+
+function setVolumeImg() {
+	setBeep(isBeepEnabled);
+	if (selectedColor == 0 && (lastColor == "white" || lastColor == "yellow")) {
+		if (isBeepEnabled == "false") {
+			$("#btnBeep").attr('src', "images/volume-off-gray.png");
+		} else {
+			$("#btnBeep").attr('src', "images/volume-gray.png");
+		}
+	}
+	else {
+		if (isBeepEnabled == "false") {
+			$("#btnBeep").attr('src', "images/volume-off.png");
+		} else {
+			$("#btnBeep").attr('src', "images/volume.png");
+		}
+	}
+}
+
+function setImgAndBng() {
+    if (selectedColor == 1) {
+        changeImages("");
+        $("#pTime,.lblFooter").css('color', "white");
+    } else {
+        changeImages("-gray");
+        $("#pTime,.lblFooter").css('color', "black");
+    }
+    setColor(selectedColor);
+    lastColor = bColors[selectedColor];
+    document.body.style.backgroundColor = lastColor;
+    $('#timeContent').css('background-color', lastColor);
+    $('#divCurrentTime').css('background-color', lastColor);
+}
+
 $(function(){
+	audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'sounds/beep.mp3');
+    
+    audioElement.addEventListener('ended', function() {
+        this.play();
+    }, false);
+    
+    audioElement.addEventListener("canplay",function(){});
+    
+    audioElement.addEventListener("timeupdate",function(){});
+	
 	initializeDB();
     resizeDivImage();
 	$('[data-toggle="tooltip"]').tooltip();
@@ -193,7 +291,7 @@ $(function(){
 	});
 	$("#btnPlay").click(function(){
 		var state = $("#selectTimes").val();
-		if (state == "" || state == null){
+		if (state == "" || state == null) {
 			var x = document.getElementById("snackbar")
 			x.className = "show";
 			setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
@@ -214,6 +312,14 @@ $(function(){
 	$("#btnStop").click(function(){
 		btnStopClick(true);
 	});
+	$("#btnBeep").click(function(){
+		if (isBeepEnabled == "true"){
+			isBeepEnabled = "false";
+		} else {
+			isBeepEnabled = "true";
+		}
+		setVolumeImg();
+	});
 	$("#btnRestart").click(function(){
 		btnStopClick(false);
         isCustom = false
@@ -230,16 +336,13 @@ $(function(){
 		var avgTime = parseInt($("input[type=text]")[6].value * 360) + parseInt($("input[type=text]")[7].value * 60) + parseInt($("input[type=text]")[8].value);
 		var maxTime = parseInt($("input[type=text]")[10].value * 360) + parseInt($("input[type=text]")[11].value * 60) + parseInt($("input[type=text]")[12].value);
 
-		if (minTime >= avgTime){
+		if (minTime >= avgTime) {
 			$("#pError").html("The minimum time cannot be greater or equal than the average time.<br/>");
-		}
-		else if (minTime >= maxTime){
+		} else if (minTime >= maxTime) {
 			$("#pError").html("The minimum time cannot be greater or equal than the maximum time.<br/>");
-		}
-		else if (avgTime >= maxTime){
+		} else if (avgTime >= maxTime) {
 			$("#pError").html("The average time cannot be greater or equal than the maximum time.<br/>");
-		}
-		else {
+		} else {
 			isCustom = true;
 			minimum = minTime;
 			average = avgTime;
@@ -249,20 +352,12 @@ $(function(){
 	});
 	
 	$("#btnInvert").click(function(){
-		if (selectedColor == 0){
-			selectedColor = 1;
-			changeImages("");
-			$("#pTime,.lblFooter").css('color', "white");
-		}
-		else{
-			selectedColor = 0;
-			changeImages("-gray");
-            $("#pTime,.lblFooter").css('color', "black");
-		}
-		lastColor = bColors[selectedColor];
-		document.body.style.backgroundColor = lastColor;
-		$('#timeContent').css('background-color', lastColor);
-		$('#divCurrentTime').css('background-color', lastColor);
+        if (selectedColor == 0) {
+            selectedColor = 1;
+        } else {
+            selectedColor = 0;
+        }
+		setImgAndBng();
     });
 	
 	$("#btnConfirm").click(function(e){
@@ -276,8 +371,11 @@ $(function(){
 	
 	$("[data-toggle]").click(function () {
 		var _this = this;
-		setTimeout(function () {
-			$(_this).tooltip('hide');
-		}, 3000);
+		setTimeout(function() { $(_this).tooltip('hide'); }, 1500);
 	});
+	
+	getCurrentColor();
+	getBeep();
+	setImgAndBng();
+	setVolumeImg();
 });
