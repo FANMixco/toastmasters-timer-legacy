@@ -22,3 +22,7 @@ This App provides you with different options, for example:
 Also, it records all the speeches
 
 The project is open-source and can be implemented, modified or improved freely without any constrain. Feel free to hack it, share new your ideas and thoughts about it.
+
+You can access it from:
+
+https://fanmixco.github.io/toastmasters-timer
