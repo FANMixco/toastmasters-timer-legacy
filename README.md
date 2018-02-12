@@ -3,6 +3,11 @@ A simple WebApp for helping Toastmasters all over the world to have an effective
 
 http://theleadership.pl
 
+
+Feel free to use it it from:
+
+https://fanmixco.github.io/toastmasters-timer
+
 ![toastmasters](http://dominicanewsonline.com/news/wp-content/uploads/2014/10/ToastmastersLogoColor-300x262.jpg)
 
 This App provides you with different options, for example:
@@ -22,7 +27,3 @@ This App provides you with different options, for example:
 Also, it records all the speeches
 
 The project is open-source and can be implemented, modified or improved freely without any constrain. Feel free to hack it, share new your ideas and thoughts about it.
-
-You can access it from:
-
-https://fanmixco.github.io/toastmasters-timer
