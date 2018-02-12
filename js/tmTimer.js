@@ -193,7 +193,7 @@ function changeImages(extra) {
 	}
 	else{
 		$("#btnRestart").attr('src', "images/restart" + extra + ".png");	
-		$("#btnRestart").attr('title', "To restart and start from scratch (it doesn't store the speaker's time)");
+		$("#btnRestart").attr('title', "Restart and start from scratch (it doesn't store the speaker's time)");
 	}
 	$("#btnTable").attr('src', "images/table" + extra + ".png");
 	$("#btnTimer").attr('src', "images/timer" + extra + ".png");
