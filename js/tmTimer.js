@@ -14,6 +14,9 @@ var isPaused = false;
 var isStarted = false;
 var isCustom = false;
 var bColors = ["white", "black"];
+var currentTranslation;
+//var langs = ['en', 'es', 'pl'];
+//var langCode = '';
 var supportsOrientationChange = "onorientationchange" in window, orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
 
 var times = [
@@ -284,7 +287,31 @@ function setImgAndBng() {
     $('#divCurrentTime').css('background-color', lastColor);
 }
 
+var translate = function (jsdata) {
+    currentTranslation = jsdata;
+    $("[tkey]").each(function (index) {
+        $(this).html(jsdata[$(this).attr('tkey')]);
+    });
+    $("[tkey-title]").each(function (index) {
+        $(this).prop('title', (jsdata[$(this).attr('tkey-title')]));
+    });
+    $("[tkey-placeholder]").each(function (index) {
+        $(this).prop('placeholder', (jsdata[$(this).attr('tkey-placeholder')]));
+    });
+}
+
 $(function(){
+
+
+//langCode = navigator.language.substr (0, 2);
+
+//if (langCode in langs)
+//	$.getJSON('lang/'+langCode+'.json', translate);
+//else
+
+    $.getJSON('js/lang/en.json', translate);
+	
+	
 	audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'sounds/beep.mp3');
     
