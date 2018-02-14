@@ -20,4 +20,12 @@ var translate = function (jsdata) {
 //if (langCode in langs)
 //	$.getJSON('lang/'+langCode+'.json', translate);
 //else
+$.ajaxSetup({
+    async: false
+});
+
 $.getJSON('js/lang/en.json', translate);
+
+$.ajaxSetup({
+    async: true
+});
