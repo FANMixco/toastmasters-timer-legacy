@@ -189,11 +189,11 @@ function changeImages(extra) {
 	$("#btnStop").attr('src', "images/stop" + extra + ".png");
 	if (!isPaused && isStarted){
 		$("#btnRestart").attr('src', "images/restart" + extra + "-dis.png");
-		$("#btnRestart").attr('title', "You must stop the timer in order to restart.");
+        $("#btnRestart").attr('title', currentTranslation.titleRestart2);
 	}
 	else{
-		$("#btnRestart").attr('src', "images/restart" + extra + ".png");	
-		$("#btnRestart").attr('title', "Restart and start from scratch (it doesn't store the speaker's time)");
+		$("#btnRestart").attr('src', "images/restart" + extra + ".png");
+        $("#btnRestart").attr('title', currentTranslation.titleRestart);
 	}
 	$("#btnTable").attr('src', "images/table" + extra + ".png");
 	$("#btnTimer").attr('src', "images/timer" + extra + ".png");
@@ -300,9 +300,9 @@ $(function(){
     resizeDivImage();
 	$('[data-toggle="tooltip"]').tooltip();
 	$(".timing").timingfield();
-	$("#cTopic").html("<div><div style='float:left'><b>Meeting at " + (new Date).toString('dd/MM/yyyy') + "</b></div>" + '<div style="float:right"><a href="#divConfirm" data-toggle="modal" data-target="#divConfirm"><span class="glyphicon glyphicon-trash"></span></a></div></div>');
+    $("#cTopic").html("<b>" + currentTranslation.meetingAt + " " + (new Date).toString('dd/MM/yyyy') + "</b>");
 	$('#selectTimes').select2({
-		placeholder: "Choose a time"
+		placeholder: currentTranslation.chooseTime
 	}).on('change', function() {
 		if ($(this).val() == "11"){
 			$("#divCustomTime").modal();
@@ -353,7 +353,7 @@ $(function(){
         average = 0;
         maximum = 0;
         $("#selectTimes").select2({
-			placeholder: "Choose a time"
+            placeholder: currentTranslation.chooseTime
         }).val("").trigger("change");
 	});
 	
@@ -362,13 +362,15 @@ $(function(){
 		var avgTime = parseInt($("input[type=text]")[6].value * 360) + parseInt($("input[type=text]")[7].value * 60) + parseInt($("input[type=text]")[8].value);
 		var maxTime = parseInt($("input[type=text]")[10].value * 360) + parseInt($("input[type=text]")[11].value * 60) + parseInt($("input[type=text]")[12].value);
 
-		if (minTime >= avgTime) {
-			$("#pError").html("The minimum time cannot be greater or equal than the average time.<br/>");
-		} else if (minTime >= maxTime) {
-			$("#pError").html("The minimum time cannot be greater or equal than the maximum time.<br/>");
-		} else if (avgTime >= maxTime) {
-			$("#pError").html("The average time cannot be greater or equal than the maximum time.<br/>");
-		} else {
+        if (minTime >= avgTime) {
+            $("#pError").html(currentTranslation.errorMin + "<br/>");
+        }
+        else if (minTime >= maxTime) {
+            $("#pError").html(currentTranslation.errorHalf + "<br/>");
+        }
+        else if (avgTime >= maxTime) {
+            $("#pError").html(currentTranslation.errorMax + "<br/>");
+        } else {
 			isCustom = true;
 			minimum = minTime;
 			average = avgTime;
@@ -392,6 +394,7 @@ $(function(){
 		btnStopClick(false);
 		clearTimetable();
 		$("#hNoResults").show();
+        $("#btnDelete").hide();
 		$("#tblResults").hide();
 	});
 	

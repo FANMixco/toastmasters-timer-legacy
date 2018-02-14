@@ -15,13 +15,14 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
 
 	<script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/lang.js"></script>
 	<script src="js/timingfield.min.js"></script>
 	<script src="js/select2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/date.js"></script>
 	<script src="js/dbHandler.min.js?id=1.5"></script>
-	<script src="js/tmTimer.min.js?id=2.1"></script>
+	<script src="js/tmTimer.js?id=2.2"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -29,40 +30,38 @@
 			<div class="divOptions">
 				<select id="selectTimes" class="js-example-basic-single">
 					<option></option>
-					<option value="0">Question of the Day (30s)</option>
-					<option value="1">4 to 6 min (Ice-breaker)</option>
-					<option value="2">5 to 7 min (Project 2-9)</option>
-					<option value="3">8 to 10 min (Project 10)</option>
-					<option value="4">1 to 1:30 min (Evaluator's intro)</option>
-					<option value="5">2 to 3 min (Evaluation)</option>
-					<option value="6">5 to 6 min (General Evaluator)</option>
-					<option value="7">1 to 2 min (Table Topics)</option>
-					<option value="8">10 to 12 min</option>
-					<option value="9">13 to 15 min</option>
-					<option value="10">18 to 20 min</option>
-					<option value="11">Custom</option>
+                    <option value="0" tkey="opt1"></option>
+                    <option value="1" tkey="opt2"></option>
+                    <option value="2" tkey="opt3"></option>
+                    <option value="3" tkey="opt4"></option>
+                    <option value="4" tkey="opt5"></option>
+                    <option value="5" tkey="opt6"></option>
+                    <option value="6" tkey="opt7"></option>
+                    <option value="7" tkey="opt8"></option>
+                    <option value="8" tkey="opt9"></option>
+                    <option value="9" tkey="opt10"></option>
+                    <option value="10" tkey="opt11"></option>
+                    <option value="11" tkey="opt12"></option>
 				</select>
-				<image id="btnStop" data-toggle="tooltip" data-placement="bottom" src="images/stop-gray.png" alt="stop" title="Stop and record the speaker's time" />
-				<image id="btnRestart" data-toggle="tooltip" data-placement="bottom" src="images/restart-gray.png" alt="restart" title="Restart and start from scratch (it doesn't store the speaker's time)" />
+				<image id="btnStop" data-toggle="tooltip" data-placement="bottom" src="images/stop-gray.png" alt="stop" tkey-title="titleStop" />
+				<image id="btnRestart" data-toggle="tooltip" data-placement="bottom" src="images/restart-gray.png" alt="restart" tkey-title="titleRestart" />
 				<a href="#divCurrentTime" data-toggle="modal" data-target="#divCurrentTime">
-				<image id="btnTimer" data-toggle="tooltip" data-placement="bottom" src="images/timer-gray.png" alt="timer" title="Timer" /></a>
-				<a id="linkResults" href="#"><image id="btnTable" data-toggle="tooltip" data-placement="bottom" src="images/table-gray.png" alt="timetable" title="Timetable" /></a>
-				<image id="btnInvert" data-toggle="tooltip" data-placement="bottom" src="images/invert-colors-gray.png" alt="invert" title="Change background color from white 
-				
-				black or vice versa" />
-				<image id="btnBeep" data-toggle="tooltip" data-placement="bottom" src="images/volume-off-gray.png" alt="beep" title="Turn on/off the beep" />
+				<image id="btnTimer" data-toggle="tooltip" data-placement="bottom" src="images/timer-gray.png" alt="timer" tkey-title="titleTimer" /></a>
+				<a id="linkResults" href="#"><image id="btnTable" data-toggle="tooltip" data-placement="bottom" src="images/table-gray.png" alt="timetable" tkey-title="titleTimetable" /></a>
+				<image id="btnInvert" data-toggle="tooltip" data-placement="bottom" src="images/invert-colors-gray.png" alt="invert" tkey-title="titleInvert" />
+				<image id="btnBeep" data-toggle="tooltip" data-placement="bottom" src="images/volume-off-gray.png" alt="beep" tkey-title="titleSound" />
 			</div>
-			<input id="txtMember" type="text" class="form-control" placeholder="Member" />
+			<input id="txtMember" type="text" class="form-control" tkey-placeholder="pMember" />
 		</div>
 		<div class="divImage">
-			<image id="btnPlay" data-toggle="tooltip" src="images/play-gray.png" alt="play" title="Press play to start" />
-			<image id="btnPause" data-toggle="tooltip" class="hiddenElements" src="images/pause-gray.png" alt="pause" title="Pause" />
+			<image id="btnPlay" data-toggle="tooltip" src="images/play-gray.png" alt="play" tkey-title="titlePlay" />
+			<image id="btnPause" data-toggle="tooltip" class="hiddenElements" src="images/pause-gray.png" alt="pause" tkey-title="titlePause" />
 		</div>
     </div>
     <div class="bottom-footer centeredElements">
-        <span class='lblFooter'>Created with ♥ by </span><a class="externalLinks" href="https://www.behance.net/fanmixco">Federico Navarrete</a><span class='lblFooter'> from </span><a class="externalLinks" href="http://theleadership.pl">The Leader Ship Toastmasters</a>.
+        <span class='lblFooter' tkey="copyright1"></span><a class="externalLinks" href="https://www.behance.net/fanmixco">Federico Navarrete</a><span class='lblFooter'><span class='lblFooter' tkey="copyright2"></span></span><a class="externalLinks" href="http://theleadership.pl">The Leader Ship Toastmasters</a><span class='lblFooter' tkey="copyright3"></span><span class='lblFooter'>.</span>
     </div>
-    <div id="snackbar">Please select a speech</div>
+    <div id="snackbar" tkey="chooseSpeech"></div>
 
     <div class="modal fade" id="divCustomTime" role="dialog">
         <div class="vertical-alignment-helper">
@@ -70,22 +69,22 @@
                 <div class="modal-content">
                     <div class="modal-body centeredElements centeredDivs" style="background: white">
                         <div id="customMin" class="centeredTimeOptions">
-                            <h3>Minimum time</h3>
+                            <h3 tkey="timeMinimum"></h3>
                             <input type="text" class="timing" />
                         </div>
                         <div id="customAvg" class="centeredTimeOptions">
-                            <h3>Average time</h3>
+                            <h3 tkey="timeHalfway"></h3>
                             <input type="text" class="timing" />
                         </div>
                         <div id="customMax" class="centeredTimeOptions">
-                            <h3>Maximum time</h3>
+                            <h3 tkey="timeMaximum"></h3>
                             <input type="text" class="timing" />
                         </div>
                         <label id="pError"></label>
                     </div>
                     <div class="modal-footer">
-                        <button id="btnSave" type="button" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="btnSave" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> <span tkey="save"></span></button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> <span tkey="close"></span></button>
                     </div>
                 </div>
             </div>
@@ -100,7 +99,7 @@
                         <p id="pTime">0:00:00</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> <span tkey="close"></span></button>
                     </div>
                 </div>
             </div>
@@ -112,21 +111,22 @@
             <div class="modal-dialog vertical-align-center">
                 <div class="modal-content">
                     <div class="modal-body centeredElements centeredDivs">
-                        <h1 id="hNoResults">No results to display</h1>
+                        <h1 id="hNoResults" tkey="noResults"></h1>
                         <table id="tblResults" class="table">
                             <caption id="cTopic"></caption>
                             <thead>
                                 <tr>
-                                    <th>Member</th>
-                                    <th class="centeredElements">Role</th>
-                                    <th class="centeredElements">Time</th>
+                                    <th tkey="pMember"></th>
+                                    <th class="centeredElements" tkey="role"></th>
+                                    <th class="centeredElements" tkey="time"></th>
                                 <tr>
                             </thead>
                             <tbody id="tBodyResults"></tbody>
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="btn btn-danger" id="btnDelete" data-toggle="modal" data-target="#divConfirm"><span class="glyphicon glyphicon-trash"></span> <span tkey="delete"></span></button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> <span tkey="close"></span></button>
                     </div>
                 </div>
             </div>
@@ -138,11 +138,11 @@
             <div class="modal-dialog vertical-align-center">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Are you sure you want to delete this agenda?</h4>
+                        <h4 class="modal-title" tkey="deleteConfirmation"></h4>
                     </div>
                     <div class="modal-footer">
-                        <button id="btnConfirm" type="button" class="btn btn-danger" data-dismiss="modal">Confirm</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" id="btnConfirm" class="btn btn-danger" data-dismiss="modal"><span tkey="confirm"></span></button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span tkey="cancel"></span></button>
                     </div>
                 </div>
             </div>
