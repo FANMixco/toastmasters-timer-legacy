@@ -21,13 +21,4 @@ var translate = function (jsdata) {
 //	$.getJSON('lang/'+langCode+'.json', translate);
 //else
 
-//$.getJSON('js/lang/en.json', translate);
-
-$.ajax({
-  type: 'GET',
-  url: 'js/lang/en.json',
-  async: false,
-  contentType: 'application/json; charset=utf-8',
-  dataType: 'json',
-  success: translate,
-});
+$.getJSON('js/lang/en.json', translate);
