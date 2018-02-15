@@ -414,5 +414,5 @@ $(function(){
 	}
 	setTimeout(function() {
 		$("#cTopic").html("<b>" + currentTranslation.meetingAt + " " + (new Date).toString('dd/MM/yyyy') + "</b>");
-	}, 1500);
+	}, 3000);
 });
