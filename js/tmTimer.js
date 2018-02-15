@@ -312,7 +312,7 @@ $(function(){
 				isCustom = false
 			}
 		});
-	}, 500);
+	}, 125);
 
 	$("#linkResults").click(function(){
 		countTimetable();
@@ -418,5 +418,5 @@ $(function(){
 	}
 	setTimeout(function() {
 		$("#cTopic").html("<b>" + currentTranslation.meetingAt + " " + (new Date).toString('dd/MM/yyyy') + "</b>");
-	}, 500);
+	}, 125);
 });
