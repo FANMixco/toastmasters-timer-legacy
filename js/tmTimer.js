@@ -301,15 +301,19 @@ $(function(){
     resizeDivImage();
 	$('[data-toggle="tooltip"]').tooltip();
 	$(".timing").timingfield();
-	$('#selectTimes').select2({
-		placeholder: currentTranslation.chooseTime
-	}).on('change', function() {
-		if ($(this).val() == "11"){
-			$("#divCustomTime").modal();
-		} else{
-			isCustom = false
-		}
-	});
+	
+	setTimeout(function() {
+		$('#selectTimes').select2({
+			placeholder: currentTranslation.chooseTime
+		}).on('change', function() {
+			if ($(this).val() == "11"){
+				$("#divCustomTime").modal();
+			} else{
+				isCustom = false
+			}
+		});
+	}, 1500);
+
 	$("#linkResults").click(function(){
 		countTimetable();
 		printTable();
@@ -414,5 +418,5 @@ $(function(){
 	}
 	setTimeout(function() {
 		$("#cTopic").html("<b>" + currentTranslation.meetingAt + " " + (new Date).toString('dd/MM/yyyy') + "</b>");
-	}, 3000);
+	}, 1500);
 });
