@@ -301,12 +301,6 @@ $(function(){
     resizeDivImage();
 	$('[data-toggle="tooltip"]').tooltip();
 	$(".timing").timingfield();
-	try {
-             	$("#cTopic").html("<b>" + currentTranslation.meetingAt + " " + (new Date).toString('dd/MM/yyyy') + "</b>");
-	}
-	catch(ex){
-        	$("#cTopic").html("<b>Meeting at " + (new Date).toString('dd/MM/yyyy') + "</b>");
-	}
 	$('#selectTimes').select2({
 		placeholder: currentTranslation.chooseTime
 	}).on('change', function() {
@@ -418,4 +412,7 @@ $(function(){
 	if (os == "iOS" || os == "Android"){
 		$("#btnBeep").hide();
 	}
+	setTimeout(function() {
+		$("#cTopic").html("<b>" + currentTranslation.meetingAt + " " + (new Date).toString('dd/MM/yyyy') + "</b>");
+	}, 1500);
 });
