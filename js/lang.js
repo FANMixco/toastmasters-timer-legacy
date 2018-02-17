@@ -1,5 +1,5 @@
-//var langs = ['en', 'es', 'pl'];
-//var langCode = '';
+var langs = ['en', 'es'];
+var langCode = '';
 var currentTranslation;
 
 var translate = function (jsdata) {
@@ -15,10 +15,27 @@ var translate = function (jsdata) {
     });
 }
 
-//langCode = navigator.language.substr (0, 2);
+langCode = navigator.language.substr (0, 2);
 
-//if (langCode in langs)
-//	$.getJSON('lang/'+langCode+'.json', translate);
-//else
+try {
+    if (langs.includes(langCode))
+        $.getJSON('lang/' + langCode + '.json', translate);
+    else
+        $.getJSON('js/lang/en.json', translate);
+}
+catch (e) {
+    setTimeout(function () {
+        if (isValueInArray(langs, langCode))
+            $.getJSON('lang/' + langCode + '.json', translate);
+        else
+            $.getJSON('js/lang/en.json', translate);
+    }, 125);
+}
 
-$.getJSON('js/lang/en.json', translate);
+function isValueInArray(arr, val) {
+    inArray = false;
+    for (i = 0; i < arr.length; i++)
+        if (val == arr[i])
+            inArray = true;
+    return inArray;
+}
