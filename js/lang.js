@@ -19,14 +19,14 @@ langCode = navigator.language.substr (0, 2);
 
 try {
     if (langs.includes(langCode))
-        $.getJSON('lang/' + langCode + '.json', translate);
+        $.getJSON('js/lang/' + langCode + '.json', translate);
     else
         $.getJSON('js/lang/en.json', translate);
 }
 catch (e) {
     setTimeout(function () {
         if (isValueInArray(langs, langCode))
-            $.getJSON('lang/' + langCode + '.json', translate);
+            $.getJSON('js/lang/' + langCode + '.json', translate);
         else
             $.getJSON('js/lang/en.json', translate);
     }, 125);
