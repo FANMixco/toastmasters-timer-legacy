@@ -218,7 +218,7 @@ window.addEventListener(orientationEvent, function() {
 }, false);
 
 function resizeDivImage() {
-    $(".divImage").height($(".divImage").height() - $(".bottom-footer").height() - $("#options").height());
+    $(".divImage").height($(window).height() - $(".bottom-footer").height() - $("#options").height());
 }
 
 function setBeep(beep) {
@@ -285,7 +285,6 @@ function setImgAndBng() {
 }
 
 $(function(){
-	
 	audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'sounds/beep.mp3');
     
@@ -298,22 +297,21 @@ $(function(){
     audioElement.addEventListener("timeupdate",function(){});
 	
 	initializeDB();
-    resizeDivImage();
+    setTimeout(function () {
+        resizeDivImage();
+    }, 50);
 	$('[data-toggle="tooltip"]').tooltip();
 	$(".timing").timingfield();
-	
-	setTimeout(function() {
-		$('#selectTimes').select2({
-			placeholder: currentTranslation.chooseTime
-		}).on('change', function() {
-			if ($(this).val() == "11"){
-				$("#divCustomTime").modal();
-			} else{
-				isCustom = false
-			}
-		});
-	}, 125);
-
+    $("#cTopic").html("<b>" + currentTranslation.meetingAt + " " + (new Date).toString('dd/MM/yyyy') + "</b>");
+	$('#selectTimes').select2({
+		placeholder: currentTranslation.chooseTime
+	}).on('change', function() {
+		if ($(this).val() == "11"){
+			$("#divCustomTime").modal();
+		} else{
+			isCustom = false
+		}
+	});
 	$("#linkResults").click(function(){
 		countTimetable();
 		printTable();
@@ -416,7 +414,4 @@ $(function(){
 	if (os == "iOS" || os == "Android"){
 		$("#btnBeep").hide();
 	}
-	setTimeout(function() {
-		$("#cTopic").html("<b>" + currentTranslation.meetingAt + " " + (new Date).toString('dd/MM/yyyy') + "</b>");
-	}, 125);
 });
