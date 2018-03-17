@@ -218,7 +218,9 @@ window.addEventListener(orientationEvent, function() {
 }, false);
 
 function resizeDivImage() {
-    $(".divImage").height($(window).height() - $(".bottom-footer").height() - $("#options").height());
+    var newSize = $(window).height() - $(".bottom-footer").height() - $("#options").height();
+    $(".divImage").height(newSize);
+    if ($(window).width() >= 520) $("#btnPlay").width(newSize);
 }
 
 function setBeep(beep) {
