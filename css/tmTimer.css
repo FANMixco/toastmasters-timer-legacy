@@ -130,12 +130,12 @@ body {
 }
 @media screen and (max-width: 600px) {
     .select2 {
-        width: 90% !important;
+        width: 95% !important;
         padding-bottom: 5px;
     }
     #txtMember {
         margin: auto;
-        width: 90%;
+        width: 95%;
     }
 }
 @media screen and (max-height: 520px) {
