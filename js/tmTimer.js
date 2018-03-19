@@ -189,11 +189,13 @@ function changeImages(extra) {
 	$("#btnStop").attr('src', "images/stop" + extra + ".png");
 	if (!isPaused && isStarted){
 		$("#btnRestart").attr('src', "images/restart" + extra + "-dis.png");
-        $("#btnRestart").attr('title', currentTranslation.titleRestart2);
+		$("#btnRestart").attr('title', currentTranslation.titleRestart2);
 	}
 	else{
 		$("#btnRestart").attr('src', "images/restart" + extra + ".png");
-        $("#btnRestart").attr('title', currentTranslation.titleRestart);
+		setTimeout(function () {
+			$("#btnRestart").attr('title', currentTranslation.titleRestart);
+		}, 150);
 	}
 	$("#btnTable").attr('src', "images/table" + extra + ".png");
 	$("#btnTimer").attr('src', "images/timer" + extra + ".png");
