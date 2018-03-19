@@ -27,3 +27,13 @@ This App provides you with different options, for example:
 Also, it records all the speeches
 
 The project is open-source and can be implemented, modified or improved freely without any constrain. Feel free to hack it, share new your ideas and thoughts about it.
+
+You can download the compiled versions in the official stores of:
+
+Android:
+
+https://play.google.com/store/apps/details?id=tk.supernova.tmtimer.tk.supernova.tmtimer
+
+Windows:
+
+https://www.microsoft.com/en-us/store/p/toastmasters-timer-pro/9n9rhqms0nwg
