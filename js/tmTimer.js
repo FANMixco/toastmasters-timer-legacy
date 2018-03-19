@@ -353,6 +353,7 @@ $(function(){
 		setVolumeImg();
 	});
 	$("#btnRestart").click(function(){
+		if (isStarted) return;
 		btnStopClick(false);
         isCustom = false
         minimum = 0;
