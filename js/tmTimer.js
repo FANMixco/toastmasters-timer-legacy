@@ -218,9 +218,7 @@ window.addEventListener(orientationEvent, function() {
 }, false);
 
 function resizeDivImage() {
-    var newSize = $(window).height() - $(".bottom-footer").height() - $("#options").height();
-    $(".divImage").height(newSize);
-    if ($(window).width() >= 520) $("#btnPlay").width(newSize);
+    $(".divImage, #tblControls, #tdMiddle").height($(window).height() - $(".bottom-footer").height() - $("#options").height());
 }
 
 function setBeep(beep) {

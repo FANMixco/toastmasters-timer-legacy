@@ -123,10 +123,34 @@ body {
     margin: 0 auto;
     pointer-events:all;
 }
-@media screen and (max-width: 520px) {
-    #btnPlay, #btnPause {
-		width: 90%;
+#tblControls td {
+	text-align: center;
+}
+#btnPlay, #btnPause, #btnStop, #btnRestart {
+	width: 100%;
+}
+@media screen and (max-width: 712px) {
+	#tblControls {
+		width:100%;
 	}
+	#tdLeft, #tdRight {
+		width: 25%;
+	}
+	#tdMiddle {
+		width: 50%;
+	}
+}
+@media screen and (max-width: 712px) and (max-height: 520px){
+    #btnPlay, #btnPause, #btnStop, #btnRestart {
+		width: 95%;
+		height: auto;
+    }
+}
+@media screen and (max-width: 930px) and (max-height: 500px){
+    #btnPlay, #btnPause {
+		height: 95%;
+		width: auto;
+    }
 }
 @media screen and (max-width: 600px) {
     .select2 {
@@ -136,10 +160,5 @@ body {
     #txtMember {
         margin: auto;
         width: 95%;
-    }
-}
-@media screen and (max-height: 520px) {
-    #btnPlay, #btnPause {
-        height: 95%;
     }
 }
