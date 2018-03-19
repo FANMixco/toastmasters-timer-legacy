@@ -30,10 +30,10 @@ The project is open-source and can be implemented, modified or improved freely w
 
 You can download the compiled versions in the official stores of:
 
-Android:
+**Android:**
 
 https://play.google.com/store/apps/details?id=tk.supernova.tmtimer.tk.supernova.tmtimer
 
-Windows:
+**Windows 10:**
 
 https://www.microsoft.com/en-us/store/p/toastmasters-timer-pro/9n9rhqms0nwg
