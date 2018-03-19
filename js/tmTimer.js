@@ -302,16 +302,18 @@ $(function(){
     }, 50);
 	$('[data-toggle="tooltip"]').tooltip();
 	$(".timing").timingfield();
-    $("#cTopic").html("<b>" + currentTranslation.meetingAt + " " + (new Date).toString('dd/MM/yyyy') + "</b>");
-	$('#selectTimes').select2({
-		placeholder: currentTranslation.chooseTime
-	}).on('change', function() {
-		if ($(this).val() == "11"){
-			$("#divCustomTime").modal();
-		} else{
-			isCustom = false
-		}
-	});
+    setTimeout(function () {
+		$("#cTopic").html("<b>" + currentTranslation.meetingAt + " " + (new Date).toString('dd/MM/yyyy') + "</b>");
+		$('#selectTimes').select2({
+			placeholder: currentTranslation.chooseTime
+		}).on('change', function() {
+			if ($(this).val() == "11"){
+				$("#divCustomTime").modal();
+			} else{
+				isCustom = false
+			}
+		});
+    }, 150);
 	$("#linkResults").click(function(){
 		countTimetable();
 		printTable();
