@@ -24,7 +24,9 @@ This App provides you with different options, for example:
 - 20 minutes speech.
 - Custom speeches up to 24 hours.
 
-Also, it records all the speeches
+Also, it records all the speeches.
+
+![timer](https://store-images.s-microsoft.com/image/apps.41272.13531949597940943.58694a5d-6296-42b1-83f7-933b36a72178.dd4cd2e3-ffb6-4480-894b-3ffca9f840db?w=1399&h=787&q=60)
 
 The project is open-source and can be implemented, modified or improved freely without any constrain. Feel free to hack it, share new your ideas and thoughts about it.
 
