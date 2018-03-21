@@ -1,6 +1,6 @@
 # toastmasters-timer
 
-![logo](https://github.com/FANMixco/toastmasters-timer/blob/master/images/favicon.png = 48x48)
+![logo](https://github.com/FANMixco/toastmasters-timer/blob/master/images/favicon.png =48x)
 
 It's a simple WebApp for helping Toastmasters all over the world to have an effective and productive Timer for their meetings. It was developed with JavaScript by The Leader Ship Toastmasters in Łódź, Poland.
 
