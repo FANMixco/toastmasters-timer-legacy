@@ -1,5 +1,8 @@
 # toastmasters-timer
-A simple WebApp for helping Toastmasters all over the world to have an effective Timer for their meetings. It was developed with JavaScript by The Leader Ship Toastmasters in Łódź, Poland.
+
+![logo](https://github.com/FANMixco/toastmasters-timer/blob/master/images/favicon.png)
+
+It's a simple WebApp for helping Toastmasters all over the world to have an effective and productive Timer for their meetings. It was developed with JavaScript by The Leader Ship Toastmasters in Łódź, Poland.
 
 http://theleadership.pl
 
@@ -13,7 +16,7 @@ https://fanmixco.github.io/toastmasters-timer
 This App provides you with different options, for example:
 - Question of the Day.
 - Ice-Breaker.
-- Project 2-9.
+- Project 2 – 9.
 - Project 10.
 - Evaluator's introduction.
 - Evaluations.
