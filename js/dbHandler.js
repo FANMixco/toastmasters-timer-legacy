@@ -87,18 +87,18 @@ function printTable() {
         var cursor = evt.target.result;
         if (cursor) {
             var defaultColor = "white";
-            if (cursor.value.lastColor == "yellow" || cursor.value.lastColor == "black" || cursor.value.lastColor == "white") {
+            if (cursor.value.lastColor === "yellow" || cursor.value.lastColor === "black" || cursor.value.lastColor === "white") {
                 defaultColor = "black";
             }
 
             var tempColor = cursor.value.lastColor;
-            if (tempColor == "black") {
+            if (tempColor === "black") {
                 tempColor = "white";
             }
 
             results.push({ member: cursor.value.member, role: cursor.value.role, time: cursor.value.time, lastColor: cursor.value.lastColor });
 
-            $('#tBodyResults').append('<tr style="background:' + tempColor + ';color:' + defaultColor + '"><td>' + cursor.value.member + '</td><td>' + cursor.value.role + '</td><td style="text-align:center">' + cursor.value.time + '</td></tr>');
+            $("#tBodyResults").append(`<tr style="background:${tempColor};color:${defaultColor}"><td>${cursor.value.member}</td><td>${cursor.value.role}</td><td style="text-align:center">${cursor.value.time}</td></tr>`);
             cursor.continue();
         }
     };
