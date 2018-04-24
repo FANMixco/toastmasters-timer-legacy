@@ -161,25 +161,23 @@ function startTimer() {
 }
 
 function changeImages(extra) {
-    $("#btnPlay").attr('src', "images/play" + extra + ".png");
-    $("#btnPause").attr('src', "images/pause" + extra + ".png");
-    $("#btnStop").attr('src', "images/stop" + extra + ".png");
+    $("#btnPlay").attr("src", `$images/play${extra}.png`);
+    $("#btnPause").attr("src", `$images/pause${extra}.png`);
+    $("#btnStop").attr("src", `$images/stop${extra}.png`);
     if (!isPaused && isStarted) {
-        $("#btnRestart").attr('src', "images/restart" + extra + "-dis.png");
-        $("#btnRestart").attr('title', currentTranslation.titleRestart2);
+        $("#btnRestart").attr("src", `$images/restart${extra}-dis.png`);
+        $("#btnRestart").attr("title", currentTranslation.titleRestart2);
     } else {
-        $("#btnRestart").attr('src', "images/restart" + extra + ".png");
-        setTimeout(function() {
-            $("#btnRestart").attr('title', currentTranslation.titleRestart);
-        }, 150);
+        $("#btnRestart").attr("src", `$images/restart${extra}.png`);
+        $("#btnRestart").attr("title", currentTranslation.titleRestart);
     }
-    $("#btnTable").attr('src', "images/table" + extra + ".png");
-    $("#btnTimer").attr('src', "images/timer" + extra + ".png");
-    $("#btnInvert").attr('src', "images/invert-colors" + extra + ".png");
+    $("#btnTable").attr("src", `$images/table${extra}.png`);
+    $("#btnTimer").attr("src", `$images/timer${extra}.png`);
+    $("#btnInvert").attr("src", `$images/invert-colors${extra}.png`);
     if (isBeepEnabled === "true")
-        $("#btnBeep").attr('src', "images/volume" + extra + ".png");
+        $("#btnBeep").attr("src", `$images/volume${extra}.png`);
     else
-        $("#btnBeep").attr('src', "images/volume-off" + extra + ".png");
+        $("#btnBeep").attr("src", `$images/volume-off${extra}.png`);
 }
 
 function changeImagesByColor() {
@@ -395,7 +393,5 @@ $(function() {
     setVolumeImg();
 
     var os = getMobileOperatingSystem();
-    if (os == "iOS" || os == "Android") {
-        $("#btnBeep").hide();
-    }
+    if (os == "iOS" || os == "Android") $("#btnBeep").hide();
 });
