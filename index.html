@@ -8,6 +8,7 @@
     <meta name="author" content="Federico Navarrete">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Toastmasters Timer</title>
+    <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link href="css/tmTimer.min.css" rel="stylesheet" />
     <link href="css/snackbar.min.css" rel="stylesheet" />
@@ -44,7 +45,7 @@
                     <option value="9" tkey="opt10"></option>
                     <option value="10" tkey="opt11"></option>
                     <option value="11" tkey="opt12"></option>
-		</select>
+		        </select>
                 <a href="#divCurrentTime" data-toggle="modal" data-target="#divCurrentTime">
                     <image id="btnTimer" data-toggle="tooltip" data-placement="bottom" src="images/timer-gray.png" alt="timer" tkey-title="titleTimer" />
                 </a>
@@ -154,5 +155,25 @@
             </div>
         </div>
     </div>
-</body>
+
+    <script>
+        // Add Service Worker
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('./sw.js', { scope: './' }).then(function(reg) {
+    
+          /*if (reg.installing) {
+              console.log('Service worker installing');
+            } else if (reg.waiting) {
+              console.log('Service worker installed');
+            } else if (reg.active) {
+              console.log('Service worker active');
+            }*/
+    
+          }).catch(function(error) {
+            // registration failed
+            console.log('Registration failed with ' + error);
+          });
+        }
+    </script>
+    </body>
 </html>
