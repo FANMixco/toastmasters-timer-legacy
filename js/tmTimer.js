@@ -283,7 +283,9 @@ function setImgAndBng() {
 }
 
 function setObjTranslations() {
-    $("#cTopic").html(`<b>${currentTranslation.meetingAt} ${(new Date).toString('dd/MM/yyyy')}</b>`);
+    setTimeout(function() {
+        $("#cTopic").html(`<b>${currentTranslation.meetingAt} ${(new Date).toString('dd/MM/yyyy')}</b>`);
+    }, 150);
     if ($(window).width() > 800) {
         $("head").append("<link href='css/select2.min.css' rel='stylesheet' />");
         $.getScript("js/select2.min.js", function() {});
