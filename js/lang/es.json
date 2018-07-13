@@ -1,14 +1,16 @@
-﻿{
-  "cancel": "Cancelar",
+{
+  "cancel": "No",
   "chooseSpeech": "Por favor elija un discurso",
   "chooseTime": "Elija el tiempo",
+  "clear": "Limpiar",
   "close": "Cerrar",
-  "confirm": "Confirmar",
+  "confirm": "Sí",
   "copyright1": "Creado con ♥ por ",
   "copyright2": " de ",
   "copyright3": "",
   "delete": "Eliminar",
   "deleteConfirmation": "¿Está seguro de eliminar esta agenda?",
+  "emptyCustom": "Las opciones personalizadas son 0. Por favor elija otra opción o editelas.",
   "errorHalf": "El tiempo mínimo no puede ser mayor o igual al máximo.",
   "errorMax": "El tiempo promedio no puede ser mayor o igual al máximo.",
   "errorMin": "El tiempo mínimo no puede ser mayor o igual al promedio.",
@@ -31,7 +33,7 @@
   "role": "Rol",
   "save": "Guardar",
   "time": "Tiempo",
-  "timeHalfway": "Tiempo promedio",
+  "timeHalfway": "Tiempo de advertencia",
   "timeMaximum": "Tiempo máximo",
   "timeMinimum": "Tiempo mínimo",
   "title": "Toastmasters Cronómetro",
@@ -41,7 +43,9 @@
   "titleRestart": "Reiniciar y comenzar desde el inicio (no guarda el tiempo del orador)",
   "titleRestart2": "Debes parar el cronómetro para reiniciar",
   "titleSound": "Encender/apagar el sonido",
+  "titleVibrate": "Encender/apagar el vibrador",
   "titleStop": "Detener y guardar el tiempo del orador",
   "titleTimer": "Tiempo",
-  "titleTimetable": "Agenda"
+  "titleTimetable": "Agenda",
+  "lblExportMsg": "Exportando la agenda a Excel"
 }

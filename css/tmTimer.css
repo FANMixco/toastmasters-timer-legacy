@@ -1,56 +1,15 @@
 html, body, #wrapper {
     height:100%;
 }
+@font-face {
+	font-family: Digital7;
+	src: url("../fonts/digital-7.ttf");
+}
+
 body {
     padding-top: 5px;
 }
-@font-face {
-	font-family: Digital7;
-	src: url("fonts/digital-7.ttf");
-}
-.divOptions {
-	padding: 0;
-	margin: 0;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-flow: row wrap;
-}
-.divImage {
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.hiddenElements{
-	display: none;
-}
-.centeredElements{
-	text-align: center;
-}
-.centeredDivs{
-	margin: auto; 
-}
-.timingfield{
-	margin: auto;
-}
-.centeredTimeOptions{
-    margin: auto;
-    width: min-content;
-    padding-right: 7px;
-    padding-left: 7px;
-    border-radius: 5px;
-}
+
 #txtMember {
 	margin: auto;
 	width: 70%;
@@ -96,6 +55,76 @@ body {
 #tblActions{
 	font-size: larger;
 }
+
+#tblControls td {
+    text-align: center;
+}
+
+#btnPlay, #btnPause, #btnStop, #btnRestart {
+    width: 100%;
+}
+
+#btnVibrate {
+    display: none;
+}
+.divOptions {
+	padding: 0;
+	margin: 0;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: row wrap;
+}
+
+.divImage {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hiddenElements{
+	display: none;
+}
+
+.centeredElements{
+	text-align: center;
+}
+
+.centeredDivs{
+	margin: auto; 
+}
+
+.timingfield{
+	margin: auto;
+}
+
+.popover-title {
+    font-weight: bold;
+}
+
+.btnconfirm {
+    margin-left: 5px;
+}
+
+.centeredTimeOptions{
+    margin: auto;
+    width: min-content;
+    padding-right: 7px;
+    padding-left: 7px;
+    border-radius: 5px;
+}
+
 .bottom-footer {
     position: absolute;
     left: 0;
@@ -123,12 +152,6 @@ body {
     margin: 0 auto;
     pointer-events:all;
 }
-#tblControls td {
-	text-align: center;
-}
-#btnPlay, #btnPause, #btnStop, #btnRestart {
-	width: 100%;
-}
 @media screen and (max-width: 712px) {
 	#tblControls {
 		width:100%;
@@ -152,8 +175,8 @@ body {
 		width: auto;
     }
 }
-@media screen and (max-width: 600px) {
-    .select2 {
+@media screen and (max-width: 615px) {
+    #selectTimes, .select2 {
         width: 95% !important;
         padding-bottom: 5px;
     }

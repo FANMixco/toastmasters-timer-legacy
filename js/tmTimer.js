@@ -1,9 +1,25 @@
 var audioElement;
-var counter = 1, selected = -1, minimum = 0, average = 0, maximum = 0, selectedColor = 0, green = 0, yellow = 0, red = 0;
-var lastColor = "white", isBeepEnabled = "false";
-var isPaused = false, isStarted = false, isCustom = false;
+var counter = 1,
+    selected = -1,
+    minimum = 0,
+    average = 0,
+    maximum = 0,
+    selectedColor = 0,
+    green = 0,
+    yellow = 0,
+    red = 0;
+var lastColor = "white",
+    isBeepEnabled = "false",
+    isVibrateEnabled = "false";
+var isPaused = false,
+    isStarted = false,
+    isCustom = false;
+	hasVibrator = true;
 var bColors = ["white", "black"];
-var supportsOrientationChange = "onorientationchange" in window, orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+var supportsOrientationChange = "onorientationchange" in window,
+    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+var os = getMobileOperatingSystem();
+if (os == "iOS" || os == "Android") $("#btnBeep").hide();
 
 var times = [
     //QA (30s)
@@ -34,37 +50,16 @@ function getTime() {
     return (new Date).clearTime().addSeconds(counter).toString("H:mm:ss");
 }
 
-/**
- * Determine the mobile operating system.
- * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
- *
- * @returns {String}
- */
-function getMobileOperatingSystem() {
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-    // Windows Phone must come first because its UA also contains "Android"
-    if (/windows phone/i.test(userAgent)) {
-        return "Windows Phone";
-    }
-
-    if (/android/i.test(userAgent)) {
-        return "Android";
-    }
-
-    // iOS detection from: http://stackoverflow.com/a/9039885/177710
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        return "iOS";
-    }
-
-    return "unknown";
+function enableVibrator() {
+	navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+	if (navigator.vibrate) {
+		hasVibrator = true;
+        $("#btnVibrate").show();
+	}
 }
 
 function btnStopClick(isAdded) {
-    var member = $("#txtMember").val();
-    var currentTime = getTime();
-
-    if (isStarted && isAdded) addNewTime(member, $("#selectTimes").find(":selected").text(), currentTime, lastColor);
+    if (isStarted && isAdded) addNewTime($("#txtMember").val(), $("#selectTimes").find(":selected").text(), getTime(), lastColor);
 
     $("#btnPause").hide();
     $("#btnPlay").show();
@@ -90,6 +85,65 @@ function btnStopClick(isAdded) {
     yellow = 0;
 }
 
+function startBeep() {
+    if (isBeepEnabled === "true") {
+        if (green === 1 || yellow === 1 || red === 1) {
+            audioElement.play();
+            setTimeout(function() {
+                audioElement.pause();
+            }, 500);
+        } else {
+            audioElement.pause();
+        }
+    }
+}
+
+function startVibrate() {
+    if (isVibrateEnabled === "true")
+        if (green === 1 || yellow === 1 || red === 1)
+			if (hasVibrator)
+                navigator.vibrate(1000);
+}
+
+function getBeep() {
+    if (localStorage.getItem("myBeep") !== null)
+        isBeepEnabled = localStorage.getItem("myBeep");
+    else
+        setBeep(isBeepEnabled);
+}
+
+function getVibrate() {
+    if (localStorage.getItem("myVibrate") !== null)
+        isVibrateEnabled = localStorage.getItem("myVibrate");
+    else
+        setVibrate(isVibrateEnabled);
+}
+
+function getCurrentColor() {
+    if (localStorage.getItem("myPreferedColor") !== null)
+        selectedColor = parseInt(localStorage.getItem("myPreferedColor"));
+    else
+        setColor(selectedColor);
+}
+
+function setBeep(beep) {
+    if (localStorage.getItem("myBeep") !== null)
+        localStorage.removeItem("myBeep");
+    localStorage.setItem("myBeep", beep);
+}
+
+function setVibrate(vibrate) {
+    if (localStorage.getItem("myVibrate") !== null)
+        localStorage.removeItem("myVibrate");
+    localStorage.setItem("myVibrate", vibrate);
+}
+
+function setColor(color) {
+    if (localStorage.getItem("myPreferedColor") !== null)
+        localStorage.removeItem("myPreferedColor");
+    localStorage.setItem("myPreferedColor", color);
+}
+
 function btnStartClick() {
     if (isStarted) return;
     isStarted = true;
@@ -111,23 +165,6 @@ function btnStartClick() {
         changeImages("");
 }
 
-function btnPauseClick() {
-    isPaused = true;
-}
-
-function startBeep() {
-    if (isBeepEnabled == "true") {
-        if (green == 1 || yellow == 1 || red == 1) {
-            audioElement.play();
-            setTimeout(function() {
-                audioElement.pause();
-            }, 500);
-        } else {
-            audioElement.pause();
-        }
-    }
-}
-
 function startTimer() {
     var setTime = setInterval(function() {
         if (isPaused)
@@ -140,18 +177,21 @@ function startTimer() {
                 $("#pTime,.lblFooter").css('color', "white");
                 green++;
                 startBeep();
+                startVibrate();
             } else if (counter >= average && counter < maximum) {
                 changeImages("-gray");
                 lastColor = "yellow";
                 $("#pTime,.lblFooter").css('color', "black");
                 yellow++;
                 startBeep();
+                startVibrate();
             } else if (counter >= maximum) {
                 changeImages("");
                 lastColor = "red";
                 $("#pTime,.lblFooter").css('color', "white");
                 red++;
                 startBeep();
+                startVibrate();
             } else
                 lastColor = bColors[selectedColor];
             $("body,#timeContent,#divCurrentTime").css("background-color", lastColor);
@@ -166,14 +206,14 @@ function changeImages(extra) {
     $("#btnStop").attr("src", `images/stop${extra}.png`);
     if (!isPaused && isStarted) {
         $("#btnRestart").attr("src", `images/restart${extra}-dis.png`);
-		setTimeout(function() {
-			$("#btnRestart").attr("title", currentTranslation.titleRestart2);
-		}, 150);
+        setTimeout(function() {
+            $("#btnRestart").attr("title", currentTranslation.titleRestart2);
+        }, 150);
     } else {
         $("#btnRestart").attr("src", `images/restart${extra}.png`);
-		setTimeout(function() {
-			$("#btnRestart").attr("title", currentTranslation.titleRestart);
-		}, 150);
+        setTimeout(function() {
+            $("#btnRestart").attr("title", currentTranslation.titleRestart);
+        }, 150);
     }
     $("#btnTable").attr("src", `images/table${extra}.png`);
     $("#btnTimer").attr("src", `images/timer${extra}.png`);
@@ -182,52 +222,15 @@ function changeImages(extra) {
         $("#btnBeep").attr("src", `images/volume${extra}.png`);
     else
         $("#btnBeep").attr("src", `images/volume-off${extra}.png`);
-}
-
-function changeImagesByColor() {
-    if (selectedColor === 0 && (lastColor === "white" || lastColor === "yellow"))
-        changeImages("-gray");
+    if (isVibrateEnabled === "true")
+        $("#btnVibrate").attr("src", `images/vibrate${extra}.png`);
     else
-        changeImages("");
-}
-
-window.addEventListener(orientationEvent, function() {
-    resizeDivImage();
-}, false);
-
-function resizeDivImage() {
-    $(".divImage, #tblControls, #tdMiddle").height($(window).height() - $(".bottom-footer").height() - $("#options").height());
-}
-
-function setBeep(beep) {
-    if (localStorage.getItem("myBeep") !== null)
-        localStorage.removeItem("myBeep");
-    localStorage.setItem("myBeep", beep);
-}
-
-function setColor(color) {
-    if (localStorage.getItem("myPreferedColor") !== null)
-        localStorage.removeItem("myPreferedColor");
-    localStorage.setItem("myPreferedColor", color);
-}
-
-function getBeep() {
-    if (localStorage.getItem("myBeep") !== null)
-        isBeepEnabled = localStorage.getItem("myBeep");
-    else
-        setBeep(isBeepEnabled);
-}
-
-function getCurrentColor() {
-    if (localStorage.getItem("myPreferedColor") !== null)
-        selectedColor = parseInt(localStorage.getItem("myPreferedColor"));
-    else
-        setColor(selectedColor);
+        $("#btnVibrate").attr("src", `images/vibrate-off${extra}.png`);
 }
 
 function setVolumeImg() {
     setBeep(isBeepEnabled);
-    if (selectedColor == 0 && (lastColor === "white" || lastColor === "yellow")) {
+    if (selectedColor === 0 && (lastColor === "white" || lastColor === "yellow")) {
         if (isBeepEnabled === "false")
             $("#btnBeep").attr('src', "images/volume-off-gray.png");
         else
@@ -238,6 +241,32 @@ function setVolumeImg() {
         else
             $("#btnBeep").attr('src', "images/volume.png");
     }
+}
+
+function setVibrateImg() {
+    setVibrate(isVibrateEnabled);
+    if (selectedColor === 0 && (lastColor === "white" || lastColor === "yellow")) {
+        if (isVibrateEnabled === "false")
+            $("#btnVibrate").attr("src", `images/vibrate-off-gray.png`);
+        else
+            $("#btnVibrate").attr("src", `images/vibrate-gray.png`);
+    } else {
+        if (isVibrateEnabled === "false")
+            $("#btnVibrate").attr("src", `images/vibrate-off.png`);
+        else
+            $("#btnVibrate").attr("src", `images/vibrate.png`);
+    }
+}
+
+function changeImagesByColor() {
+    if (selectedColor === 0 && (lastColor === "white" || lastColor === "yellow"))
+        changeImages("-gray");
+    else
+        changeImages("");
+}
+
+function resizeDivImage() {
+    $(".divImage,#tblControls,#tdMiddle").height($(window).height() - $(".bottom-footer").height() - $("#options").height());
 }
 
 function setImgAndBng() {
@@ -253,6 +282,34 @@ function setImgAndBng() {
     $("body,#timeContent,#divCurrentTime").css("background-color", lastColor);
 }
 
+function setObjTranslations() {
+    $("#cTopic").html(`<b>${currentTranslation.meetingAt} ${(new Date).toString('dd/MM/yyyy')}</b>`);
+    if ($(window).width() > 800) {
+        $("head").append("<link href='css/select2.min.css' rel='stylesheet' />");
+        $.getScript("js/select2.min.js", function() {});
+        setTimeout(function() {
+            $("#selectTimes").addClass("js-example-basic-single");
+            $("#selectTimes").select2({
+                placeholder: currentTranslation.chooseTime
+            });
+        }, 150);
+    } else {
+        $("#selectTimes").addClass("form-control");
+        $("#emptyOption").text(currentTranslation.chooseTime);
+        $('#emptyOption').prop("disabled", true);
+        $('#emptyOption').attr("value", "");
+    }
+    $("#selectTimes").on('change', function() {
+        if ($(this).val() === "11")
+            $("#divCustomTime").modal();
+        else
+            isCustom = false;
+    })
+}
+
+window.addEventListener(orientationEvent, function() {
+    resizeDivImage();
+}, false);
 
 function resizeModal() {
     if ($("#divContent").height() > $(window).height()) {
@@ -264,7 +321,29 @@ function resizeModal() {
     }
 }
 
+function showSnackBar(msg) {
+    $("#spanMsg").text(msg);
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function() {
+        x.className = x.className.replace("show", "");
+    }, 3000);
+}
+
 $(function() {
+    $("[data-toggle=confirmation]").confirmation({
+        rootSelector: "[data-toggle=confirmation]",
+        popout: true,
+        onConfirm: function() {
+            isStarted = false;
+            btnStopClick(false);
+            clearTimetable();
+            $("#hNoResults").show();
+            $("#tblResults,#btnDelete,#linkDownload").hide();
+            resizeModal();
+        }
+    });
+
     audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'sounds/beep.mp3');
 
@@ -277,39 +356,35 @@ $(function() {
     audioElement.addEventListener("timeupdate", function() {});
 
     initializeDB();
+	enableVibrator();
     setTimeout(function() {
         resizeDivImage();
     }, 50);
-    $("[data-toggle='tooltip']").tooltip();
     $(".timing").timingfield();
-    setTimeout(function() {
-        $("#cTopic").html(`<b>${currentTranslation.meetingAt} ${(new Date).toString('dd/MM/yyyy')}</b>`);
-        $("#selectTimes").select2({
-            placeholder: currentTranslation.chooseTime
-        }).on('change', function() {
-            if ($(this).val() == "11") {
-                $("#divCustomTime").modal();
-            } else {
-                isCustom = false
-            }
-        });
-    }, 150);
+    $("[data-toggle='tooltip']").tooltip();
+    if (errorLng) {
+        setTimeout(function() {
+            setObjTranslations();
+        }, 150);
+    } else {
+        setObjTranslations();
+    }
     $("#linkResults").click(function() {
         countTimetable();
         printTable();
         $("#divResults").modal();
-        setTimeout(function () {
+        setTimeout(function() {
             resizeModal();
         }, 250);
     });
     $("#btnPlay").click(function() {
         var state = $("#selectTimes").val();
         if (state === "" || state === null) {
-            var x = document.getElementById("snackbar")
-            x.className = "show";
-            setTimeout(function() {
-                x.className = x.className.replace("show", "");
-            }, 3000);
+            showSnackBar(currentTranslation.chooseSpeech);
+            return;
+        }
+        if ((isCustom || state === "11") && (minimum + average + maximum) === 0) {
+            showSnackBar(currentTranslation.emptyCustom);
             return;
         }
         isStarted = false;
@@ -320,6 +395,7 @@ $(function() {
     });
     $("#btnPause").click(function() {
         btnPauseClick();
+        isPaused = true;
         $(this).hide();
         $("#btnPlay").show();
         changeImagesByColor();
@@ -334,29 +410,39 @@ $(function() {
             isBeepEnabled = "true";
         setVolumeImg();
     });
+    $("#btnVibrate").click(function() {
+        if (isVibrateEnabled === "true")
+            isVibrateEnabled = "false";
+        else
+            isVibrateEnabled = "true";
+        setVibrateImg();
+    });
     $("#btnRestart").click(function() {
         if (isStarted) return;
         btnStopClick(false);
-        isCustom = false
+        isCustom = false;
         minimum = 0;
         average = 0;
         maximum = 0;
-        $("#selectTimes").select2({
-            placeholder: currentTranslation.chooseTime
-        }).val("").trigger("change");
+        if ($(window).width() > 800)
+            $("#selectTimes").select2({
+                placeholder: currentTranslation.chooseTime
+            }).val("").trigger("change");
+        else
+            $("#selectTimes").val("");
     });
 
     $("#btnSave").click(function() {
-        var minTime = parseInt($("input[type=text]")[2].value * 360) + parseInt($("input[type=text]")[3].value * 60) + parseInt($("input[type=text]")[4].value);
-        var avgTime = parseInt($("input[type=text]")[6].value * 360) + parseInt($("input[type=text]")[7].value * 60) + parseInt($("input[type=text]")[8].value);
-        var maxTime = parseInt($("input[type=text]")[10].value * 360) + parseInt($("input[type=text]")[11].value * 60) + parseInt($("input[type=text]")[12].value);
+        var minTime = parseInt($("input[type=number]")[0].value * 360) + parseInt($("input[type=number]")[1].value * 60) + parseInt($("input[type=number]")[2].value);
+        var avgTime = parseInt($("input[type=number]")[3].value * 360) + parseInt($("input[type=number]")[4].value * 60) + parseInt($("input[type=number]")[5].value);
+        var maxTime = parseInt($("input[type=number]")[6].value * 360) + parseInt($("input[type=number]")[7].value * 60) + parseInt($("input[type=number]")[8].value);
 
         if (minTime >= avgTime)
-            $("#pError").html(`${currentTranslation.errorMin}<br/>`);
+            showSnackBar(currentTranslation.errorMin);
         else if (minTime >= maxTime)
-            $("#pError").html(`${currentTranslation.errorHalf}<br/>`);
+            showSnackBar(currentTranslation.errorHalf);
         else if (avgTime >= maxTime)
-            $("#pError").html(`${currentTranslation.errorMax}<br/>`);
+            showSnackBar(currentTranslation.errorMax);
         else {
             isCustom = true;
             minimum = minTime;
@@ -374,28 +460,41 @@ $(function() {
         setImgAndBng();
     });
 
-    $("#btnConfirm").click(function(e) {
-        e.preventDefault();
-        isStarted = false;
-        btnStopClick(false);
-        clearTimetable();
-        $("#hNoResults").show();
-        $("#btnDelete").hide();
-        $("#tblResults").hide();
-    });
-
     $("[data-toggle]").click(function() {
         var _this = this;
         setTimeout(function() {
-            $(_this).tooltip('hide');
+            $(_this).tooltip("hide");
         }, 1500);
+    });
+
+    $("#linkDownload").click(function(e) {
+        showSnackBar(currentTranslation.lblExportMsg);
+        setTimeout(function() {
+			var doc = new jsPDF('l', 'pt', 'a4');
+			var res = doc.autoTableHtmlToJson(document.getElementById("tblResults"));
+			doc.autoTable(res.columns, res.data, {
+			  startY: 60
+			});
+			doc.save();
+		}, 250);
+    });
+
+    $.fn.hideKeyboard = function() {
+        var inputs = this.filter("input").attr('readonly', 'readonly'); // Force keyboard to hide on input field.
+        setTimeout(function() {
+            inputs.blur().removeAttr('readonly'); //actually close the keyboard and remove attributes
+        }, 100);
+        return this;
+    };
+
+    $("#txtMember,input[type=number]").on('keyup', function(e) {
+        if (e.keyCode === 13)
+            $(this).hideKeyboard();
     });
 
     getCurrentColor();
     getBeep();
+    getVibrate();
     setImgAndBng();
     setVolumeImg();
-
-    var os = getMobileOperatingSystem();
-    if (os == "iOS" || os == "Android") $("#btnBeep").hide();
 });

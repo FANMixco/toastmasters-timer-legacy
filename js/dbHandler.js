@@ -38,7 +38,7 @@ function clearTimetable() {
 
 //This function is for verifying if it's the current meeting or a new one
 function isNewMeeting() {
-    var currentDate = (new Date).toString('yyyy/MM/dd');
+    var currentDate = (new Date).toString("yyyy/MM/dd");
     if (localStorage.getItem("meetingDate") === null) {
         localStorage.setItem("meetingDate", currentDate);
         return true;
@@ -58,7 +58,7 @@ function addNewTime(member, role, time, lastColor) {
 }
 
 function countTimetable() {
-    var transaction = db.transaction(["timeTable"], 'readonly');
+    var transaction = db.transaction(["timeTable"], "readonly");
     var objectStore = transaction.objectStore("timeTable");
     var countRequest = objectStore.count();
     countRequest.onsuccess = function () {
@@ -66,17 +66,19 @@ function countTimetable() {
             $("#hNoResults").hide();
             $("#tblResults").show();
             $("#btnDelete").show();
+            $("#linkDownload").show();
         }
         else {
-            $("#hNoResults").show();
+	    $("#hNoResults").show();
             $("#tblResults").hide();
             $("#btnDelete").hide();
+            $("#linkDownload").hide();
         }
-    }
+    };
 }
 
 function printTable() {
-    $('#tBodyResults').empty();
+    $("#tBodyResults").empty();
     results = [];
 
     var transaction = db.transaction(["timeTable"], "readwrite");

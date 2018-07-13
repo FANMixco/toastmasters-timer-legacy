@@ -1,14 +1,16 @@
-﻿{
-  "cancel": "Cancel",
+{
+  "cancel": "No",
   "chooseSpeech": "Please select a speech",
   "chooseTime": "Choose a time",
+  "clear": "Clear",
   "close": "Close",
-  "confirm": "Confirm",
+  "confirm": "Yes",
   "copyright1": "Created with ♥ by ",
   "copyright2": " from ",
   "copyright3": "",
   "delete": "Delete",
   "deleteConfirmation": "Are you sure you want to delete this agenda?",
+  "emptyCustom": "The custom times are 0. Please change it or choose another option.",
   "errorHalf": "The minimum time cannot be greater or equal than the maximum time.",
   "errorMax": "The average time cannot be greater or equal than the maximum time.",
   "errorMin": "The minimum time cannot be greater or equal than the average time.",
@@ -31,7 +33,7 @@
   "role": "Role",
   "save": "Save",
   "time": "Time",
-  "timeHalfway": "Average time",
+  "timeHalfway": "Warning time",
   "timeMaximum": "Maximum time",
   "timeMinimum": "Minimum time",
   "title": "Toastmasters Timer",
@@ -41,7 +43,9 @@
   "titleRestart": "Restart and start from scratch (it doesn't store the speaker's time)",
   "titleRestart2": "You must stop the timer in order to restart",
   "titleSound": "Turn on/off the beep",
+  "titleVibrate": "Turn on/off the vibrator",
   "titleStop": "Stop and record the speaker's speech",
   "titleTimer": "Time",
-  "titleTimetable": "Timetable"
+  "titleTimetable": "Timetable",
+  "lblExportMsg": "Exporting your Agenda to Excel"
 }
