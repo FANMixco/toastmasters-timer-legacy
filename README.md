@@ -1,6 +1,6 @@
 # toastmasters-timer
 
-It's a simple WebApp for helping Toastmasters all over the world to have an effective and productive Timer for their meetings. It was developed with JavaScript by The Leader Ship Toastmasters in Łódź, Poland.
+It's a simple PWA (Progressive Web App) for helping Toastmasters all over the world to have an effective and productive Timer for their meetings. It was developed with JavaScript by The Leader Ship Toastmasters in Łódź, Poland.
 
 http://theleadership.pl
 
