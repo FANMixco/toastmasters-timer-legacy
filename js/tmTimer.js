@@ -435,9 +435,12 @@ $(function() {
     });
 
     $("#btnSave").click(function() {
-        var minTime = parseInt($("input[type=number]")[0].value * 360) + parseInt($("input[type=number]")[1].value * 60) + parseInt($("input[type=number]")[2].value);
-        var avgTime = parseInt($("input[type=number]")[3].value * 360) + parseInt($("input[type=number]")[4].value * 60) + parseInt($("input[type=number]")[5].value);
-        var maxTime = parseInt($("input[type=number]")[6].value * 360) + parseInt($("input[type=number]")[7].value * 60) + parseInt($("input[type=number]")[8].value);
+		var option = "input[type=text]";
+		if (os == "iOS" || os == "Android")
+			option = "input[type=number]";
+        var minTime = parseInt($(option)[0].value * 360) + parseInt($(option)[1].value * 60) + parseInt($(option)[2].value);
+        var avgTime = parseInt($(option)[3].value * 360) + parseInt($(option)[4].value * 60) + parseInt($(option)[5].value);
+        var maxTime = parseInt($(option)[6].value * 360) + parseInt($(option)[7].value * 60) + parseInt($(option)[8].value);
 
         if (minTime >= avgTime)
             showSnackBar(currentTranslation.errorMin);
