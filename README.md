@@ -1,11 +1,8 @@
-# toastmasters-timer
-
-It's a simple PWA (Progressive Web App) for helping Toastmasters all over the world to have an effective and productive Timer for their meetings. It was developed with JavaScript by The Leader Ship Toastmasters in Łódź, Poland.
+The best Toastmasters Timer for your meetings, it's simple, fast and accurate. It was developed by The Leader Ship Toastmasters in Lodz, Poland.
 
 http://theleadership.pl
 
-
-Feel free to use it it from:
+Feel free to use it it anywhere at anytime.
 
 https://fanmixco.github.io/toastmasters-timer
 
@@ -25,7 +22,26 @@ This App provides you with different options, for example:
 - 20 minutes speech.
 - Custom speeches up to 24 hours.
 
-Also, it records all the speeches.
+All speeches are recorded for sharing it with your members or guests.
+
+Special features:
+- Vibrating when a time has been reached.
+- Beeping when a time has been reached.
+- Clapping when the max time has been exceeded.
+
+Color coding:
+- Green light, speeches that didn't reach the minimum time (-30s), but still qualified in a contest (ONLY available in reports preview and exports/shares).
+- Green, minimum time was reached.
+- Yellow, optimal time was reached.
+- Read, optimal time was reached.
+- Black, speeches that exceed the maximum time (+30s) and are disqualified in a contest (ONLY available in reports preview).
+
+Extra options:
+- Export the agenda to PDF.
+
+Also, the project is open-source and can be implemented, modified or improved freely without any constrain. Feel free to hack it and share new your ideas about it.
+
+A preview of the App:
 
 ![timer](https://store-images.s-microsoft.com/image/apps.41272.13531949597940943.58694a5d-6296-42b1-83f7-933b36a72178.dd4cd2e3-ffb6-4480-894b-3ffca9f840db?w=1399&h=787&q=60)
 
@@ -43,9 +59,7 @@ Also, it records all the speeches.
 
 ![timer7](https://store-images.s-microsoft.com/image/apps.10836.13531949597940943.58694a5d-6296-42b1-83f7-933b36a72178.cb00b11b-337b-4c07-9a28-914040316245?w=1399&h=787&q=60)
 
-The project is open-source and can be implemented, modified or improved freely without any constrain. Feel free to hack it, share new your ideas and thoughts about it.
-
-You can download the compiled versions in the official stores of:
+Furthermore, you can download the compiled versions in the official stores of:
 
 **Android:**
 
