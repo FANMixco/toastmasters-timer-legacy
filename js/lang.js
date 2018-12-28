@@ -5,22 +5,22 @@ var errorLng = false;
 
 var translate = function (jsdata) {
     currentTranslation = jsdata;
-    $("[tkey]").each(function (index) {
+    $("[tkey]").each(function () {
         $(this).html(jsdata[$(this).attr("tkey")]);
     });
-    $("[tkey-title]").each(function (index) {
+    $("[tkey-title]").each(function () {
         $(this).prop("title", jsdata[$(this).attr("tkey-title")]);
     });
-    $("[tkey-placeholder]").each(function (index) {
+    $("[tkey-placeholder]").each(function () {
         $(this).prop("placeholder", jsdata[$(this).attr("tkey-placeholder")]);
     });
-    $("[tkey-btn-ok]").each(function (index) {
+    $("[tkey-btn-ok]").each(function () {
         $(this).data("btn-ok-label", jsdata[$(this).attr("tkey-btn-ok")]);
     });
-    $("[tkey-btn-cancel]").each(function (index) {
+    $("[tkey-btn-cancel]").each(function () {
         $(this).data("btn-cancel-label", jsdata[$(this).attr("tkey-btn-cancel")]);
     });
-    $("[tkey-data-title]").each(function (index) {
+    $("[tkey-data-title]").each(function () {
         $(this).data("title", jsdata[$(this).attr("tkey-data-title")]);
     });
 };
@@ -28,18 +28,16 @@ var translate = function (jsdata) {
 langCode = navigator.language.substr (0, 2);
 
 try {
-    if (langs.includes(langCode))
-        $.getJSON(`js/lang/${langCode}.json`, translate);
-    else
-        $.getJSON("js/lang/en.json", translate);
+    if (!langs.includes(langCode))
+        langCode = "en";
+    $.getJSON(`js/lang/${langCode}.json`, translate);
 }
 catch (e) {
     errorLng = true;
     setTimeout(function () {
-        if (isValueInArray(langs, langCode))
-            $.getJSON(`js/lang/${langCode}.json`, translate);
-        else
-            $.getJSON("js/lang/en.json", translate);
+        if (!isValueInArray(langs, langCode))
+            langCode = "en";
+    	$.getJSON(`js/lang/${langCode}.json`, translate);
     }, 125);
 }
 

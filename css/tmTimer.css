@@ -1,187 +1,204 @@
-html, body, #wrapper {
-    height:100%;
+@font-face{
+    font-family:Digital7;
+    src:url(../fonts/digital-7.ttf)
 }
-@font-face {
-	font-family: Digital7;
-	src: url("../fonts/digital-7.ttf");
+body,h3{
+    padding-top:5px
 }
-
-body {
-    padding-top: 5px;
+#wrapper,body,html{
+    height:100%
 }
-
-#txtMember {
-	margin: auto;
-	width: 70%;
+#chkAll{
+    vertical-align:middle;
+}
+#innerTime{
+    font-weight:bolder;
+    text-align:center
+}
+#customMax,#customMin{
+    color:#fff;
+    padding-bottom:10px
+}
+#customAvg,#customMax,#customMin{
+    padding-bottom:10px
+}
+#btnVibrate,#innerTime,#tblResults{
+    display:none
+}
+#txtMember{
+    margin:auto;
+    width:70%
 }
 #tblResults{
-	width:95%;
-	margin: auto;
-	display: none
+    width:95%;
+    margin:auto
 }
-#pTime{
-	font-weight: bolder;
-	font-size: 100px;
-	font-family: 'Digital7';
-}
-#pError{
-	font-weight: bolder;
-	color: red;
-	text-align:center;
-	margin-top: 1px;	
+#innerTime{
+    font-size:36px;
+    font-family:Digital7;
+    color:#757575
 }
 #customMin{
-	background: green;
-	color: white;
-	padding-bottom: 10px;
+    background:green
 }
 #customAvg{
-	background: yellow;
-	padding-bottom: 10px;
+    background:#ff0
 }
 #customMax{
-	background: red;
-	color: white;
-	padding-bottom: 10px;
+    background:red
 }
 #btnInvert{
-	height: 45px;
-	margin-top: -1px;
+    height:45px;
+    margin-top:-1px
 }
 #btnTimer{
-	height: 45px;
-	margin-right: 8px;
+    height:45px;
+    margin-right:8px
 }
 #tblActions{
-	font-size: larger;
+    font-size:larger
 }
-
-#tblControls td {
-    text-align: center;
+#innerTime,#tblControls td,.centeredElements{
+    text-align:center
 }
-
-#btnPlay, #btnPause, #btnStop, #btnRestart {
-    width: 100%;
+.basicAction{
+    width:100%
 }
-
-#btnVibrate {
-    display: none;
+.linkCol{
+    color:red;
 }
-.divOptions {
-	padding: 0;
-	margin: 0;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-flow: row wrap;
+.linkColY{
+    color:#ff0;
 }
-
-.divImage {
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.divOptions{
+    padding:0;
+    margin:0;
+    display:-webkit-box;
+    display:-moz-box;
+    display:-ms-flexbox;
+    display:-webkit-flex;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-flow:row wrap
 }
-
+.divImage{
+    height:100%;
+    padding:0;
+    margin:0;
+    display:-webkit-box;
+    display:-moz-box;
+    display:-ms-flexbox;
+    display:-webkit-flex;
+    display:flex;
+    align-items:center;
+    justify-content:center
+}
 .hiddenElements{
-	display: none;
+    display:none
 }
-
-.centeredElements{
-	text-align: center;
+.customTimes{
+    text-align:center!important;
+    font-size:40px!important;
+    padding-top:0!important;
+    font-family:'Digital7';
 }
-
-.centeredDivs{
-	margin: auto; 
+.centeredDivs,.timingfield{
+    margin:auto
 }
-
-.timingfield{
-	margin: auto;
+.btnconfirm{
+    margin-left:5px
 }
-
-.popover-title {
-    font-weight: bold;
-}
-
-.btnconfirm {
-    margin-left: 5px;
-}
-
 .centeredTimeOptions{
-    margin: auto;
-    width: min-content;
-    padding-right: 7px;
-    padding-left: 7px;
-    border-radius: 5px;
+    margin:auto;
+    max-width: 300px;
+    padding-right:7px;
+    padding-left:7px;
+    border-radius:5px
 }
-
-.bottom-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-	width: 100%;
+.bottom-footer{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%
 }
-.vertical-alignment-helper {
+.vertical-alignment-helper{
     display:table;
-    height: 100%;
-    width: 100%;
-    pointer-events:none;
+    height:100%;
+    width:100%;
+    pointer-events:none
 }
-.vertical-align-center {
-    /* To center vertically */
-    display: table-cell;
-    vertical-align: middle;
-    pointer-events:none;
+.vertical-align-center{
+    display:table-cell;
+    vertical-align:middle;
+    pointer-events:none
 }
-.modal-content {
-    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+button,.btn {
+    outline: none !important;
+}
+.modal-content{
     width:inherit;
-	max-width:inherit; /* For Bootstrap 4 - to avoid the modal window stretching full width */
+    max-width:inherit;
     height:inherit;
-    /* To center horizontally */
-    margin: 0 auto;
-    pointer-events:all;
+    margin:0 auto;
+    pointer-events:all
 }
-@media screen and (max-width: 712px) {
-	#tblControls {
-		width:100%;
-	}
-	#tdLeft, #tdRight {
-		width: 25%;
-	}
-	#tdMiddle {
-		width: 50%;
-	}
+.gray-tooltip + .tooltip > .tooltip-inner {
+    background-color: #cfd8dc;
+    color:black;
 }
-@media screen and (max-width: 712px) and (max-height: 520px){
-    #btnPlay, #btnPause, #btnStop, #btnRestart {
-		width: 95%;
-		height: auto;
+.gray-tooltip + .tooltip.top > .tooltip-arrow {
+     border-top-color:#cfd8dc;
+}
+.gray-tooltip + .tooltip.left > .tooltip-arrow {
+     border-left-color:#cfd8dc;
+}
+.gray-tooltip + .tooltip.right > .tooltip-arrow {
+     border-right-color:#cfd8dc;
+}
+.gray-tooltip + .tooltip.bottom > .tooltip-arrow {
+    border-bottom-color:#cfd8dc;
+}
+@media screen and (max-width:712px){
+    #tblControls{
+        width:100%
+    }
+    #tdLeft,#tdRight{
+        width:25%
+    }
+    #tdMiddle{
+        width:50%
     }
 }
-@media screen and (max-width: 930px) and (max-height: 500px){
-    #btnPlay, #btnPause {
-		height: 95%;
-		width: auto;
+@media screen and (max-width:712px) and (max-height:520px){
+    .basicAction{
+        width:95%;
+        height:auto
     }
 }
-@media screen and (max-width: 615px) {
-    #selectTimes, .select2 {
-        width: 95% !important;
-        padding-bottom: 5px;
+@media screen and (max-width:930px) and (max-height:500px){
+    #btnPause,#btnPlay{
+        height:95%;
+        width:auto
     }
-    #txtMember {
-        margin: auto;
-        width: 95%;
+}
+@media screen and (max-width:615px){
+    #selectTimes,.select2{
+        width:95%!important;
+        padding-bottom:5px
+    }
+    #txtMember{
+        margin:auto;
+        width:95%
+    }
+}
+@media screen and (orientation:landscape){
+    #divInnerTime{
+        margin-top:-25px
+    }
+}
+@media screen and (orientation:portrait){
+    #divInnerTime{
+        margin-top:0
     }
 }

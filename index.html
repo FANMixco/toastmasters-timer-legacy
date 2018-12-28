@@ -45,16 +45,12 @@
                     <option value="9" tkey="opt10"></option>
                     <option value="10" tkey="opt11"></option>
                     <option value="11" tkey="opt12"></option>
-		        </select>
-                <a href="#divCurrentTime" data-toggle="modal" data-target="#divCurrentTime">
-                    <image id="btnTimer" data-toggle="tooltip" data-placement="bottom" src="images/timer-gray.png" alt="timer" tkey-title="titleTimer" />
-                </a>
-                <a id="linkResults" href="#">
-                    <image id="btnTable" data-toggle="tooltip" data-placement="bottom" src="images/table-gray.png" alt="timetable" tkey-title="titleTimetable" />
-                </a>
-                <image id="btnInvert" data-toggle="tooltip" data-placement="bottom" src="images/invert-colors-gray.png" alt="invert" tkey-title="titleInvert" />
-                <image id="btnBeep" data-toggle="tooltip" data-placement="bottom" src="images/volume-off-gray.png" alt="beep" tkey-title="titleSound" />
-                <image id="btnVibrate" data-toggle="tooltip" data-placement="bottom" src="images/vibrate-off-gray.png" alt="vibrate" tkey-title="titleVibrate" />
+	        </select>
+                <image id="btnVisibleTimer" data-toggle="tooltip" class="gray-tooltip" data-placement="bottom" src="images/timer-off-gray.png" alt="timer" tkey-title="titleTimer" />
+                <a id="linkResults" href="#"><image id="btnTable" data-toggle="tooltip" class="gray-tooltip" data-placement="bottom" src="images/table-gray.png" alt="timetable" tkey-title="titleTimetable" /></a>
+                <image id="btnInvert" data-toggle="tooltip" data-placement="bottom" class="gray-tooltip" src="images/invert-colors-gray.png" alt="invert" tkey-title="titleInvert" />
+                <image id="btnBeep" data-toggle="tooltip" data-placement="bottom" class="gray-tooltip" src="images/volume-off-gray.png" alt="beep" tkey-title="titleSound" />
+                <image id="btnVibrate" data-toggle="tooltip" data-placement="bottom" class="gray-tooltip" src="images/vibrate-off-gray.png" alt="vibrate" tkey-title="titleVibrate" />
             </div>
             <input id="txtMember" type="text" class="form-control" tkey-placeholder="pMember" />
         </div>
@@ -62,14 +58,21 @@
             <table id="tblControls">
                 <tr>
                     <td id="tdLeft">
-                        <image id="btnRestart" data-toggle="tooltip" data-placement="bottom" src="images/restart-gray.png" alt="restart" tkey-title="titleRestart" />
+                        <image id="btnRestart" src="images/restart-gray.png" class="hiddenElements basicAction" alt="restart" data-toggle="confirmation"
+                               tkey-btn-ok="confirm" data-btn-ok-class="btn-danger"
+                               tkey-btn-cancel="cancel" data-btn-cancel-class="btn-default"
+                               tkey-data-title="resetWarning" />
+                        <image id="btnRestartBasic" data-toggle="tooltip" class="gray-tooltip basicAction" data-placement="bottom" src="images/restart-gray.png" alt="restart" tkey-title="titleRestart" />
                     </td>
                     <td id="tdMiddle">
-                        <image id="btnPlay" data-toggle="tooltip" src="images/play-gray.png" alt="play" tkey-title="titlePlay" />
-                        <image id="btnPause" data-toggle="tooltip" class="hiddenElements" src="images/pause-gray.png" alt="pause" tkey-title="titlePause" />
+                        <image id="btnPlay" data-toggle="tooltip" class="gray-tooltip basicAction" src="images/play-gray.png" alt="play" tkey-title="titlePlay" />
+                        <image id="btnPause" data-toggle="tooltip" class="hiddenElements gray-tooltip basicAction" src="images/pause-gray.png" alt="pause" tkey-title="titlePause" />
+                        <div style="text-align:center" id="divInnerTime">
+                            <span id="innerTime">00:00:00</span>
+                        </div>
                     </td>
                     <td id="tdRight">
-                        <image id="btnStop" data-toggle="tooltip" data-placement="bottom" src="images/stop-gray.png" alt="stop" tkey-title="titleStop" />
+                        <image id="btnStop" data-toggle="tooltip" class="gray-tooltip basicAction" data-placement="bottom" src="images/stop-gray.png" alt="stop" tkey-title="titleStop" />
                     </td>
                 </tr>
             </table>
@@ -84,6 +87,7 @@
             <div class="modal-dialog vertical-align-center">
                 <div class="modal-content">
                     <div class="modal-body centeredElements centeredDivs" style="background: white">
+                        <button id="btnResultCloseExtra" class="close" type="button" data-dismiss="modal">&times;</button>
                         <div id="customMin" class="centeredTimeOptions">
                             <h3 tkey="timeMinimum"></h3>
                             <input type="text" class="timing" />
@@ -98,58 +102,68 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="btnSave" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> <span tkey="save"></span></button>
-                        <button type="button" class="btn btn-warning" id="btnClear"><span class="glyphicon glyphicon-erase"></span> <span tkey="clear"></span></button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> <span tkey="close"></span></button>
+                        <button type="button" class="btn btn-warning" id="btnClear"><span class="glyphicon glyphicon-erase"></span></button>
+                        <button type="button" id="btnSave" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="divCurrentTime" role="dialog">
+    <div class="modal fade" id="divStickMsg" role="dialog">
         <div class="vertical-alignment-helper">
             <div class="modal-dialog vertical-align-center">
                 <div class="modal-content">
-                    <div class="modal-body centeredElements" id="timeContent">
-                        <p id="pTime">0:00:00</p>
+			<div class="modal-header">
+				<h4 class="modal-title"><span tkey="stickMsgTitle"></span></h4>
+			</div>
+                    <div class="modal-body">
+                        <p><span tkey="stickMsg"></span></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> <span tkey="close"></span></button>
+                        <button type="button" class="btn btn-default" id="btnUnstick"><span tkey="cancel"></span></button>
+                        <button type="button" class="btn btn-primary" id="btnStick"><span tkey="confirm"></span></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="divResults" role="dialog">
         <div class="vertical-alignment-helper">
             <div class="modal-dialog vertical-align-center">
                 <div id="divContent" class="modal-content">
                     <div id="divTable" class="modal-body centeredElements centeredDivs">
+                        <button id="btnResultCloseExtra" class="close" type="button" data-dismiss="modal">&times;</button>
                         <h1 id="hNoResults" tkey="noResults"></h1>
                         <table id="tblResults" class="table">
                             <caption id="cTopic"></caption>
                             <thead>
                                 <tr>
-                                    <th tkey="pMember"></th>
+                                    <th id="thDel" class="hiddenElements centeredElements"><input type="checkbox" id="chkAll" /></th>
+                                    <th class="centeredElements" tkey="pMember"></th>
                                     <th class="centeredElements" tkey="role"></th>
                                     <th class="centeredElements" tkey="time"></th>
-                                </tr>
+                                <tr>
                             </thead>
                             <tbody id="tBodyResults"></tbody>
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="linkDownload"><span class="glyphicon glyphicon-download-alt"></span> <span tkey="export"></span></button>
+                        <button type="button" class="btn btn-warning hiddenElements" id="btnMultiple" tkey-title="multiple"><span id="icnMultiple" class="glyphicon glyphicon-check"></span></button>
+                        <button type="button" class="btn btn-success" id="linkDownload"><span class="glyphicon glyphicon-download-alt"></span></button>
+                        <button id="btnDeleteMultiple" class="btn btn-danger btnconfirm hiddenElements"
+                                data-toggle="confirmation"
+                                tkey-btn-ok="confirm" data-btn-ok-class="btn-danger"
+                                tkey-btn-cancel="cancel" data-btn-cancel-class="btn-default"
+                                tkey-data-title="deleteConfirmationMultiple">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
                         <button id="btnDelete" class="btn btn-danger btnconfirm"
                                 data-toggle="confirmation"
                                 tkey-btn-ok="confirm" data-btn-ok-class="btn-danger"
                                 tkey-btn-cancel="cancel" data-btn-cancel-class="btn-default"
                                 tkey-data-title="deleteConfirmation">
-                            <span class="glyphicon glyphicon-trash"></span> <span tkey="delete"></span>
+                            <span class="glyphicon glyphicon-trash"></span>
                         </button>
-                        <button type="button" class="btn btn-default btnconfirm" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> <span tkey="close"></span></button>
                     </div>
                 </div>
             </div>
