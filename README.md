@@ -1,4 +1,4 @@
-The best Toastmasters Timer for your meetings, it's simple, fast and accurate. It was developed by The Leader Ship Toastmasters in Lodz, Poland.
+The best Toastmasters Timer for your meetings, it's simple, fast and accurate. It was developed by Federico Navarrete of **The Leader Ship Toastmasters** in Lodz, Poland.
 
 http://theleadership.pl
 
@@ -25,16 +25,16 @@ This App provides you with different options, for example:
 All speeches are recorded for sharing it with your members or guests.
 
 **Special features:**
-- Vibrating when a time has been reached.
-- Beeping when a time has been reached.
-- Clapping when the max time has been exceeded.
+- **Vibrating** when a time has been reached (optional).
+- **Beeping** when a time has been reached (optional).
+- **Clapping** when the max time has been exceeded (optional).
 
 **Color coding:**
-- Green light, speeches that didn't reach the minimum time (-30s), but still qualified in a contest (ONLY available in reports preview and exports/shares).
-- Green, minimum time was reached.
-- Yellow, optimal time was reached.
-- Read, optimal time was reached.
-- Black, speeches that exceed the maximum time (+30s) and are disqualified in a contest (ONLY available in reports preview).
+- **Light Green**, speeches that didn't reach the minimum time (-30s), but still qualified in a contest (ONLY available in reports preview and exports/shares).
+- **Green**, minimum time was reached.
+- **Yellow**, optimal time was reached.
+- **Read**, optimal time was reached.
+- **Black**, speeches that exceed the maximum time (+30s) and are disqualified in a contest (ONLY available in reports preview).
 
 **Extra options:**
 - Export the agenda to PDF.
