@@ -69,7 +69,7 @@ function getTime() {
 
 function enableVibrator() {
 	navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-	if (navigator.vibrate) {
+	if (navigator.vibrate && (os == "iOS" || os == "Android")) {
 		hasVibrator = true;
         $("#btnVibrate").show();
 	}
