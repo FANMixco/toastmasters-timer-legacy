@@ -7,7 +7,7 @@ var dateFormat = "dd/MM/yyyy";
 var bColors = ["white", "black"], countries = ["US", "FM", "MH", "PH"];
 var supportsOrientationChange = "onorientationchange" in window, orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
 var os = getMobileOperatingSystem();
-if (os == "iOS" || os == "Android") $("#btnBeep").hide();
+if (os == "iOS" || os == "Android") $("#btnBeep,#btnClapping").hide();
 
 var times = [
     //QA (30s)
