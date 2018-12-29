@@ -24,24 +24,24 @@ This App provides you with different options, for example:
 
 All speeches are recorded for sharing it with your members or guests.
 
-Special features:
+**Special features:**
 - Vibrating when a time has been reached.
 - Beeping when a time has been reached.
 - Clapping when the max time has been exceeded.
 
-Color coding:
+**Color coding:**
 - Green light, speeches that didn't reach the minimum time (-30s), but still qualified in a contest (ONLY available in reports preview and exports/shares).
 - Green, minimum time was reached.
 - Yellow, optimal time was reached.
 - Read, optimal time was reached.
 - Black, speeches that exceed the maximum time (+30s) and are disqualified in a contest (ONLY available in reports preview).
 
-Extra options:
+**Extra options:**
 - Export the agenda to PDF.
 
 Also, the project is open-source and can be implemented, modified or improved freely without any constrain. Feel free to hack it and share new your ideas about it.
 
-A preview of the App:
+**Previews of the App:**
 
 ![timer](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/8d504a63506593.5c2745ffb5dfe.png)
 
