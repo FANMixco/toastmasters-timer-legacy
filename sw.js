@@ -1,9 +1,9 @@
 (function () {
     "use strict";
   
-    var cacheNameStatic = 'tmtimer-pwa';
+    var cacheNameDynamic = 'tmtimer-pwa-' + Date.now();
   
-    var currentCacheNames = [ cacheNameStatic ];
+    var currentCacheNames = [ cacheNameDynamic ];
   
     var cachedUrls = [
         'css/tmTimer.min.css',
@@ -30,8 +30,8 @@
     // A new ServiceWorker has been registered
     self.addEventListener("install", function (event) {
       event.waitUntil(
-        caches.delete(cacheNameStatic).then(function() {
-          return caches.open(cacheNameStatic);
+        caches.delete(cacheNameDynamic).then(function() {
+          return caches.open(cacheNameDynamic);
         }).then(function (cache) {
           return cache.addAll(cachedUrls);
         }).catch(function(e) {
@@ -65,7 +65,7 @@
           } else {
             return fetch(event.request)     //fetch from internet
               .then(function(res) {
-                return caches.open(cacheNameStatic)
+                return caches.open(cacheNameDynamic)
                   .then(function(cache) {
                     cache.put(event.request.url, res.clone());    //save the response for future
                     return res;   // return the fetched data
@@ -81,5 +81,4 @@
         })
     );
   });
-  
-  })();
+})();
