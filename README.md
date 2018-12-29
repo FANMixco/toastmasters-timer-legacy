@@ -38,6 +38,7 @@ All speeches are recorded for sharing it with your members or guests.
 
 **Extra options:**
 - Export the agenda to PDF.
+- Dark Mode.
 
 Also, the project is open-source and can be implemented, modified or improved freely without any constrain. Feel free to hack it and share new your ideas about it.
 
@@ -47,7 +48,7 @@ Also, the project is open-source and can be implemented, modified or improved fr
 
 ![timer1](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/1ef46663506593.5c2745ffb4ff5.png)
 
-![timer2](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/aa9ec263506593.5c2745ffb413b.png)
+![timer2](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/46d61b63506593.5c27821e03259.png)
 
 ![timer3](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/7ec61a63506593.5c2745ffb5245.png)
 
@@ -55,7 +56,9 @@ Also, the project is open-source and can be implemented, modified or improved fr
 
 ![timer6](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/475fcb63506593.5c2745ffb56c8.png)
 
-![timer7](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/7ac79763506593.5c2745ffb6088.png)
+![timer7](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/172ed763506593.5c2781017f48d.png)
+
+![timer8](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/1062fc63506593.5c2745ffb4637.png)
 
 Furthermore, you can download the compiled versions in the official stores of:
 
