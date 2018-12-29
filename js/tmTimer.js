@@ -569,7 +569,7 @@ $(function () {
             clearTimetable();
             showSnackBar(currentTranslation.deletedAgenda, true);
             $("#hNoResults").show();
-            $("#tblResults,#btnDelete,#linkDownload,#btnMultiple,#btnShare").hide();
+            $("#tblResults,#footerResult").hide();
             resizeModal();
         }
     });
@@ -598,7 +598,7 @@ $(function () {
                     multipleEnabled = false;
                     clearTimetable();
                     $("#hNoResults").show();
-                    $("#tblResults,#btnDeleteMultiple,#linkDownload,#btnMultiple,#btnShare").hide();
+                    $("#tblResults,#footerResult").hide();
                 }
                 resizeModal();
             }

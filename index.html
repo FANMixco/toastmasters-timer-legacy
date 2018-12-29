@@ -147,7 +147,7 @@
                             <tbody id="tBodyResults"></tbody>
                         </table>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" id="footerResult">
                         <button type="button" class="btn btn-warning hiddenElements" id="btnMultiple" tkey-title="multiple"><span id="icnMultiple" class="glyphicon glyphicon-check"></span></button>
                         <button type="button" class="btn btn-success" id="linkDownload"><span class="glyphicon glyphicon-download-alt"></span></button>
                         <button id="btnDeleteMultiple" class="btn btn-danger btnconfirm hiddenElements"
@@ -175,14 +175,6 @@
         // Add Service Worker
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('./sw.js', { scope: './' }).then(function(reg) {
-    
-          /*if (reg.installing) {
-              console.log('Service worker installing');
-            } else if (reg.waiting) {
-              console.log('Service worker installed');
-            } else if (reg.active) {
-              console.log('Service worker active');
-            }*/
     
           }).catch(function(error) {
             // registration failed

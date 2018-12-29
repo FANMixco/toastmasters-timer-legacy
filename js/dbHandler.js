@@ -108,11 +108,11 @@ function countTimetable() {
     transaction.onsuccess = function () {
         if (transaction.result > 0) {
             $("#hNoResults").hide();
-            $("#tblResults,#btnMultiple,#btnDelete,#linkDownload,#btnShare").show();
+            $("#tblResults,#footerResult").show();
         }
         else {
             $("#hNoResults").show();
-            $("#tblResults,#btnDelete,#btnMultiple,#linkDownload,#btnShare").hide();
+            $("#tblResults,#footerResult").hide();
         }
     };
 }
