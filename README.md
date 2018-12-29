@@ -60,7 +60,7 @@ Also, the project is open-source and can be implemented, modified or improved fr
 
 ![timer8](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/1062fc63506593.5c2745ffb4637.png)
 
-Furthermore, you can download the compiled versions in the official stores of:
+Furthermore, you can download the compiled versions in the official stores:
 
 **Android:**
 
