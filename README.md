@@ -51,8 +51,6 @@ A preview of the App:
 
 ![timer3](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/7ec61a63506593.5c2745ffb5245.png)
 
-![timer4](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/c9aa9e63506593.5c2745ffb5440.png)
-
 ![timer5](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/c9aa9e63506593.5c2745ffb5440.png)
 
 ![timer6](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/475fcb63506593.5c2745ffb56c8.png)
