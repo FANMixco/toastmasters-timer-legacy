@@ -411,13 +411,14 @@ function setObjTranslations() {
     }, 150);
     if ($(window).width() > 800) {
         $("head").append("<link href='css/select2.min.css' rel='stylesheet' />");
-        $.getScript("js/select2.min.js", function() {});
-        setTimeout(function() {
-            $("#selectTimes").addClass("js-example-basic-single");
-            $("#selectTimes").select2({
-                placeholder: currentTranslation.chooseTime
-            });
-        }, 150);
+        $.getScript("js/select2.min.js").done(function () {
+            setTimeout(function() {
+                $("#selectTimes").addClass("js-example-basic-single");
+                $("#selectTimes").select2({
+                    placeholder: currentTranslation.chooseTime
+                });
+            }, 150);
+        });
     } else {
         $("#selectTimes").addClass("form-control");
         $("#emptyOption").text(currentTranslation.chooseTime);
