@@ -421,7 +421,9 @@ function setObjTranslations() {
         });
     } else {
         $("#selectTimes").addClass("form-control");
-        $("#emptyOption").text(currentTranslation.chooseTime);
+        setTimeout(function() {
+            $("#emptyOption").text(currentTranslation.chooseTime);
+        }, 150);
         $('#emptyOption').prop("disabled", true);
         $('#emptyOption').attr("value", "");
     }
