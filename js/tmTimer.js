@@ -634,6 +634,8 @@ $(function () {
         $("#icnMultiple").removeClass();
         $("#icnMultiple").toggleClass("glyphicon glyphicon-check");
         setSelect2(value);
+        if ($("#divCustomTime").data('bs.modal') && $("#divCustomTime").data('bs.modal').isShown)
+            $("#divCustomTime").modal("toggle");
     });
     $("#btnClear").click(function () {
 	let option = "input[type=text]";
