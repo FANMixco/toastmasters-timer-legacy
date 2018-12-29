@@ -58,17 +58,28 @@
     // Save thing to cache in process of use
     self.addEventListener('fetch', function(event) {
     event.respondWith(
-      caches.open(cacheNameStatic).then(function(cache) {
-        return cache.match(event.request).then(function(response) {
-          var fetchPromise = fetch(event.request).then(function(networkResponse) {
-            cache.put(event.request, networkResponse.clone());
-            return networkResponse;
-          })
-          return response || fetchPromise;
+        caches.match(event.request)
+        .then(function(response) {
+          if (response) {
+            return response || fetchPromise;     // if valid response is found in cache return it
+          } else {
+            return fetch(event.request)     //fetch from internet
+              .then(function(res) {
+                return caches.open(cacheNameStatic)
+                  .then(function(cache) {
+                    cache.put(event.request.url, res.clone());    //save the response for future
+                    return res;   // return the fetched data
+                  })
+              })
+              .catch(function(err) {       // fallback mechanism
+                return caches.open(CACHE_CONTAINING_ERROR_MESSAGES)
+                  .then(function(cache) {
+                    return null;// cache.match('/offline.html');
+                  });
+              });
+          }
         })
-      })
     );
   });
   
   })();
-  
