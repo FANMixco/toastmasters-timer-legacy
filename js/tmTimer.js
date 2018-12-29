@@ -450,7 +450,6 @@ function resizeModal() {
     }, 50);
 }
 
-
 function btnPlay() {
     var state = $("#selectTimes").val();
     if (state === "" || state === null) {
@@ -637,11 +636,12 @@ $(function () {
         setSelect2(value);
     });
     $("#btnClear").click(function () {
-	var option = "input[type=text]";
+	let option = "input[type=text]";
+        let iTxts = [2, 3, 4, 6, 7, 8, 10, 11, 12];
 	if (os == "iOS" || os == "Android")
 		option = "input[type=number]";
 	for (let i = 0; i < 9; i++)
-	    $(option)[i].value = "0";
+	    $(option)[iTxts[i]].value = "0";
     });
     $("#btnPlay").click(function() {
         btnPlay();
