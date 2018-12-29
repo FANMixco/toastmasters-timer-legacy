@@ -508,28 +508,29 @@ window.addEventListener(orientationEvent, function () {
 }, false);
 
 $(function () {
-    audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'sounds/beep.mp3');
+	if (!(os == "iOS" || os == "Android")) {
+	    audioElement = document.createElement('audio');
+	    audioElement.setAttribute('src', 'sounds/beep.mp3');
 
-    audioElement.addEventListener('ended', function() {
-        this.play();
-    }, false);
+	    audioElement.addEventListener('ended', function() {
+		this.play();
+	    }, false);
 
-    audioElement.addEventListener("canplay", function() {});
+	    audioElement.addEventListener("canplay", function() {});
 
-    audioElement.addEventListener("timeupdate", function() {});
+	    audioElement.addEventListener("timeupdate", function() {});
 
-    audioElementClapping = document.createElement('audio');
-    audioElementClapping.setAttribute('src', 'sounds/clapping.mp3');
+	    audioElementClapping = document.createElement('audio');
+	    audioElementClapping.setAttribute('src', 'sounds/clapping.mp3');
 
-    audioElementClapping.addEventListener('ended', function() {
-        this.play();
-    }, false);
+	    audioElementClapping.addEventListener('ended', function() {
+		this.play();
+	    }, false);
 
-    audioElementClapping.addEventListener("canplay", function() {});
+	    audioElementClapping.addEventListener("canplay", function() {});
 
-    audioElementClapping.addEventListener("timeupdate", function() {});
-
+	    audioElementClapping.addEventListener("timeupdate", function() {});
+	}
     setDbConf();
     $.fn.hideKeyboard = function () {
         var inputs = this.filter("input").attr("readonly", "readonly"); // Force keyboard to hide on input field.
