@@ -73,6 +73,8 @@ function enableVibrator() {
 		hasVibrator = true;
         $("#btnVibrate").show();
 	}
+	else
+        $("#btnVibrate").hide();
 }
 
 function setDbConf() {
