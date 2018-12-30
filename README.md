@@ -44,21 +44,21 @@ Also, the project is open-source and can be implemented, modified or improved fr
 
 **Previews of the App:**
 
-![timer](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/8d504a63506593.5c2745ffb5dfe.png)
+![timer](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/d4825863506593.5c28a5226b688.png)
 
-![timer1](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/1ef46663506593.5c2745ffb4ff5.png)
+![timer1](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/9e1bf163506593.5c28a5226b9fb.png)
 
-![timer2](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/46d61b63506593.5c27821e03259.png)
+![timer2](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/da5aac63506593.5c28a5226cc40.png)
 
-![timer3](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/7ec61a63506593.5c2745ffb5245.png)
+![timer3](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/346e4963506593.5c28a5226cffc.png)
 
-![timer5](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/c9aa9e63506593.5c2745ffb5440.png)
+![timer5](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/e1071e63506593.5c28a5226d441.png)
 
-![timer6](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/475fcb63506593.5c2745ffb56c8.png)
+![timer7](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/b2658963506593.5c28a694e0630.png)
 
-![timer7](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/172ed763506593.5c2781017f48d.png)
+![timer6](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/4da79763506593.5c28a5226c46f.png)
 
-![timer8](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/1062fc63506593.5c2745ffb4637.png)
+![timer8](https://mir-cdn.behance.net/v1/rendition/project_modules/fs/c325c763506593.5c28a5226af5b.png)
 
 Furthermore, you can download the compiled versions in the official stores:
 
