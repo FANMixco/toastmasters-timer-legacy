@@ -125,7 +125,7 @@ function btnStopClick(isAdded) {
 }
 
 function startBeep() {
-    if (isBeepEnabled === "true") {
+    if (isBeepEnabled === "true" && !(os == "iOS" || os == "Android")) {
         if (green === 1 || yellow === 1 || red === 1) {
             audioElement.play();
             setTimeout(function() {
@@ -294,7 +294,7 @@ function startTimer() {
 }
 
 function startClapping() {
-    if (isClappingEnabled === "true")
+    if (isClappingEnabled === "true" && !(os == "iOS" || os == "Android"))
     {
             audioElementClapping.play();
             setTimeout(function() {
@@ -304,7 +304,8 @@ function startClapping() {
 }
 
 function stopClapping() {
-    audioElementClapping.pause();
+    if (!(os == "iOS" || os == "Android"))
+	audioElementClapping.pause();
 }
 
 function changeImages(extra) {
