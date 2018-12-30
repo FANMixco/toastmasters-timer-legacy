@@ -67,8 +67,10 @@
               .then(function(res) {
                 return caches.open(cacheNameDynamic)
                   .then(function(cache) {
-                    cache.put(event.request.url, res.clone());    //save the response for future
-                    return res;   // return the fetched data
+                    if(!(event.request.url.indexOf('http') === 0)){
+                        cache.put(event.request.url, res.clone());    //save the response for future
+                        return res;   // return the fetched data
+                    }
                   })
               })
               .catch(function(err) {       // fallback mechanism
