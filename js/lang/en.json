@@ -1,4 +1,9 @@
 {
+  "about": "About us",
+  "about1": "Toastmasters Timer is an application developed by Supernova IC to facilitate your meetings with all the essential options.",
+  "about2": "Any question you can contact the main developer:",
+  "about3": "&copy; All Rights Reserved Supernova IC, 2013 - 2018.",
+  "about4": "If you are interested in more innovative and unique projects, you can check our website:",
   "cancel": "No",
   "chooseSpeech": "Please select a speech",
   "chooseTime": "Choose a time",
@@ -19,6 +24,7 @@
   "errorMax": "Optimal time cannot be greater than or equal to maximum time.",
   "errorMin": "Minimum time cannot be greater than or equal to optimal time.",
   "export": "Export",
+  "info": "About us",
   "lblExportMsg": "Exporting Agenda to Excel",
   "meetingAt": "Meeting at",
   "multiple": "Select",

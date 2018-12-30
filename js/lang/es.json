@@ -1,4 +1,9 @@
 {
+  "about": "Acerca de",
+  "about1": "Toastmasters Crónometro es una aplicación desarrollada por Supernova IC para facilitar sus reuiones con todas las opciones esenciales.",
+  "about2": "Cualquier pregunta puede contactar con el desarrollador principal:",
+  "about3": "&copy; Todos los Derechos Reservados Supernova IC, 2013 — 2018.",
+  "about4": "Si se encuentra interesado en más proyectos innovadores y únicos, puede consultar nuestra página web:",
   "cancel": "No",
   "chooseSpeech": "Por favor elija un discurso",
   "chooseTime": "Elija el tiempo",
@@ -19,6 +24,7 @@
   "errorMax": "El tiempo óptimo no puede ser mayor o igual al máximo.",
   "errorMin": "El tiempo mínimo no puede ser mayor o igual al óptimo.",
   "export": "Exportar",
+  "info": "Acerca de",
   "lblExportMsg": "Exportando la agenda a Excel",
   "meetingAt": "Fecha de la reunión:",
   "multiple": "Elegir",

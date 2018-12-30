@@ -321,6 +321,7 @@ function changeImages(extra) {
         setRestartBtnImg(extra, "", currentTranslation.titleRestart);
     $("#btnTable").attr("src", `images/table${extra}.png`);
     $("#btnInvert").attr("src", `images/invert-colors${extra}.png`);
+    $("#imgModalInfo").attr("src", `images/info${extra}.png`);
     setVolumeBtnImg(extra);
     setVibrateBtnImg(extra);
     setClappingBtnImg(extra);

@@ -50,7 +50,8 @@
                 <image id="btnInvert" data-toggle="tooltip" data-placement="bottom" class="gray-tooltip" src="images/invert-colors-gray.png" alt="invert" tkey-title="titleInvert" />
                 <image id="btnBeep" data-toggle="tooltip" data-placement="bottom" class="gray-tooltip" src="images/volume-off-gray.png" alt="beep" tkey-title="titleSound" />
                 <image id="btnVibrate" data-toggle="tooltip" data-placement="bottom" class="gray-tooltip" src="images/vibrate-off-gray.png" alt="vibrate" tkey-title="titleVibrate" />
-		<image id="btnClapping" data-toggle="tooltip" class="gray-tooltip" data-placement="bottom" src="images/clapping-off-gray.png" alt="clapping" tkey-title="clapping" />
+        		<image id="btnClapping" data-toggle="tooltip" class="gray-tooltip" data-placement="bottom" src="images/clapping-off-gray.png" alt="clapping" tkey-title="clapping" />
+                <a href="#divModalInfo" data-toggle="modal" data-target="#divModalInfo"><image id="imgModalInfo" data-toggle="tooltip" class="gray-tooltip" data-placement="bottom" src="images/info-gray.png" alt="info" tkey-title="info" /></a>
             </div>
             <input id="txtMember" type="text" class="form-control" tkey-placeholder="pMember" />
         </div>
@@ -87,7 +88,7 @@
             <div class="modal-dialog vertical-align-center">
                 <div class="modal-content">
                     <div class="modal-body centeredElements centeredDivs" style="background: white">
-                        <button id="btnResultCloseExtra" class="close" type="button" data-dismiss="modal">&times;</button>
+                        <button class="close" type="button" data-dismiss="modal">&times;</button>
                         <div id="customMin" class="centeredTimeOptions">
                             <h3 tkey="timeMinimum"></h3>
                             <input type="text" class="timing" />
@@ -113,9 +114,9 @@
         <div class="vertical-alignment-helper">
             <div class="modal-dialog vertical-align-center">
                 <div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title"><span tkey="stickMsgTitle"></span></h4>
-			</div>
+                    <div class="modal-header">
+                        <h4 class="modal-title"><span tkey="stickMsgTitle"></span></h4>
+                    </div>
                     <div class="modal-body">
                         <p><span tkey="stickMsg"></span></p>
                     </div>
@@ -127,12 +128,34 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="divModalInfo" role="dialog">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" type="button" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><span tkey="about"></span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p style="text-align:justify"><span tkey="about1"></span></p>
+                        <p class="centeredElements"><image src="images/favicon.png" style="width: 64px" /></p>
+                        <p style="text-align:justify"><span tkey="about2"></span></p>
+                        <p style="text-align:justify">Federico Navarrete <a href="mailto:fanmixco@gmail.com?Subject=TMTimer%20PWA" target="_top">fanmixco@gmail.com</a></p>
+                        <p style="text-align:justify"><span tkey="about4"></span></p>
+                        <p class="centeredElements"><a href="https://www.supernovaic.tk" target="_blank">www.supernovaic.tk</a></p>
+                        <p class="centeredElements"><image src="images/supernova.png" style="width: 96px" /></p>
+                        <p class="centeredElements"><span tkey="about3"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="divResults" role="dialog">
         <div class="vertical-alignment-helper">
             <div class="modal-dialog vertical-align-center">
                 <div id="divContent" class="modal-content">
                     <div id="divTable" class="modal-body centeredElements centeredDivs">
-                        <button id="btnResultCloseExtra" class="close" type="button" data-dismiss="modal">&times;</button>
+                        <button class="close" type="button" data-dismiss="modal">&times;</button>
                         <h1 id="hNoResults" tkey="noResults"></h1>
                         <table id="tblResults" class="table">
                             <caption id="cTopic"></caption>
