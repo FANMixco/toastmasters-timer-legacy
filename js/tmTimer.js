@@ -597,13 +597,16 @@ $(function () {
                     btnStopClick(isStarted);
                 }
                 showSnackBar(currentTranslation.deletedRoles, true);
-                if (totalItems === 0) {
-                    multipleEnabled = false;
-                    clearTimetable();
-                    $("#hNoResults").show();
-                    $("#tblResults,#footerResult").hide();
-                }
-                resizeModal();
+				
+				totalItems.onsuccess = function() {
+					if (totalItems.result === 0) {
+						multipleEnabled = false;
+						clearTimetable();
+						$("#hNoResults").show();
+						$("#tblResults,#footerResult").hide();
+					}
+					resizeModal();					
+				};
             }
         }
     });
