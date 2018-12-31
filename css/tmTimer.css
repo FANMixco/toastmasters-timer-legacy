@@ -170,6 +170,16 @@ button,.btn {
         width:50%
     }
 }
+@media screen and (max-width:600px) and (max-height:600px){
+    #innerTime{
+        font-size:70px;
+    }
+}
+@media screen and (max-width:800px) and (max-height:800px){
+    #innerTime{
+        font-size:100px;
+    }
+}
 @media screen and (max-width:712px) and (max-height:520px){
     .basicAction{
         width:95%;
