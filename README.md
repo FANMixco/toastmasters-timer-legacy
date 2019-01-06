@@ -69,3 +69,7 @@ https://play.google.com/store/apps/details?id=tk.supernova.tmtimer.tk.supernova.
 **Windows 10:**
 
 https://www.microsoft.com/en-us/store/p/toastmasters-timer-pro/9n9rhqms0nwg
+
+**Amazon:**
+
+https://amzn.to/2LV5fOW
