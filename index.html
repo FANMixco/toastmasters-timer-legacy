@@ -1,208 +1,421 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Toastmasters Timer">
-    <meta name="keywords" content="HTML,CSS,JavaScript,jQuery,Toastmasters,The Leader Ship,Lodz,Poland,Polska">
-    <meta name="author" content="Federico Navarrete">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Toastmasters Timer</title>
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link href="css/snackbar.min.css" rel="stylesheet" />
-    <link href="css/tmTimer.min.css" rel="stylesheet" />
-    <link href="css/timingfield.min.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/lang.js"></script>
-    <script src="js/getOS.min.js"></script>
-    <script src="js/timingfield.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-confirmation.min.js"></script>
-    <script src="js/date.js"></script>
-    <script src="js/dbHandler.min.js"></script>
-    <script src="js/jspdf.min.js"></script>
-</head>
 
-<body>
-    <div id="wrapper">
-        <div id="options" class="centeredElements">
-            <div class="divOptions">
-                <select id="selectTimes">
-                    <option id="emptyOption"></option>
-                    <option value="0" tkey="opt1"></option>
-                    <option value="1" tkey="opt2"></option>
-                    <option value="2" tkey="opt3"></option>
-                    <option value="3" tkey="opt4"></option>
-                    <option value="4" tkey="opt5"></option>
-                    <option value="5" tkey="opt6"></option>
-                    <option value="6" tkey="opt7"></option>
-                    <option value="7" tkey="opt8"></option>
-                    <option value="8" tkey="opt9"></option>
-                    <option value="9" tkey="opt10"></option>
-                    <option value="10" tkey="opt11"></option>
-                    <option value="11" tkey="opt12"></option>
-	        </select>
-                <image id="btnVisibleTimer" data-toggle="tooltip" class="gray-tooltip" data-placement="bottom" src="images/timer-off-gray.png" alt="timer" tkey-title="titleTimer" />
-                <a id="linkResults" href="#"><image id="btnTable" data-toggle="tooltip" class="gray-tooltip" data-placement="bottom" src="images/table-gray.png" alt="timetable" tkey-title="titleTimetable" /></a>
-                <image id="btnInvert" data-toggle="tooltip" data-placement="bottom" class="gray-tooltip" src="images/invert-colors-gray.png" alt="invert" tkey-title="titleInvert" />
-                <image id="btnBeep" data-toggle="tooltip" data-placement="bottom" class="gray-tooltip" src="images/volume-off-gray.png" alt="beep" tkey-title="titleSound" />
-                <image id="btnVibrate" data-toggle="tooltip" data-placement="bottom" class="gray-tooltip" src="images/vibrate-off-gray.png" alt="vibrate" tkey-title="titleVibrate" />
-        		<image id="btnClapping" data-toggle="tooltip" class="gray-tooltip" data-placement="bottom" src="images/clapping-off-gray.png" alt="clapping" tkey-title="clapping" />
-                <a href="#divModalInfo" data-toggle="modal" data-target="#divModalInfo"><image id="imgModalInfo" data-toggle="tooltip" class="gray-tooltip" data-placement="bottom" src="images/info-gray.png" alt="info" tkey-title="info" /></a>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Personal website of Federico Navarrete">
+  <meta name="keywords" content="Web Development,RPA,Consultancy,Public Speaking,Toastmasters,Agent of Change,Innovation,IT Consultancy,Traning,Soft-skills,Storytelling,Speeches,Travelling,Traveller,Planning,Project Management,Xamarin,Mobile Development,History,Politics">
+  <meta name="author" content="Federico Navarrete">
+
+  <title>Federico Navarrete - Agent of Change</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/3.4.93/css/materialdesignicons.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/freelancer.min.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Federico Navarrete</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#presentations">Presentations</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#articles">Articles</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#books">Books</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead bg-primary text-white text-center" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/84/Lake_Bled_from_the_Mountain.jpg');background-size: cover;">
+    <div class="container">
+      <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.jpg" style="max-width: 300px;border-radius: 50%;" alt="">
+      <h1 class="text-uppercase mb-0">Federico Navarrete</h1>
+      <hr class="star-light">
+      <h2 class="font-weight-light mb-0">IT Innovator | Bilingual Public Speaker 🇬🇧/ 🇪🇸 | Trainer | Agent of Change 💡</h2>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="bg-primary text-white mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">About</h2>
+        <hr class="star-light mb-5">
+        <div class="text-center mt-4">
+            <h3 class="text-center text-uppercase text-white">Do what other people believe is impossible, possible!</h3><br />
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <p class="lead">I'm IT innovator, bilingual public speaker 🇬🇧/ 🇪🇸 and trainer who constantly is challenging himself.<br /><br />I've been in the IT industry for more than 12 years where I’ve created powerful software while I developed useful soft skills as communication ones.</p>
+          </div>
+          <div class="col-sm">
+            <p class="lead">I enjoy challenges that’s why I have taken part in International contests of innovation and public speaking.<br /><br />In my free time, I volunteer in <a style="color: yellow!important;" href="https://www.toastmasters.org" target="_blank">Toastmaster International</a> where I have performed leadership roles, expanded my network and developed new skills, for example, mentoring and training.</p>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <h3 class="text-center text-uppercase text-white">I invite you to discover my favorite App.</h3><br />
+          <a class="btn btn-xl btn-outline-light" target="_blank" href="https://play.google.com/store/apps/details?id=tk.supernovaic.themayanroute">
+            <i class="fas fa-download mr-2"></i>
+            Download The Mayan Route!
+          </a>
+        </div>
+        <div class="text-center mt-4">
+            <h3 class="text-center text-uppercase text-white">Hobbies</h3>
+            <hr class="star-light mb-5">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Public speaking" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="mdi mdi-voice"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Innovation" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="mdi mdi-lightbulb-on"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Entrepreneurship" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Create a better world" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-globe-americas"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Photography" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-camera-retro"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Travelling" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-plane-departure"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Video games" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-gamepad"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Board games" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-dice"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Creative writing" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-pen-fancy"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="History" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="mdi mdi-pillar"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Politics" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-flag-usa"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Swimming" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-swimmer"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Theater" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-theater-masks"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Conferences & Networking" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="fas fa-users"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a data-toggle="tooltip" title="Astronomy & Science" class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                    <i class="mdi mdi-telescope"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <br />
+          <div class="container">
+            <h3 class="text-center text-uppercase text-white">Awards</h3>
+            <hr class="star-light mb-5">
+            <div class="row">
+              <div class="col-lg-4 ml-auto">
+                <p class="lead">Triple Crown by Toastmasters International 2018<br /><br />1st place in the Faculty ranking of the WEEIA and IFE 2016</p>
+              </div>
+              <div class="col-lg-4 mr-auto">
+                <p class="lead">Best scientific paper in the iNOTICE Conference 2016<br /><br />Top 5 in the Microsoft Imagine Cup of Poland 2016 in the category World Citizenship 2016</p>
+              </div>
+              <div class="col-lg-4 mr-auto">
+                <p class="lead">1st place in the Cisco Switch Up Challenge "The Internet of Everything" 2016<br /><br /><a href="https://2014.spaceappschallenge.org/awards/#globalawards" style="color: yellow!important;" target="_blank">Top 5 of The Most Inspiring projects of SpaceApps Challenge of NASA 2014</a></p>
+              </div>
             </div>
-            <input id="txtMember" type="text" class="form-control" tkey-placeholder="pMember" />
+          </div>
+      </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="bg-primary text-white mb-0" id="skills" style="background-image: url('https://get.pxhere.com/photo/writing-work-hand-creative-wood-white-home-tool-workshop-repair-equipment-studio-craft-paper-skill-making-blank-art-background-creativity-tools-handmade-craftsman-diy-manual-handcraft-hobby-workplace-scissors-mockup-ideas-creativeness-1201707.jpg');background-size: cover;">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Skills</h2>
+        <hr class="star-light mb-5">
+        <div class="row" style="background: rgba(44, 62, 80, .3)">
+          <div class="col-lg-4 ml-auto">
+            <p class="lead">Leadership<br /><br />Storytelling<br /><br />Creating elevators speeches on the fly<br /><br />Project management<br /><br />Innovative planning</p>
+          </div>
+          <div class="col-lg-4 mr-auto">
+            <p class="lead">Organizing events<br /><br />Business analysis<br /><br />Creative writing<br /><br />Mentoring<br /><br />Couching</p>
+          </div>
+          <div class="col-lg-4 mr-auto">
+            <p class="lead">Interviewing<br /><br />Team building<br /><br />Employee training<br /><br />RPA consultancy<br /><br />Web and Mobile development</p>
+          </div>
         </div>
-        <div class="divImage">
-            <table id="tblControls">
-                <tr>
-                    <td id="tdLeft">
-                        <image id="btnRestart" src="images/restart-gray.png" class="hiddenElements basicAction" alt="restart" data-toggle="confirmation"
-                               tkey-btn-ok="confirm" data-btn-ok-class="btn-danger"
-                               tkey-btn-cancel="cancel" data-btn-cancel-class="btn-default"
-                               tkey-data-title="resetWarning" />
-                        <image id="btnRestartBasic" data-toggle="tooltip" class="gray-tooltip basicAction" data-placement="bottom" src="images/restart-gray.png" alt="restart" tkey-title="titleRestart" />
-                    </td>
-                    <td id="tdMiddle">
-                        <image id="btnPlay" data-toggle="tooltip" class="gray-tooltip basicAction" src="images/play-gray.png" alt="play" tkey-title="titlePlay" />
-                        <image id="btnPause" data-toggle="tooltip" class="hiddenElements gray-tooltip basicAction" src="images/pause-gray.png" alt="pause" tkey-title="titlePause" />
-                        <div style="text-align:center" id="divInnerTime">
-                            <span id="innerTime">00:00:00</span>
-                        </div>
-                    </td>
-                    <td id="tdRight">
-                        <image id="btnStop" data-toggle="tooltip" class="gray-tooltip basicAction" data-placement="bottom" src="images/stop-gray.png" alt="stop" tkey-title="titleStop" />
-                    </td>
-                </tr>
-            </table>
+      </div>
+  </section>
+  <!-- Personal projects Grid Section -->
+  <section class="portfolio" id="projects">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Personal projects</h2>
+      <hr class="star-dark mb-5">
+      <div class="row">
+        <div class="col">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/oFmN1NErGN4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <h4 class="text-center text-uppercase text-secondary mb-0"><a href="https://github.com/FANMixco/toastmasters-timer" target="_blank">Toastmasters Timer</a>, 2018 - now</h4>
         </div>
-    </div>
-    <div class="bottom-footer centeredElements">
-        <span class='lblFooter' tkey="copyright1"></span><a class="externalLinks" href="https://www.behance.net/fanmixco">Federico Navarrete</a><span class='lblFooter' tkey="copyright2"></span><a class="externalLinks" href="http://theleadership.pl">The Leader Ship Toastmasters</a><span class='lblFooter' tkey="copyright3"></span><span class='lblFooter'>.</span>
-    </div>
-    <div id="snackbar"><span id="spanMsg"></span></div>
-    <div class="modal fade" id="divCustomTime" role="dialog">
-        <div class="vertical-alignment-helper">
-            <div class="modal-dialog vertical-align-center">
-                <div class="modal-content">
-                    <div class="modal-body centeredElements centeredDivs" style="background: white">
-                        <button class="close" type="button" data-dismiss="modal">&times;</button>
-                        <div id="customMin" class="centeredTimeOptions">
-                            <h3 tkey="timeMinimum"></h3>
-                            <input type="text" class="timing" />
-                        </div>
-                        <div id="customAvg" class="centeredTimeOptions">
-                            <h3 tkey="timeHalfway"></h3>
-                            <input type="text" class="timing" />
-                        </div>
-                        <div id="customMax" class="centeredTimeOptions">
-                            <h3 tkey="timeMaximum"></h3>
-                            <input type="text" class="timing" />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" id="btnClear"><span class="glyphicon glyphicon-erase"></span></button>
-                        <button type="button" id="btnSave" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span></button>
-                    </div>
-                </div>
-            </div>
+        <div class="col">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/HEfgCXWM6xg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <h4 class="text-center text-uppercase text-secondary mb-0"><a href="https://www.microsoft.com/en-gb/p/lets-stop-diabetes-premium/9nblggh4r824?rtc=1" target="_blank">Let's Stop Diabetes</a>, 2015 - now</h4>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/x-4Z8Fo7HOQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <h4 class="text-center text-uppercase text-secondary mb-0"><a href="http://gravitynow.tk" target="_blank">Gravity Now!</a>, 2014 - now</h4>
         </div>
     </div>
-    <div class="modal fade" id="divStickMsg" role="dialog">
-        <div class="vertical-alignment-helper">
-            <div class="modal-dialog vertical-align-center">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title"><span tkey="stickMsgTitle"></span></h4>
-                    </div>
-                    <div class="modal-body">
-                        <p><span tkey="stickMsg"></span></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" id="btnUnstick"><span tkey="cancel"></span></button>
-                        <button type="button" class="btn btn-primary" id="btnStick"><span tkey="confirm"></span></button>
-                    </div>
-                </div>
-            </div>
+  </div>
+  </section>
+
+  <!-- Portfolio Grid Section -->
+  <section class="portfolio" id="presentations">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Presentations</h2>
+      <hr class="star-dark mb-5">
+      <h3 class="text-center text-uppercase text-secondary mb-0">Public Speaking</h3>
+      <hr>
+      <div class="row">
+          <div class="col-sm">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/-c2zayFv14Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h4 class="text-center text-uppercase text-secondary mb-0">The Missing Variable</h4>
+          </div>
+          <div class="col-sm">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/L7RpPKok3t0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h4 class="text-center text-uppercase text-secondary mb-0">The Edgar's Show</h4>
+          </div>
+      </div>
+      <hr>
+      <h3 class="text-center text-uppercase text-secondary mb-0">Prezis</h3>
+      <hr>
+      <div class="row">
+        <div class="col-sm">
+          <a href="https://prezi.com/view/WS9YlwfJlTlVgvYvvhlS" target="_blank">
+            <img class="img-fluid" src="img/portfolio/rfriends.png" alt="" />
+          </a>
+          <h4 class="text-center text-uppercase text-secondary mb-0">Are robots your friends?</h4>
         </div>
+        <div class="col-sm">
+            <a href="https://prezi.com/view/WFmIP01XeUsnpcQUpsgt" target="_blank">
+              <img class="img-fluid" src="img/portfolio/ponline.png" alt="" />
+            </a>
+            <h4 class="text-center text-uppercase text-secondary mb-0">How to improve our presence online.</h4>
+          </div>
+      </div>
     </div>
-    <div class="modal fade" id="divModalInfo" role="dialog">
-        <div class="vertical-alignment-helper">
-            <div class="modal-dialog vertical-align-center">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button class="close" type="button" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title"><span tkey="about"></span></h4>
-                    </div>
-                    <div class="modal-body">
-                        <p style="text-align:justify"><span tkey="about1"></span></p>
-                        <p class="centeredElements"><image src="images/favicon.png" style="width: 64px" /></p>
-                        <p style="text-align:justify"><span tkey="about2"></span></p>
-                        <p style="text-align:justify">Federico Navarrete <a href="mailto:fede_navarrete@yahoo.co.uk?Subject=TMTimer%20PWA" target="_top">fede_navarrete@yahoo.co.uk</a></p>
-                        <p style="text-align:justify"><span tkey="about4"></span></p>
-                        <p class="centeredElements"><a href="https://www.supernovaic.tk" target="_blank">www.supernovaic.tk</a></p>
-                        <p class="centeredElements"><image src="images/supernova.png" style="width: 96px" /></p>
-                        <p class="centeredElements"><span tkey="about3"></span></p>
-                    </div>
-                </div>
-            </div>
+  </section>
+
+  <!-- Articles Grid Section -->
+  <section class="portfolio" id="articles">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Articles</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+          <div class="col">
+            <a href="https://www.linkedin.com/pulse/four-faces-automation-federico-navarrete/" target="_blank">
+              <img class="img-fluid" src="img/articles/faces.png" alt="" />
+            </a>
+            <h4 class="text-center text-uppercase text-secondary mb-0">The Four Faces of Automation</h4>
+          </div>
+          <div class="col">
+            <a href="https://www.linkedin.com/pulse/automation-future-workforce-federico-navarrete/" target="_blank">
+              <img class="img-fluid" src="img/articles/workforce.jpg" alt="" />
+            </a>
+            <h4 class="text-center text-uppercase text-secondary mb-0">Automation and the future of the workforce</h4>
+          </div>
+      </div>
+  </section>
+  <!-- Books Section -->
+  <section class="bg-primary text-white mb-0" id="books">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Recommended Books</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+          <div class="col">
+            <p class="lead"><a style="color: yellow!important;" target="_blank" href="https://amzn.to/2TtC6wY">Harry Potter and the Order of The Phoenix</a> By J.K. Rowling<br /><br /><a style="color: yellow!important;" target="_blank" href="https://bit.ly/2p0eZNl">How to Win Friends and Influence People</a> By Dale Carnegie</p>
+          </div>
+          <div class="col">
+            <p class="lead"><a style="color: yellow!important;" target="_blank" href="https://amzn.to/2fjDsY5">The Monk Who Sold His Ferrari</a> By Robin Sharma<br /><br /><a style="color: yellow!important;" target="_blank" href="https://amzn.to/2ivFURl">How to Stop Worrying and Start Living</a> By Dale Carnegie</p>
+          </div>
         </div>
-    </div>
-    <div class="modal fade" id="divResults" role="dialog">
-        <div class="vertical-alignment-helper">
-            <div class="modal-dialog vertical-align-center">
-                <div id="divContent" class="modal-content">
-                    <div id="divTable" class="modal-body centeredElements centeredDivs">
-                        <button class="close" type="button" data-dismiss="modal">&times;</button>
-                        <h1 id="hNoResults" tkey="noResults"></h1>
-                        <table id="tblResults" class="table">
-                            <caption id="cTopic"></caption>
-                            <thead>
-                                <tr>
-                                    <th id="thDel" class="hiddenElements centeredElements"><input type="checkbox" id="chkAll" /></th>
-                                    <th class="centeredElements" tkey="pMember"></th>
-                                    <th class="centeredElements" tkey="role"></th>
-                                    <th class="centeredElements" tkey="time"></th>
-                                <tr>
-                            </thead>
-                            <tbody id="tBodyResults"></tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer" id="footerResult">
-                        <button type="button" class="btn btn-warning hiddenElements" id="btnMultiple" tkey-title="multiple"><span id="icnMultiple" class="glyphicon glyphicon-check"></span></button>
-                        <button type="button" class="btn btn-success" id="linkDownload"><span class="glyphicon glyphicon-download-alt"></span></button>
-                        <button id="btnDeleteMultiple" class="btn btn-danger btnconfirm hiddenElements"
-                                data-toggle="confirmation"
-                                tkey-btn-ok="confirm" data-btn-ok-class="btn-danger"
-                                tkey-btn-cancel="cancel" data-btn-cancel-class="btn-default"
-                                tkey-data-title="deleteConfirmationMultiple">
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </button>
-                        <button id="btnDelete" class="btn btn-danger btnconfirm"
-                                data-toggle="confirmation"
-                                tkey-btn-ok="confirm" data-btn-ok-class="btn-danger"
-                                tkey-btn-cancel="cancel" data-btn-cancel-class="btn-default"
-                                tkey-data-title="deleteConfirmation">
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Contact me</h4>
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="Email" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="mailto:federico.navarrete@outlook.com">
+                <i class="fas fa-at"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="Telephone" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="tel:+48422886718">
+                <i class="fas fa-phone"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="Skype" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="skype:fanmixco?call">
+                <i class="fab fa-fw fa-skype"></i>
+              </a>
+            </li>
+          </ul>
         </div>
+        <div class="col-md-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Around the Web</h4>
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="Supernova IC" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="http://supernovaic.tk">
+                <i class="fas fa-fw fa-building"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="Federico Stories" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="https://federicostories.blogspot.com">
+                <i class="fab fa-fw fa-blogger-b"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="YouTube Channel" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.youtube.com/c/FedericoNavarrete">
+                <i class="fab fa-fw fa-youtube"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="LinkedIn" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.linkedin.com/in/fanmixco/">
+                <i class="fab fa-fw fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="Portfolio" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.behance.net/fanmixco">
+                <i class="fab fa-fw fa-behance"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="Play Store" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="https://play.google.com/store/apps/dev?id=5690548735972645731">
+                <i class="fab fa-fw fa-google-play"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="Instagram" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.instagram.com/fanmixco/">
+                <i class="fab fa-fw fa-instagram"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="GitHub" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="https://github.com/FANMixco">
+                <i class="fab fa-fw fa-github"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a data-toggle="tooltip" title="StackOverflow" target="_blank" class="btn btn-outline-light btn-social text-center rounded-circle" href="https://stackoverflow.com/users/2889347/federico-navarrete">
+                <i class="fab fa-fw fa-stack-overflow"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h4 class="text-uppercase mb-4">About Freelancer</h4>
+          <p class="lead mb-0">Freelance is a free to use, open source Bootstrap theme created by
+            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+        </div>
+      </div>
     </div>
-    <script src="js/tmTimer.js"></script>
-    <script>
-        // Add Service Worker
-        /*if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('./sw.js', { scope: './' }).then(function(reg) {
-    
-          }).catch(function(error) {
-            // registration failed
-            console.log('Registration failed with ' + error);
-          });
-        }*/
-    </script>
-    </body>
+  </footer>
+
+  <div class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Federico Navarrete & <a href="http://supernovaic.tk" target="_blank">Supernova IC</a> 2019</small>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+</body>
+
 </html>
