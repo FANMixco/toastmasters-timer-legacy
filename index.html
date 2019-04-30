@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html>
+<!--
+          _____       _____
+     ,-'``_.-'` \   / `'-._``'-.
+   ,`   .'      |`-'|      `.   `.
+ ,`    (    /\  |   |  /\    )    `.
+/       `--'  `-'   `-'  `--'       \
+|                                   |
+\      .--.  ,--.   ,--.  ,--.      /
+ `.   (    \/ lt.\ /    \/    )   ,'
+   `._ `--.___    V    ___.--' _,'
+      `'----'`         `'----'`
 
+https://www.asciiart.eu/comics/spiderman
+“It’s not who I am underneath, but what I do that defines me.” – Batman
+Feel free to contact me:
+https://goo.gl/forms/JArck4uzbGGmTuG72
+-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Toastmasters Timer">
-    <meta name="keywords" content="HTML,CSS,JavaScript,jQuery,Toastmasters,The Leader Ship,Lodz,Poland,Polska">
+    <meta name="keywords" content="Timer,Stopwatch,Material Design,HTML,CSS,JavaScript,jQuery,Toastmasters,The Leader Ship,Lodz,Poland,Polska,Easter Egg,Batman">
     <meta name="author" content="Federico Navarrete">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="theme-color" content="#ffffff">
     <title>Toastmasters Timer</title>
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/png" href="images/favicon.png" />
@@ -15,7 +32,6 @@
     <link href="css/timingfield.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/lang.js"></script>
     <script src="js/getOS.min.js"></script>
     <script src="js/timingfield.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -193,15 +209,24 @@
         </div>
     </div>
     <script src="js/tmTimer.js"></script>
+    <script src="js/lang.js"></script>
     <script>
-        // Add Service Worker
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('./sw.js', { scope: './' }).then(function(reg) {
-    
-          }).catch(function(error) {
-            // registration failed
-            console.log('Registration failed with ' + error);
-          });
+        // This is the "Offline page" service worker
+        // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+        // Check compatibility for the browser we're running this in
+        if ("serviceWorker" in navigator) {
+          if (navigator.serviceWorker.controller) {
+            console.log("[PWA Builder] active service worker found, no need to register");
+          } else {
+            // Register the service worker
+            navigator.serviceWorker
+              .register("sw.js", {
+                scope: "./"
+              })
+              .then(function (reg) {
+                console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+              });
+          }
         }
     </script>
     </body>

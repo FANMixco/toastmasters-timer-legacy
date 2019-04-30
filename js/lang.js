@@ -5,6 +5,7 @@ var errorLng = false;
 
 var translate = function (jsdata) {
     currentTranslation = jsdata;
+    
     $("[tkey]").each(function () {
         $(this).html(jsdata[$(this).attr("tkey")]);
     });
