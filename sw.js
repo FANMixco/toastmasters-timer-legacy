@@ -53,7 +53,7 @@ self.addEventListener('install', event => {
             'js/lang/es.json',
             'js/select2.min.js',
             'js/jquery-3.3.1.min.js',
-            'js/lang.js',
+            'js/lang.min.js',
             'js/getOS.min.js',
             'js/timingfield.min.js',
             'js/popper.min.js',
@@ -61,7 +61,7 @@ self.addEventListener('install', event => {
             'js/bootstrap-confirmation.min.js',
             'js/date.js',
             'js/dbHandler.min.js',
-            'js/tmTimer.js',
+            'js/tmTimer.min.js',
             'js/jspdf.min.js'
         ]);
         //return cache.put(OFFLINE_URL, response);
