@@ -1,7 +1,21 @@
 {
+    "dir": "ltr",
+    "lang": "da",
     "name": "Toastmasters Timer Legacy",
+    "scope" : "/toastmasters-timer/",
+    "display" : "fullscreen",
+    "start_url": "https://fanmixco.github.io/toastmasters-timer",
     "short_name": "TM Timer",
+    "theme_color": "#ffffff",
     "description": "It's a simple PWA for helping Toastmasters all over the world to have an effective and productive Timer for their meetings. It was developed with JavaScript by The Leader Ship Toastmasters in Łódź, Poland.",
+    "orientation": "any",
+    "background_color": "#ffffff",
+    "related_applications": [{
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=tk.supernova.tmtimer.tk.supernova.tmtimer"
+    }],
+    "prefer_related_applications" : "false",
+    "generated" : "false",
     "icons": [
       {
         "src": "/images/icons/icon-72x72.png",
@@ -43,16 +57,5 @@
         "sizes": "512x512",
         "type": "image/png"
       }
-    ],
-    "related_applications": [{
-      "platform": "play",
-      "url": "https://play.google.com/store/apps/details?id=tk.supernova.tmtimer.tk.supernova.tmtimer"
-    }],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "start_url": "https://fanmixco.github.io/toastmasters-timer/",
-    "scope" : "/toastmasters-timer/",
-    "display" : "fullscreen",
-    "orientation": "any",
-    "lang": "en-US"
+    ]
   }

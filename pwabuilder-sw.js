@@ -52,7 +52,7 @@ self.addEventListener('install', event => {
             'js/lang/en.json',
             'js/lang/es.json',
             'js/select2.min.js',
-            'js/jquery-3.3.1.min.js',
+            'js/jquery.min.js',
             'js/lang.min.js',
             'js/getOS.min.js',
             'js/timingfield.min.js',

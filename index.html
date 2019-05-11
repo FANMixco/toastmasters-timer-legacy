@@ -28,19 +28,19 @@ https://goo.gl/forms/JArck4uzbGGmTuG72
     <title>Toastmasters Timer Legacy</title>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link href="css/snackbar.min.css" rel="stylesheet" />
-    <link href="css/tmTimer.min.css" rel="stylesheet" />
-    <link href="css/timingfield.min.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <link href="css/snackbar.min.css" rel="stylesheet" defer />
+    <link href="css/tmTimer.min.css" rel="stylesheet" defer />
+    <link href="css/timingfield.min.css" rel="stylesheet" defer />
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" defer />
+    <script src="js/jquery.min.js"></script>
     <script src="js/getOS.min.js"></script>
     <script src="js/timingfield.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-confirmation.min.js"></script>
+    <script src="js/bootstrap-confirmation.min.js" defer></script>
     <script src="js/date.js"></script>
     <script src="js/dbHandler.min.js"></script>
-    <script src="js/jspdf.min.js"></script>
+    <script src="js/jspdf.min.js" defer></script>
 </head>
 
 <body>
@@ -221,7 +221,7 @@ https://goo.gl/forms/JArck4uzbGGmTuG72
           } else {
             // Register the service worker
             navigator.serviceWorker
-              .register("sw.js", {
+              .register("pwabuilder-sw.js", {
                 scope: "./"
               })
               .then(function (reg) {
