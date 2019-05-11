@@ -1,6 +1,6 @@
 {
     "name": "Toastmasters Timer Legacy",
-    "short_name": "TM Timer Leg",
+    "short_name": "TM Timer",
     "description": "It's a simple PWA for helping Toastmasters all over the world to have an effective and productive Timer for their meetings. It was developed with JavaScript by The Leader Ship Toastmasters in Łódź, Poland.",
     "icons": [
       {
