@@ -6,7 +6,7 @@ Feel free to use it it anywhere at anytime.
 
 https://fanmixco.github.io/toastmasters-timer
 
-![toastmasters](http://dominicanewsonline.com/news/wp-content/uploads/2014/10/ToastmastersLogoColor-300x262.jpg)
+![toastmasters](https://i.stack.imgur.com/TFTH7.jpg)
 
 This App provides you with different options, for example:
 - Question of the Day.
