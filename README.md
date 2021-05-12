@@ -1,10 +1,8 @@
-The best Toastmasters Timer for your meetings, it's simple, fast and accurate. It was developed by Federico Navarrete of **The Leader Ship Toastmasters** in Lodz, Poland.
+The best [Toastmasters Timer][3] for your meetings, it's simple, fast, and accurate. It was developed by [Federico Navarrete][1] of **[The Leader Ship Toastmasters][2]** in Lodz, Poland.
 
-http://theleadership.pl
+Feel free to level up your meetings using it anywhere at any time in all your meetings!
 
-Feel free to use it it anywhere at anytime.
-
-https://fanmixco.github.io/toastmasters-timer
+Do you need some extra ideas on how to use it with [Prezi Video][4]? Check my [YouTube Channel Series][5] and empower your meetings to a New Level ⏫!
 
 ![toastmasters](https://i.stack.imgur.com/TFTH7.jpg)
 
@@ -48,14 +46,26 @@ Also, the project is open-source and can be implemented, modified or improved fr
 
 Furthermore, you can download the compiled versions in the official stores:
 
-**Android:**
+### Android
 
-https://play.google.com/store/apps/details?id=tk.supernova.tmtimer.tk.supernova.tmtimer
+<a href="https://bit.ly/3bcm6uL" target="_blank">
+    <img src="https://raw.githubusercontent.com/FANMixco/toastmasters-timer-material-design/master/img/playStore.png" alt="play store" />
+</a>
 
-**Windows 10:**
+### Windows 10
 
-https://www.microsoft.com/en-us/store/p/toastmasters-timer-pro/9n9rhqms0nwg
+<a href="https://partner.microsoft.com/en-us/dashboard/products/9N9RHQMS0NWG" target="_blank">
+    <img src="https://raw.githubusercontent.com/FANMixco/toastmasters-timer-material-design/master/img/microsoft.png" alt="microsoft store" />
+</a>
 
-**Amazon:**
+### Amazon
 
-https://amzn.to/2LV5fOW
+<a href="https://amzn.to/2LV5fOW" target="_blank">
+    <img src="https://raw.githubusercontent.com/FANMixco/toastmasters-timer-material-design/master/img/amazon.png" alt="amazon app store" />
+</a>
+
+  [1]: https://federiconavarrete.com
+  [2]: https://www.facebook.com/TheLeaderShipToastmasters
+  [3]: https://fanmixco.github.io/toastmasters-timer
+  [4]: https://prezi.com/video
+  [5]: https://bit.ly/3bf877f
