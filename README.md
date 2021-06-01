@@ -1,3 +1,7 @@
+# Check the latest edition: [Toastmasters Timer Material Design][6]
+
+## This repo and website only exists for legacy purposes. No new features are going to be added.
+
 The best [Toastmasters Timer][3] for your meetings, it's simple, fast, and accurate. It was developed by [Federico Navarrete][1] of **[The Leader Ship Toastmasters][2]** in Lodz, Poland.
 
 Feel free to level up your meetings using it anywhere at any time in all your meetings!
@@ -18,7 +22,7 @@ This App provides you with different options, for example:
 - 12 minutes speech.
 - 15 minutes speech.
 - 20 minutes speech.
-- Custom speeches up to 24 hours.
+- Custom speeches for up to 24 hours.
 
 All speeches are recorded for sharing it with your members or guests.
 
@@ -69,3 +73,4 @@ Furthermore, you can download the compiled versions in the official stores:
   [3]: https://fanmixco.github.io/toastmasters-timer
   [4]: https://prezi.com/video
   [5]: https://bit.ly/3bf877f
+  [6]: https://github.com/FANMixco/toastmasters-timer-material-design
