@@ -50,23 +50,10 @@ Also, the project is open-source and can be implemented, modified or improved fr
 
 Furthermore, you can download the compiled versions in the official stores:
 
-### Android
 
-<a href="https://bit.ly/3bcm6uL" target="_blank">
-    <img src="https://raw.githubusercontent.com/FANMixco/toastmasters-timer-material-design/master/img/playStore.png" alt="play store" />
-</a>
-
-### Windows 10
-
-<a href="https://www.microsoft.com/en-us/p/toastmasters-timer-pro/9n9rhqms0nwg" target="_blank">
-    <img src="https://raw.githubusercontent.com/FANMixco/toastmasters-timer-material-design/master/img/microsoft.png" alt="microsoft store" />
-</a>
-
-### Amazon
-
-<a href="https://amzn.to/2LV5fOW" target="_blank">
-    <img src="https://raw.githubusercontent.com/FANMixco/toastmasters-timer-material-design/master/img/amazon.png" alt="amazon app store" />
-</a>
+|  App  |Play Store|Galaxy Store|Microsoft Store|Amazon Appstore|Huawei AppGallery|
+|:----------|:------------:|:------------:|:------------:|:------------:|:------------:|
+|**Toastmasters Timer**|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/google_play_micro.png)](https://play.google.com/store/apps/details?id=tk.supernova.tmtimer.tk.supernova.tmtimer)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/galaxy_micro.png)](https://galaxy.store/tmtimer)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/microsoft_micro.png)](https://bit.ly/36Ug2EC)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/amazon_micro.png)](https://amzn.to/3eSF23h)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/huawei_micro.png)](https://bit.ly/3rqoC7w)|
 
   [1]: https://federiconavarrete.com
   [2]: https://www.facebook.com/TheLeaderShipToastmasters
