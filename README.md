@@ -1,6 +1,6 @@
 # Check the latest edition: [Toastmasters Timer Material Design][6]
 
-## This repo and website only exists for legacy purposes. No new features are going to be added.
+### This repo and website only exists for legacy purposes. No new features are going to be added.
 
 The best [Toastmasters Timer][3] for your meetings, it's simple, fast, and accurate. It was developed by [Federico Navarrete][1] of **[The Leader Ship Toastmasters][2]** in Lodz, Poland.
 
@@ -51,9 +51,9 @@ Also, the project is open-source and can be implemented, modified or improved fr
 Furthermore, you can download the compiled versions in the official stores:
 
 
-|  App  |Play Store|Galaxy Store|Microsoft Store|Amazon Appstore|Huawei AppGallery|
-|:----------|:------------:|:------------:|:------------:|:------------:|:------------:|
-|**Toastmasters Timer**|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/google_play_micro.png)](https://play.google.com/store/apps/details?id=tk.supernova.tmtimer.tk.supernova.tmtimer)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/galaxy_micro.png)](https://galaxy.store/tmtimer)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/microsoft_micro.png)](https://bit.ly/36Ug2EC)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/amazon_micro.png)](https://amzn.to/3eSF23h)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/huawei_micro.png)](https://bit.ly/3rqoC7w)|
+|Play Store|Galaxy Store|Microsoft Store|Amazon Appstore|Huawei AppGallery|
+|:------------:|:------------:|:------------:|:------------:|:------------:|
+|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/google_play_micro.png)](https://play.google.com/store/apps/details?id=tk.supernova.tmtimer.tk.supernova.tmtimer)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/galaxy_micro.png)](https://galaxy.store/tmtimer)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/microsoft_micro.png)](https://bit.ly/36Ug2EC)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/amazon_micro.png)](https://amzn.to/3eSF23h)|[![Toastmasters Timer](https://raw.githubusercontent.com/FANMixco/federiconavarrete/master/img/stores_badges/huawei_micro.png)](https://bit.ly/3rqoC7w)|
 
   [1]: https://federiconavarrete.com
   [2]: https://www.facebook.com/TheLeaderShipToastmasters
