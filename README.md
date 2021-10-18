@@ -1,5 +1,7 @@
 # Check the latest edition: [Toastmasters Timer Material Design][6]
 
+[![image](https://user-images.githubusercontent.com/1666156/137726663-f256744f-b299-4c30-a74a-c4205a66b56e.png)](https://buymeacoffee.com/fanmixco)
+
 ### This repo and website only exists for legacy purposes. No new features are going to be added.
 
 The best [Toastmasters Timer][3] for your meetings, it's simple, fast, and accurate. It was developed by [Federico Navarrete][1] of **[The Leader Ship Toastmasters][2]** in Lodz, Poland.
