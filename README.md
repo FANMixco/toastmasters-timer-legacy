@@ -10,7 +10,7 @@ Feel free to level up your meetings using it anywhere at any time in all your me
 
 Do you need some extra ideas on how to use it with [Prezi Video][4]? Check my [YouTube Channel Series][5] and empower your meetings to a New Level ⏫!
 
-![toastmasters](https://i.stack.imgur.com/TFTH7.jpg)
+![toastmasters](https://i.sstatic.net/TFTH7.jpg)
 
 This App provides you with different options, for example:
 - Question of the Day.
@@ -48,7 +48,7 @@ Also, the project is open-source and can be implemented, modified or improved fr
 
 **Previews of the App:**
 
-![previews](https://i.stack.imgur.com/GQxp6.gif)
+![previews](https://i.sstatic.net/GQxp6.gif)
 
 Furthermore, you can download the compiled versions in the official stores:
 
